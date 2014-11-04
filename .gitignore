@@ -24,3 +24,10 @@ quellen/
 *.synctex.gz
 *.pdf
 *.zip
+*.nav
+
+*.snm
+
+*.bak~
+
+*.vrb
