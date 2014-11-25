@@ -1,0 +1,40 @@
+\tikzstyle{none}=[inner sep=0pt]
+\definecolor{hexcolor0x0074ff}{rgb}{0.000,0.455,1.000}
+\definecolor{hexcolor0xff2615}{rgb}{1.000,0.149,0.082}
+
+\definecolor{myblack}{rgb}{0.000,0.000,0.000}
+\definecolor{mywhite}{rgb}{1.000,1.000,1.000}
+
+\tikzstyle{sp}=[circle,fill=myblack,draw=myblack, scale=1]
+\tikzstyle{setA}=[circle,fill=hexcolor0x0074ff,draw=myblack]
+\tikzstyle{setB}=[circle,fill=hexcolor0xff2615,draw=myblack]
+\tikzstyle{setC}=[circle,fill=mywhite,draw=myblack]
+\tikzstyle{node}=[circle,fill=mywhite,draw=myblack,scale=.1]
+
+
+\begin{tikzpicture}
+	%\begin{pgfonlayer}{nodelayer}
+		\node [style=setC] (0) at (-1.75, 1.75) {};
+		\node [style=setC] (1) at (-3, 0.5) {};
+		\node [style=setC] (2) at (0,2) {};
+		\node [style=setC] (3) at (-1.25, 0.75) {};
+		\node [style=setC] (4) at (-2.25, 1) {};
+		\node [style=setC] (5) at (-3.25, 1.75) {};
+		\node [style=setC] (6) at (-1.75, 2.75) {};
+		\node [style=setC] (7) at (-1, 1.5) {};
+		\node [style=setC] (8) at (2.25, 1.5) {};
+		\node [style=setC] (9) at (1.25, 0.75) {};
+		\node [style=setC] (10) at (2.75, -0.25) {};
+		\node [style=setC] (11) at (0,-0.5) {};
+		\node [style=setC] (12) at (3.25, 1) {};
+		\node [style=setC] (13) at (2, 0.5) {};
+		\node [style=setC] (14) at (2.5, -1.5) {};
+		\node [style=setC] (15) at (-1,-1.5) {};
+		\node [style=setC] (16) at (1.25, -1.75) {};
+		\node [style=setC] (17) at (1.75, -0.25) {};
+		\node [style=setC] (18) at (-2.25, -0.25) {};
+		\node [style=setC] (19) at (1.75, 1) {};
+
+\node [sp] at (-1,-0.5) {};
+\node [sp] at (1,1.5) {};
+\end{tikzpicture}

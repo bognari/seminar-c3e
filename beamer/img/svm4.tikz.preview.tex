@@ -1,0 +1,96 @@
+%& C:\Users\stephan\AppData\Roaming\TikzEdt\TikzEdt\023~1.0\TEMP_H~1
+\begin{document}
+% some LaTeX code
+\tikzstyle{none}=[inner sep=0pt]
+\definecolor{hexcolor0x0074ff}{rgb}{0.000,0.455,1.000}
+\definecolor{hexcolor0xff2615}{rgb}{1.000,0.149,0.082}
+
+\definecolor{myblack}{rgb}{0.000,0.000,0.000}
+\definecolor{mywhite}{rgb}{1.000,1.000,1.000}
+
+\tikzstyle{setA}=[circle,fill=hexcolor0x0074ff,draw=myblack]
+\tikzstyle{setB}=[circle,fill=hexcolor0xff2615,draw=myblack]
+\tikzstyle{node}=[circle,fill=mywhite,draw=myblack,scale=.1]
+
+
+\begin{tikzpicture}
+	%\begin{pgfonlayer}{nodelayer}
+		\node [style=setA] (0) at (-1.75, 1.75) {};
+		\node [style=setA] (1) at (-2.5,0.5) {};
+		\node [style=setA] (2) at (0,2) {};
+		\node [style=setA] (3) at (-1.25, 0.75) {};
+		\node [style=setA] (4) at (-2.25, 1) {};
+		\node [style=setA] (5) at (-1,0) {};
+		\node [style=setA] (6) at (0.5,1.5) {};
+		\node [style=setA] (7) at (-1, 1.5) {};
+		\node [style=setB] (8) at (1,2) {};
+		\node [style=setB] (9) at (0,1) {};
+		\node [style=setB] (10) at (0,0.5) {};
+		\node [style=setB] (11) at (0,-0.5) {};
+		\node [style=setB] (12) at (1,2.5) {};
+		\node [style=setB] (13) at (0.5,1) {};
+		\node [style=setB] (14) at (-0.5,-0.5) {};
+		\node [style=setB] (15) at (-1,-1.5) {};
+		\node [style=setB] (16) at (-1.5,-0.5) {};
+		\node [style=setB] (17) at (-1,0.5) {};
+		\node [style=setA] (18) at (-2.25, -0.25) {};
+		\node [style=setB] (19) at (1,1.5) {};
+		\node [style=node] (22) at (-3,-1.5) {};
+		\node [style=node] (23) at (2,3) {};
+	%\end{pgfonlayer}
+	%\begin{pgfonlayer}{edgelayer}
+		\draw [ultra thick] (22) to (23);
+	%\end{pgfonlayer}
+
+\usetikzlibrary{calc}
+\pgftransformreset
+\node[inner sep=0pt,outer sep=0pt,minimum size=0pt,line width=0pt,text width=0pt,text height=0pt] at (current bounding box) {};
+%add border to avoid cropping by pdflibnet
+\foreach \border in {0.1}
+  \useasboundingbox (current bounding box.south west)+(-\border,-\border) rectangle (current bounding box.north east)+(\border,\border);
+\newwrite\metadatafile
+\immediate\openout\metadatafile=\jobname_BB.txt
+\path
+  let
+    \p1=(current bounding box.south west),
+    \p2=(current bounding box.north east)
+  in
+  node[inner sep=0pt,outer sep=0pt,minimum size=0pt,line width=0pt,text width=0pt,text height=0pt,draw=white] at (current bounding box) {
+\immediate\write\metadatafile{\p1,\p2}
+};
+\immediate\closeout\metadatafile
+\end{tikzpicture}
+
+\end{document}
+ent}
+t}
+
+ent}
+
+ent}
+
+ment}
+nt}
+
+ment}
+afile{\p1,\p2}
+};
+\immediate\closeout\metadatafile
+\end{tikzpicture}
+
+\end{document}
+
+\end{tikzpicture}
+
+\end{document}
+nd{tikzpicture}
+
+\end{document}
+
+{\p1,\p2}
+};
+\immediate\closeout\metadatafile
+\end{tikzpicture}
+
+\end{document}
+t}

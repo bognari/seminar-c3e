@@ -5,9 +5,11 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 \usepackage{listings}
+\PassOptionsToPackage{svgnames}{xcolor}
 \usepackage{color}
 \usepackage{pxfonts}
 
+%\usepackage{DejaVuSansMono}
 \usetheme[%
   %cmyk,%<cmyk/rgbprint>,          Auswahl des Farbmodells
   orange,%<blue/orange/green/violet> Auswahl des Sekundärfarbklangs
@@ -36,6 +38,7 @@
 % settings for source code highlighting
 \lstset{ %
   backgroundcolor=\color{white},         % choose the background color
+  %basicstyle=\ttfamily\footnotesize,     % size of fonts used for the code
   basicstyle=\ttfamily\footnotesize,     % size of fonts used for the code
   breaklines=true,                       % automatic line breaking only at whitespace
   captionpos=b,                          % sets the caption-position to bottom
@@ -45,70 +48,26 @@
   stringstyle=\color{tuVioletMedium},    % string literal style
 }
 
-\defbeamertemplate*{section in toc}{my theme}
-{\leavevmode\leftskip=0.5em\large{\usebeamercolor[fg]{titlelike}} 
-\inserttocsection\par}
-
-\defbeamertemplate*{subsection in toc}{my theme}
-{\leavevmode\leftskip=2em\normalsize{\usebeamercolor[fg]{titlelike}} 
-\inserttocsubsection\par}
-
-\defbeamertemplate*{subsubsection in toc}{my theme}
-{\leavevmode\leftskip=3.5em\normalsize\usebeamerfont{subsection in 
-toc}\usebeamerfont{subsubsection in toc}\inserttocsubsubsection\par}
-
-%\newif\iflattersubsect
-
 \AtBeginSection[]{
-  \begin{frame} 
+  \begin{frame}[noframenumbering] 
   		\scriptsize
-  		%\frametitle{\insertsectionhead}  
   		\frametitle{Überblick}  
-  		%\begin{block}{\vspace*{-3ex}}
-  			\tableofcontents[currentsection, hideallsubsections]
-  		%end{block}
-  		 
-  		%\tableofcontents[currentsection, subsectionstyle=show/show/hide] 
+  		\tableofcontents[currentsection, subsectionstyle=show]
   \end{frame}
-%  \lattersubsectfalse
 }
 
 \AtBeginSubsection[]{
-%\iflattersubsect
-  \begin{frame} 
+  \begin{frame}[noframenumbering]
     	\scriptsize 
-  		\frametitle{\insertsectionhead~- \insertsubsectionhead} 
-  		%\begin{block}{\vspace*{-3ex}} 
-  			\tableofcontents[ 
-  		    	currentsubsection, 
-  		    	sectionstyle=show/hide, 
-  		    	subsectionstyle=show/shaded/hide
-  		    	] 
-  		%\end{block}
-  		%\vspace{6cm}
+  		\frametitle{\insertsectionhead - \insertsubsectionhead} 
+  		\tableofcontents[ 
+  			currentsubsection, 
+  		    sectionstyle=show/hide, 
+  		   	subsectionstyle=show/shaded/hide] 
   \end{frame}
-%  \fi
-%  \lattersubsecttrue
 }
 
-%\AtBeginSubsubsection[]{
-%\iflattersubsect
-%  \begin{frame} 
-%    	\scriptsize 
-%  		\frametitle{\insertsubsectionhead~- 
-%  		\insertsubsubsectionhead} 
-%  		%\begin{block}{\vspace*{-3ex}} 
-%  			\tableofcontents[ 
-%  		    	currentsubsection, 
-%  		    	sectionstyle=show/hide, 
-%  		    	subsectionstyle=show/shaded/shaded
-%  		    	] 
-%  		%\end{block}
-%  		%\vspace{6cm}
-%  \end{frame}
-%  \fi
-%  \lattersubsecttrue
-%}
+\input{tikz.tex}
 
 % Titelseite
 \title{Seminar Technische Informatik}
@@ -118,7 +77,7 @@ toc}\usebeamerfont{subsubsection in toc}\inserttocsubsubsection\par}
 
 \begin{document}
 
-\begin{frame}[plain]
+\begin{frame}[plain, noframenumbering]
 \titlepage
 \end{frame}
 
@@ -128,29 +87,30 @@ toc}\usebeamerfont{subsubsection in toc}\inserttocsubsubsection\par}
 
 \section*{Einleitung~}
 
-\begin{frame}[plain]{\insertsectionhead - Der Weltraum enendliche Weiten}
+\begin{frame}[plain]{\insertsectionhead - Der Weltraum unendliche Weiten \dots}
 
 \begin{figure}
 \includegraphics[scale=0.6,trim={40 400 40 80},clip]{hs-2004-07-a-pdf}
 \caption{Hubble Ultra Deep Field\cite{HUDF}}
 \label{fig:hs-2004-07-a-pdf}
 \end{figure}
-
 \end{frame}
 
-\begin{frame}[plain]{\insertsectionhead - Einsatz von DM in der Astronomie}
+\begin{frame}{\insertsectionhead - Einsatz von DM in der Astronomie}
 \begin{itemize}
-\item Teleskope erfassen pro Bild ca 10.000 Objekte 
+\item Klassifizierung von Sternen mit Knn\footnote{k-nearest neighbor}
 \item Manuelle Klassifizierung unmöglich \cite{ester2000knowledge}
+\item Pro Bild mehre $10000$ Objekte
+\item Kepler z.B. hat 13.2m Objekte erkannt
 \item Benutzung von Klassifizierungsalgorithmen aus DM
 \only<1>{\item Je Objekt 9 Attribute (8 Isophotenformen, Leuchtkraft)
 \item Ausgabewert \glqq stellary\grqq 
 \begin{itemize}
 \item $0.0 - 0.1$ Galaxie
 \item $0.9 - 1.0$ Stern
-\end{itemize}} 
+\end{itemize}} % zahlen nennen
 \end{itemize}
-\pause
+\only<2>{
 \begin{table}
 \begin{tabular}{l|l}
 Name & Erkennung\\ \hline
@@ -160,141 +120,568 @@ Artificial Neural Network & $75.82\%$ \\
 Support Vector Machines & $37,82\%$ \\
 \end{tabular}
 \caption{Erkennungsraten der Algorithmen Stern / Galaxie\cite{o2009star}}
-\end{table}
+\end{table}}
 \end{frame}
-
-
 
 \section{Data Mining~}
 
-\begin{frame}{\insertsectionhead -  Einleitung}
-
+\begin{frame}{\insertsectionhead - Einleitung\cite{ester2000knowledge}}
+\begin{itemize}
+\item Gehört zum Gebiet des KDD (Knowledge Discovery in Databases)
+\item Idee: \emph{Wissen} durch \emph{Daten}
+\item Einsatz in der Forschung, Vermarktung, Medizin, (Wetter)-Vorhersagen, 
+Betrugsaufklärung usw.
+\end{itemize}
+\begin{block}{Definition nach Fayyad\cite{fayyad1996data}}
+Knowledge Discovery in Databases describes the non-trivial process of 
+identifying valid, novel, potentially useful, and ultimately understandable 
+patterns in data.
+\end{block}
 \end{frame}
 
-\subsection{Klassifikation}
-\subsubsection{Einleitung}
-\subsubsection{Support vector machines}
-\subsection{Clustering}
-\subsubsection{Einleitung}
-\subsubsection{k-means}
-\subsection{Assoziation}
-\subsubsection{Einleitung}
-\subsubsection{Apriori}
-\section{Top 10 algorithms in data mining}
-\section{Neue Algorithmen}
+\begin{frame}{\insertsectionhead - Einordnung}
+\begin{figure}
+\includegraphics[page=5,scale=0.63,trim={48 500 55 80},clip]{dm_fayyad.pdf}
+\caption{KDD nach Fayyad\cite{fayyad1996data}}
+\label{fig:fayyad1996data}
+\end{figure}
+\end{frame}
 
-\begin{frame}{Hier steht der Titel der Folie}
-Wir beginnen mit einer Aufzählung
+%\begin{frame}{\insertsectionhead - Algorithmen Kategorien}
+%\begin{block}{}
+%\centering
+%\alert<1>{There are known knowns,} [...]\\
+%\alert<2>{There are known unknowns}, [...]\\
+%\alert<3>{There are also unknown unknowns}\footnote{Donald H. Rumsfeld, US 
+%Secretary of 
+%Defense at a US Department of Defense news briefing, 12 February 
+%2002}\cite{AstronomicalDM}
+%\end{block}
+%
+%\begin{alertblock}{}
+%\centering
+%\only<1>{Klassifikation}
+%\only<2>{Regression}
+%\only<3>{Clustering}
+%\only<4>{Assoziation}
+%\end{alertblock}
+%\end{frame}
+
+
+\subsection{Top 10 algorithms in data mining}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead\cite{wu2008top}}
 \begin{itemize}
-  \item Aufzählzeichen werden als Quadrate dargestellt
-  \begin{itemize}
-    \item Unterpunkte ebenfalls
-    \item Allerdings etwas kleiner
-  \end{itemize}
+\item Anlass: IEEE International Conference on Data Mining
+\item Datum: Dezember 2006
+\item Erstellung: Jeder ACM KDD Innovation Award oder IEEE ICDM Research 
+Contributions Award Preisträger nominierte 10 Algorithmen
+\item Nur Nominierte mit $\geq$ 50 Referenzierungen in \emph{Google Scholar}
+\item 
+{\small\url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}}
+\item Per Abstimmung finden der Top 10
+\item Das Paper: Top 10 algorithms in data mining \cite{wu2008top}
 \end{itemize}
 \end{frame}
 
-\section{Kapitel 2}
-
-
-\begin{frame}{Itemize-Test}
-  \begin{itemize}
-    \item Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-    \item At vero eos et accusam et justo duo dolores et ea rebum.
-      \begin{itemize}
-        \item Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-          dolor sit amet!
-          \begin{itemize}
-            \item Nam eget dui.
-            \item Maecenas tempus, tellus eget condimentum rhoncus, sem quam
-              semper libero, sit amet adipiscing sem neque sed ipsum.
-          \end{itemize}
-        \item Duis leo
-      \end{itemize}
-    \item Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. 
-  \end{itemize}
-\end{frame}
-
-
-\subsection{Unterkapitel 1}
-
-
-\begin{frame}{Mathe-Test}
-  Gaußsche Summenformel:
-  \[1 + 2 + 3 + 4 + \ldots + n = \sum_{k=1}^n k = \frac{n(n+1)}{2}\]
-  Faltung:
-  \[(f*g)(\xi) := \int_{\mathbb{R}^n} f(y)g(\xi-y)\mathrm{d}y\]
-\end{frame}
-
-
-
-\section{Ende}
-
-
-\begin{frame}{Farbtest}
-  \color{tuRed}
-  Dies ist ein Text in tuRed.
-
-  \color{tuSecondaryDark80}
-  Dies ist ein Text in tuSecondaryDark80.
-
-  \color{tuSecondaryLight}
-  Dies ist ein Text in tuSecondaryLight.
-\end{frame}
-
-
-\begin{frame}{Verwendung von Spalten}
-  \begin{columns}[onlytextwidth]
+\begin{frame}{\insertsectionhead - \insertsubsectionhead\cite{wu2008top}}
+\begin{columns}[onlytextwidth]
     \column{0.5\textwidth}
-      Dies ist die erste Spalte.
-      Die Angabe der Option \texttt{[onlytextwidth]}
-      sorgt dafür, dass die Spaltenbreite korrekt eingehalten wird.
+		\begin{enumerate}
+		\item C4.5 und ähnliche
+		\item \textbf{k-means}
+		\item \textbf{Suport Vector Machines}
+		\item \textbf{Apriori}
+		\item EM Algorithm
+		\end{enumerate}
     \column{0.5\textwidth}
-      Dies ist die zweite Spalte mit weiteren Informationen.
-  \end{columns}
+	    \begin{enumerate}
+	    \setcounter{enumi}{5}
+	    \item PageRank
+	    \item AdaBoost
+	    \item k-nearest neighbor
+	    \item Naive Bayes
+	    \item CART
+	    \end{enumerate}
+\end{columns}
 \end{frame}
 
+%\begin{frame}{\insertsectionhead - \insertsubsectionhead}
+%
+%\end{frame}
 
-\begin{frame}{Blöcke}
-  \begin{block}{Diest ist ein Block}
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-  \end{block}
-  \begin{exampleblock}{Diest ist ein Example-Block}
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-  \end{exampleblock}
-  \begin{alertblock}{Diest ist ein Alert-Block}
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-  \end{alertblock}
+\subsection{Clustering~}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung\cite{ester2000knowledge}}
+\begin{itemize}
+\item Einordnung von Objekten in unbekannten Klassen
+\item Finden der Funktion die Objekte gruppiert
+%\item Cluster haben unterschiedliche Formen, sind verschachtelt usw.
+\item Ähnlichkeit von Objekten durch eine Distanzfunktion ermitteln
+\end{itemize}
 \end{frame}
 
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Cluster\cite{dwh}}
+\begin{itemize}
+\item Formen: sehr unterschiedlich
+\item Flach oder Hierarchisch
+\item Anzahl von Clustern:
+\begin{itemize}
+\item Festgelegte Anzahl von $k$-Clustern
+\item Anzahl hängt von der Qualitätsgüte der Cluster ab
+\end{itemize} 
+\item Qualitätsgüte: nicht zu klein oder groß
+\item Hard oder Soft - Clustering
+\item Keine großen \glqq Lücken \grqq\ zwischen den Daten
+\item Cluster durch Heuristiken sonst zu großer Aufwand
+\end{itemize}
+\end{frame}
 
-\begin{frame}[fragile]{Quellcode}
-Quellcode-Frames müssen immer die Option \texttt{[fragile]} tragen.
-\begin{lstlisting}[language=c]
-#include <iostream>
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Distanzfunktion\cite{ester2000knowledge}}
+\begin{itemize}
+\item Menge von Objekten $O = \{o_1, o_2, \ldots, o_n\}$
+\item Jedes Objekt hat $A_i$ Aattribute
+\item Attributarten:
+\begin{itemize}
+\item Kategorische Attribute
+\item Nummerische Attribute
+\end{itemize}
+\item Es muss gelten 1.-3., für Metrik 4.:
+\begin{align}
+dist(o_1, o_2) &= d \in R^{n\geq 0}\\
+dist(o_1, o_2) &= 0 \mbox{ genau dann wenn } o_1 = o_2\\
+dist(o_1, o_2) &= dist(o_2, o_1) \mbox{ (Symmetrie)}\\
+dist(o_1, o_3) &\leq dist(o_1, o_2) + dist(o_2, o_3)
+\end{align}
+\item Manchmal auch Ähnlichkeitsfunktion genannt $\Rightarrow$ Interpretation anders herum.
+\end{itemize}
+\end{frame}
 
-using namespace std;
-
-// main function
-int main() {
-  cout << "Hello World!";
+\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Distanzfunktion\cite{ester2000knowledge}}
+\begin{itemize}
+\item Datensätze $x = (x_1, \ldots, x_n)$ mit nummerischen Attributen $x_i$
+\only<2>{\begin{itemize}
+\item Euklidische-Distanz: $dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
+\item Manhattan-Distanz: ~$dist(x,y) = |x_1 - y_1| + \ldots + |x_n - y_n|$
+\item Maximum-Metrik: ~~~~~$dist(x,y) = \mbox{max}\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)$
+\item Alg. $L_p$-Metrik: ~~~~~~~~~~$dist(x,y) = \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}$
+\end{itemize}}
+\item Datensätze $x = (x_1, \ldots, x_n)$ mit kategorischen Attributen $x_i$
+\only<3>{\begin{itemize}
+\item Summe der Unterschiede
+\item $dist(x,y) = \sum\limits_{i=1}^{a}\delta(x_i, y_i)$
+\item $\delta(x_i, y_i) = \begin{cases}
+0 \mbox{ wenn } (x_i = y_i)\\
+1 \mbox{ wenn } (x_i \neq y_i)
+\end{cases} $
+\end{itemize}}
+\item Endliche Mengen $x = \{x_1, \ldots, x_n\}$\\
+\only<4>{
+Anteil verschiedener: $dist(x,y) = \frac{|x\cup y| - |x \cap y|}{|x \cup y|}$
 }
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Beispiel\cite{ester2000knowledge}}
+\begin{itemize}
+\item Clustering von Web-Sessions zur Bestimmung von Benutzergruppen
+\item Datenquelle: Logfile eines Webservers
+\item Eintrag: IP, User-ID, Timestamp, URL, \ldots
+\item Einträge werden nach Session gruppiert, nach einem Zeitfenster
+\item Session: IP, User-ID, Liste von URLs
+\item URLs werden geclustert, z.B.: Distanzfunktion für endliche Mengen
+\item Wissen:
+\begin{itemize}
+\item Benutzergruppen / Benutzerprofilen, für Marketingstrategien 
+\item URLs sind durch Interessen verbunden, Optimierung für Zugriffsgewohnheiten 
+\end{itemize}
+\item Ein Sozialmediabutton kann auch die nötigen Informationen liefern.
+\end{itemize}
+\end{frame}
+
+
+\subsubsection{k-means}\label{kmeans}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means\cite{dwh}}
+\begin{itemize}
+\item Hartes Flaches Clustering
+\item Bekannte Anzahl von $k$ Clustern
+\item Daten als Vektoren
+\item Idee: Minimiert den Abstand vom Clusterzentrum zu den Daten
+\item Cluster ist Definiert als:
+\begin{itemize}
+\item $A = \{d_l, \ldots, d_m\}$, $A$ ist ein Cluster und $d_i$ Element 
+\item Zentrum ist: $\mu(A) = \frac{l}{m}\sum\limits_{i=l}^{m}{d_i}$
+\end{itemize}
+\item Qualität: gut wenn RSS$(\ldots)$ minimal ist
+\begin{itemize}
+\item Cluster: ~$\mbox{RSS}\,(A) = \sum\limits_{i=l}^{m}\big\|d_i - \mu(A)\big\|^2$
+\item Gesamt: $\mbox{RSS}\,(A_l, \ldots, A_k) = \sum\limits_{j=l}^{k}\,\mbox{RSS}\,(A_j)$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means\cite{dwh}}
+Der $k$-means Algorithmus (Lloyd's Algorithmus)
+\begin{enumerate}
+\item Selektiere zufällig $k$ Schwerpunkte als Startwert
+\item Erstelle $k$ leere Cluster
+\item Weise jedem Cluser einen Schwerpunkt zu
+\item Weise jedem Datenvektor den den Cluster mit dem nächstem Schwerpunkt zu
+\item Berechne den Schwerpunkt jedes Clusters neu
+\item Teste ob die Qualität des Clusterings ausreicht, sonst gehe zu 2.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
+\begin{figure}
+\scalebox{1.1}{\input{img/kmeans1.tikz}}
+\caption{Ersten 3 Phasen, $k = 2$}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
+\begin{figure}
+\scalebox{1.1}{\input{img/kmeans3.tikz}}
+\caption{Phase 4, Zuordnung nur Beispielhaft}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
+\begin{figure}
+\scalebox{1.1}{\input{img/kmeans2.tikz}}
+\caption{Phase 5, Schwerpunkte sind nur Beispielhaft}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
+\begin{figure}
+\scalebox{1.1}{\input{img/kmeans4.tikz}}
+\caption{Phase 6 und noch mal von Phase 2 an}
+\end{figure}
+\end{frame}
+
+\subsection{Klassifikation~}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung\cite{ester2000knowledge}}
+\begin{itemize}
+\item Einordnung von Objekten in bekannten Klassen
+\item Trainingsdaten für Klassen $\Rightarrow$ Klassen bekannt
+\item Finden der Funktion die Objekte möglichst genau zuordnet
+\item Teilaufgaben:
+\begin{itemize}
+\item Zuordnung zu einer Klasse
+\item Generierung von Wissen 
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Training\cite{ester2000knowledge}}
+\begin{itemize}
+\item Menge von Objekten $O = \{o_1, o_2, \ldots, o_n\}$
+\item Klasse $c_i \in C = \{c_1, c_2, \ldots, c_n\}$ für jedes Objekt ist Bekannt
+\item Jedes Objekt hat $A_i$ Klassifizierung-Aattribute
+\item Attributarten:
+\begin{itemize}
+\item Kategorische Attribute
+\item Nummerische Attribute
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Beispiel\cite{ester2000knowledge}}
+Trainingsdaten:
+\begin{table}
+\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}\hline
+ID 	& Alter	& Autotyp	& Risikoklasse \\\hline \hline
+1	& 23	& Familie	& Hoch\\
+2	& 17	& Sport		& Hoch\\
+3	& 43	& Sport		& Hoch\\
+4	& 68	& Familie	& Niedrig\\
+5	& 32	& LKW		& Niedrig \\\hline
+\end{tabular}
+\caption{Beispiele aus dem Buch\cite{ester2000knowledge}}
+\end{table}
+\pause
+Das gesuchte Wissen
+\begin{lstlisting}[language=Haskell]
+if Alter > 50                    then Risikoklasse = Niedrig
+if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
+                                 else Risikoklasse = Hoch
 \end{lstlisting}
 \end{frame}
 
-
-\begin{frame}[highlight]{Wichtig}
-Diese Folie ist wichtig!
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Gesuchtes Wissen\cite{ester2000knowledge}}
+\begin{itemize}
+\item Formen:
+\begin{itemize}
+\item Entscheidungsbaum % geordnet nach Informationsgewinn
+\item Funktion % alles mögliche, 
+\item Vektor im Koordinatensystem
+\end{itemize}
+\item Anwendung immer dann, wenn die Klassen bekannt ist
+\begin{itemize}
+\item Unterscheidung von Stern / Galaxie
+\item Sterne Einordnen
+\item Zuordnung von Risikogruppen
+\item Medizinforschung
+\item \dots
+\end{itemize}
+\end{itemize}
 \end{frame}
 
-\begin{frame}
-bla\cite{wu2008top}
+\subsubsection{Support vector machines}\label{svm}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM\cite{dwh}}
+\begin{itemize}
+\item Annahmen:
+\begin{itemize}
+\item Nur zwei Klassen
+\item Jedes Objekt ist ein Vektor im Koordinatensystem
+\end{itemize}
+\item Ziel:  Hyperplane\footnote{Hyperebene} die den Raum teilt 
+\item Training: Hyperplane mit maximalem Abstand zu allen Trainingsvektoren
+\item Training: Hyperplane Begrenzungsobjekte sind Supportvektoren
+\item Differenzfunktion $\delta(o_1, o_2)$ ist ähnlich zum Clustering
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
+%Bild bei der die richtige Teilung gesucht wird (F 55)
+\begin{figure}
+\scalebox{.7}{\input{img/svm1.tikz}}
+\caption{Gesucht: die richtige Hyperplane}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
+\begin{figure}
+\scalebox{.8}{\input{img/svm2.tikz}}
+\caption{Gefunden: die richtige Hyperplane}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
+\begin{figure}
+\scalebox{.8}{\input{img/svm2b.tikz}}
+\caption{Einordnung: mit der richtige Hyperplane}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
+%Bild mit blöden Testdaten (keine richtige Teilung möglich) (F 62)
+\begin{figure}
+\scalebox{1.0}{\input{img/svm3.tikz}}
+\caption{Training: ungünstige Daten}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM\cite{dwh}}
+Mehrere Klassen:
+\begin{itemize}
+\item One-versus-all
+\item One-versus-one
+\end{itemize}
+
+Overfitting
+\begin{itemize}
+\item Zu viele Trainingsdaten für eine Eigenschaft
+\item Lösungen
+\begin{itemize}
+\item Cross-validation
+\item Regularization
+\end{itemize} 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
+%Bild mit Overfitting (F 65)
+\begin{figure}
+\scalebox{1.1}{\input{img/svm4.tikz}}
+\caption{Overfitting: zu nahe}
+\end{figure}
+\end{frame}
+
+%\subsection{Regression~}
+%
+%\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung\cite{fahrmeir2007regressionsanalyse}}
+%
+%\end{frame}
+
+\subsection{Assoziation}	
+\subsubsection{Apriori}\label{apriori}
+\section{Neue Algorithmen~}
+
+%\begin{frame}{Hier steht der Titel der Folie}
+%Wir beginnen mit einer Aufzählung
+%\begin{itemize}
+%  \item Aufzählzeichen werden als Quadrate dargestellt
+%  \begin{itemize}
+%    \item Unterpunkte ebenfalls
+%    \item Allerdings etwas kleiner
+%  \end{itemize}
+%\end{itemize}
+%\end{frame}
+
+%\section{Kapitel 2}
+%
+%
+%\begin{frame}{Itemize-Test}
+%  \begin{itemize}
+%    \item Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+%      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+%    \item At vero eos et accusam et justo duo dolores et ea rebum.
+%      \begin{itemize}
+%        \item Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+%          dolor sit amet!
+%          \begin{itemize}
+%            \item Nam eget dui.
+%            \item Maecenas tempus, tellus eget condimentum rhoncus, sem quam
+%              semper libero, sit amet adipiscing sem neque sed ipsum.
+%          \end{itemize}
+%        \item Duis leo
+%      \end{itemize}
+%    \item Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. 
+%  \end{itemize}
+%\end{frame}
+%
+%
+%\subsection{Unterkapitel 1}
+%
+%
+%\begin{frame}{Mathe-Test}
+%  Gaußsche Summenformel:
+%  \[1 + 2 + 3 + 4 + \ldots + n = \sum_{k=1}^n k = \frac{n(n+1)}{2}\]
+%  Faltung:
+%  \[(f*g)(\xi) := \int_{\mathbb{R}^n} f(y)g(\xi-y)\mathrm{d}y\]
+%\end{frame}
+%
+%
+%
+%\section{Ende}
+%
+%
+%\begin{frame}{Farbtest}
+%  \color{tuRed}
+%  Dies ist ein Text in tuRed.
+%
+%  \color{tuSecondaryDark80}
+%  Dies ist ein Text in tuSecondaryDark80.
+%
+%  \color{tuSecondaryLight}
+%  Dies ist ein Text in tuSecondaryLight.
+%\end{frame}
+%
+%
+%\begin{frame}{Verwendung von Spalten}
+%  \begin{columns}[onlytextwidth]
+%    \column{0.5\textwidth}
+%      Dies ist die erste Spalte.
+%      Die Angabe der Option \texttt{[onlytextwidth]}
+%      sorgt dafür, dass die Spaltenbreite korrekt eingehalten wird.
+%    \column{0.5\textwidth}
+%      Dies ist die zweite Spalte mit weiteren Informationen.
+%  \end{columns}
+%\end{frame}
+%
+%
+%\begin{frame}{Blöcke}
+%  \begin{block}{Diest ist ein Block}
+%    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+%    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+%  \end{block}
+%  \begin{exampleblock}{Diest ist ein Example-Block}
+%    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+%    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+%  \end{exampleblock}
+%  \begin{alertblock}{Diest ist ein Alert-Block}
+%    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+%    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+%  \end{alertblock}
+%\end{frame}
+%
+%
+%\begin{frame}[fragile, allowframebreaks]{Quellcode}
+%\begin{lstlisting}[language=Java]
+%/**
+% * @author Vorname Name 1234567 Gruppe 4a
+% * @author Vorname Name 1234567 Gruppe 4a
+% *         <p>
+% *         Diese Klasse ist fuer Aufgabe XX und macht: Blablabla ...
+% *         (Aufgabentext oder kurze Beschreibung der Aufgabe usw. Also was es 
+% machen soll)
+% */
+%public class Uhrzeit {
+%    /**
+%     * wie immer halt ...
+%     *
+%     * @param args [0] = die Zeitzone
+%     */
+%    public static void main(String[] args) {
+%        int input;
+%        try {   // muesst ihr noch nicht kennen, ist nur zum Abfangen von Fehlerfaellen da
+%            input = Integer.parseInt(args[0]); // Einlesen des Argumentes und umwandeln in in
+%        } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+%            // 1. Fehlerfall das Argument interessiert nicht
+%            // 2. das Argument ist keine int Zahl
+%            System.err.printf("Rufen sie das Programm auf mit \"java Uhrzeit2 [0-2]\"%n");
+%            // Schreibe das auf den Error Outputstream
+%            return;
+%        }
+%
+%        if (input < - 12 || input > 12) {
+%            System.err.printf("%2d ist keine gueltige Zeitzone.%n", input);
+%            return;
+%        }
+%
+%        long t = System.currentTimeMillis();
+%
+%        // die Stunden addieren
+%        t += input * 1000 * 60 * 60;
+%
+%        // umwandeln in richtige Zeitformate
+%        int h = (int) (t / (1000 * 60 * 60)) % 24;
+%        int m = (int) (t / (1000 * 60)) % 60;
+%        int s = (int) (t / 1000) % 60;
+%
+%        switch (input) {
+%            case 0:
+%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d Sekunden %%%%%%%%%(UTC).%n", h, m, s);
+%                break;
+%            case 1:
+%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d Sekunden %%%%%%%%%(MEZ).%n", h, m, s);
+%                break;
+%            case 2:
+%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d Sekunden %%%%%%%%%(MESZ).%n", h, m, s);
+%                break;
+%            default:
+%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d %%%%%%%%%Sekunden.%n", h, m, s);
+%        }
+%    }
+%}
+%\end{lstlisting}
+%\end{frame}
+%
+%
+%\begin{frame}[highlight]{Wichtig}
+%Diese Folie ist wichtig!
+%\end{frame}
+
+\begin{frame}[highlight]{Diskursion}
+\centering
+Gibt es Fragen?
+\end{frame}
+
+\begin{frame}{Danke}
+\centering
+Vielen Dank für Ihre Aufmerksamkeit und Ihr Interesse.
+\end{frame}
+
+\begin{frame}[allowframebreaks]
 \frametitle{Literatur}
-\bibliographystyle{../IEEEtranBST/IEEEtran}
+%\footnotesize
+\bibliographystyle{../IEEEtranBST/IEEEtran} % nummerierung
+\setbeamertemplate{bibliography item}{[\theenumiv]}
+%\bibliographystyle{apacite}
 \bibliography{../lit}
 \end{frame}
 

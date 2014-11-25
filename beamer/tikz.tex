@@ -1,0 +1,17 @@
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{edgelayer,nodelayer,main}
+
+\tikzstyle{none}=[inner sep=0pt]
+\definecolor{hexcolor0x0074ff}{rgb}{0.000,0.455,1.000}
+\definecolor{hexcolor0xff2615}{rgb}{1.000,0.149,0.082}
+
+\definecolor{myblack}{rgb}{0.000,0.000,0.000}
+\definecolor{mywhite}{rgb}{1.000,1.000,1.000}
+
+\tikzstyle{setA}=[circle,fill=hexcolor0x0074ff,draw=myblack]
+\tikzstyle{setB}=[circle,fill=hexcolor0xff2615,draw=myblack]
+\tikzstyle{node}=[circle,fill=mywhite,draw=myblack,scale=.1]

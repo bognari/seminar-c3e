@@ -1,0 +1,59 @@
+\tikzstyle{none}=[inner sep=0pt]
+\definecolor{hexcolor0x0074ff}{rgb}{0.000,0.455,1.000}
+\definecolor{hexcolor0xff2615}{rgb}{1.000,0.149,0.082}
+
+\definecolor{myblack}{rgb}{0.000,0.000,0.000}
+\definecolor{mywhite}{rgb}{1.000,1.000,1.000}
+
+\tikzstyle{sp}=[circle,fill=myblack,draw=myblack, scale=1]
+\tikzstyle{setA}=[circle,fill=hexcolor0x0074ff,draw=myblack]
+\tikzstyle{setB}=[circle,fill=hexcolor0xff2615,draw=myblack]
+\tikzstyle{setC}=[circle,fill=mywhite,draw=myblack]
+\tikzstyle{node}=[circle,fill=mywhite,draw=myblack,scale=.1]
+
+\begin{tikzpicture}
+		\node [style=setB] (0) at (-1.75, 1.75) {};
+		\node [style=setB] (1) at (-3, 0.5) {};
+		\node [style=setA] (2) at (0,2) {};
+		\node [style=setB] (3) at (-1.25, 0.75) {};
+		\node [style=setB] (4) at (-2.25, 1) {};
+		\node [style=setB] (5) at (-3.25, 1.75) {};
+		\node [style=setB] (6) at (-1.75, 2.75) {};
+		\node [style=setB] (7) at (-1, 1.5) {};
+		\node [style=setA] (8) at (2.25, 1.5) {};
+		\node [style=setA] (9) at (1.25, 0.75) {};
+		\node [style=setA] (10) at (2.75, -0.25) {};
+		\node [style=setB] (11) at (0,-0.5) {};
+		\node [style=setA] (12) at (3.25, 1) {};
+		\node [style=setA] (13) at (2, 0.5) {};
+		\node [style=setA] (14) at (2.5, -1.5) {};
+		\node [style=setB] (15) at (-1,-1.5) {};
+		\node [style=setA] (16) at (1.25, -1.75) {};
+		\node [style=setA] (17) at (1.75, -0.25) {};
+		\node [style=setB] (18) at (-2.25, -0.25) {};
+		\node [style=setA] (19) at (1.75, 1) {};
+		
+\node [sp] (v1) at (-1.5,0) {};
+\node [sp] (v4) at (1.5,1) {};
+
+\draw  (v1) edge (3);
+\draw  (7) edge (v1);
+\draw  (0) edge (v1);
+\draw  (4) edge (v1);
+\draw  (1) edge (v1);
+\draw  (5) edge (v1);
+\draw  (6) edge (v1);
+\draw  (18) edge (v1);
+\draw  (15) edge (v1);
+\draw  (11) edge (v1);
+\draw  (2) edge (v4);
+\draw  (9) edge (v4);
+\draw  (19) edge (v4);
+\draw  (8) edge (v4);
+\draw  (12) edge (v4);
+\draw  (13) edge (v4);
+\draw  (10) edge (v4);
+\draw  (17) edge (v4);
+\draw  (16) edge (v4);
+\draw  (14) edge (v4);
+\end{tikzpicture}
