@@ -231,7 +231,7 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{itemize} 
 \item Qualitätsgüte: nicht zu klein oder groß
 \item Hard oder Soft - Clustering
-\item Keine großen \glqq Lücken \grqq\ zwischen den Daten
+\item Keine großen \glqq Lücken\grqq\ zwischen den Daten
 \item Cluster durch Heuristiken sonst zu großer Aufwand
 \end{itemize}
 \end{frame}
@@ -259,14 +259,14 @@ dist(o_1, o_3) &\leq dist(o_1, o_2) + dist(o_2, o_3)
 \begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Distanzfunktion\cite{ester2000knowledge}}
 \begin{itemize}
 \item Datensätze $x = (x_1, \ldots, x_n)$ mit nummerischen Attributen $x_i$
-\only<2>{\begin{itemize}
+\only<1>{\begin{itemize}
 \item Euklidische-Distanz: $dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
 \item Manhattan-Distanz: ~$dist(x,y) = |x_1 - y_1| + \ldots + |x_n - y_n|$
 \item Maximum-Metrik: ~~~~~$dist(x,y) = \mbox{max}\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)$
 \item Alg. $L_p$-Metrik: ~~~~~~~~~~$dist(x,y) = \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}$
 \end{itemize}}
 \item Datensätze $x = (x_1, \ldots, x_n)$ mit kategorischen Attributen $x_i$
-\only<3>{\begin{itemize}
+\only<1>{\begin{itemize}
 \item Summe der Unterschiede
 \item $dist(x,y) = \sum\limits_{i=1}^{a}\delta(x_i, y_i)$
 \item $\delta(x_i, y_i) = \begin{cases}
@@ -275,7 +275,7 @@ dist(o_1, o_3) &\leq dist(o_1, o_2) + dist(o_2, o_3)
 \end{cases} $
 \end{itemize}}
 \item Endliche Mengen $x = \{x_1, \ldots, x_n\}$\\
-\only<4>{
+\only<1>{
 Anteil verschiedener: $dist(x,y) = \frac{|x\cup y| - |x \cap y|}{|x \cup y|}$
 }
 \end{itemize}
@@ -342,14 +342,14 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
 \begin{figure}
 \scalebox{1.1}{\input{img/kmeans3.tikz}}
-\caption{Phase 4, Zuordnung nur Beispielhaft}
+\caption{Phase 4, Zuordnung nur beispielhaft}
 \end{figure}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
 \begin{figure}
 \scalebox{1.1}{\input{img/kmeans2.tikz}}
-\caption{Phase 5, Schwerpunkte sind nur Beispielhaft}
+\caption{Phase 5, Schwerpunkte sind nur beispielhaft}
 \end{figure}
 \end{frame}
 
@@ -666,7 +666,7 @@ Overfitting
 %Diese Folie ist wichtig!
 %\end{frame}
 
-\begin{frame}[highlight]{Diskursion}
+\begin{frame}[highlight]{Diskussion}
 \centering
 Gibt es Fragen?
 \end{frame}
