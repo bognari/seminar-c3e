@@ -1,7 +1,11 @@
 % Offizielle Beispieldatei für beamer-Vorlage aus tubslatex Version 0.3beta2
 \documentclass[fleqn,11pt,aspectratio=43]{beamer}
 
+%\usepackage{etex}
+%\reserveinsert{28}
+
 \usepackage[ngerman]{babel}
+\usepackage[autostyle=true,german=quotes]{csquotes}
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 \usepackage{listings}
@@ -69,6 +73,19 @@
 
 \input{tikz.tex}
 
+\usepackage{enumitem}
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}}
+
+\usepackage{eqlist}
+\let\description=\eqlist
+\let\enddescription=\endeqlist
+\let\eqlistlabel\descriptionlabel
+
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\RSS}{RSS}
+
 % Titelseite
 \title{Seminar Technische Informatik}
 \subtitle{Top 10 algorithms in data mining}
@@ -91,20 +108,20 @@
 
 \begin{figure}
 \includegraphics[scale=0.6,trim={40 400 40 80},clip]{hs-2004-07-a-pdf}
-\caption{Hubble Ultra Deep Field\cite{HUDF}}
+\caption{Hubble Ultra Deep Field \cite{HUDF}}
 \label{fig:hs-2004-07-a-pdf}
 \end{figure}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - Einsatz von DM in der Astronomie}
 \begin{itemize}
-\item Klassifizierung von Sternen mit Knn\footnote{k-nearest neighbor}
-\item Manuelle Klassifizierung unmöglich \cite{ester2000knowledge}
+\item Klassifizierung von Sternen mit $k$-nn\footnote{k-nearest neighbor}
+\item Manuelle Klassifizierung unmöglich  \cite{ester2000knowledge}
 \item Pro Bild mehre $10000$ Objekte
 \item Kepler z.B. hat 13.2m Objekte erkannt
 \item Benutzung von Klassifizierungsalgorithmen aus DM
 \only<1>{\item Je Objekt 9 Attribute (8 Isophotenformen, Leuchtkraft)
-\item Ausgabewert \glqq stellary\grqq 
+\item Ausgabewert \enquote{stellary}
 \begin{itemize}
 \item $0.0 - 0.1$ Galaxie
 \item $0.9 - 1.0$ Stern
@@ -119,20 +136,20 @@ Decision Tree & $80,68\%$ \\
 Artificial Neural Network & $75.82\%$ \\
 Support Vector Machines & $37,82\%$ \\
 \end{tabular}
-\caption{Erkennungsraten der Algorithmen Stern / Galaxie\cite{o2009star}}
+\caption{Erkennungsraten der Algorithmen Stern / Galaxie \cite{o2009star}}
 \end{table}}
 \end{frame}
 
 \section{Data Mining~}
 
-\begin{frame}{\insertsectionhead - Einleitung\cite{ester2000knowledge}}
+\begin{frame}{\insertsectionhead - Einleitung \cite{ester2000knowledge}}
 \begin{itemize}
-\item Gehört zum Gebiet des KDD (Knowledge Discovery in Databases)
-\item Idee: \emph{Wissen} durch \emph{Daten}
+\item Gehört zum Gebiet des KDD\footnote{Knowledge Discovery in Databases}
+\item Idee: \textbf{Wissen} durch \textbf{Daten}
 \item Einsatz in der Forschung, Vermarktung, Medizin, (Wetter)-Vorhersagen, 
 Betrugsaufklärung usw.
 \end{itemize}
-\begin{block}{Definition nach Fayyad\cite{fayyad1996data}}
+\begin{block}{Definition nach Fayyad \cite{fayyad1996data}}
 Knowledge Discovery in Databases describes the non-trivial process of 
 identifying valid, novel, potentially useful, and ultimately understandable 
 patterns in data.
@@ -142,7 +159,7 @@ patterns in data.
 \begin{frame}{\insertsectionhead - Einordnung}
 \begin{figure}
 \includegraphics[page=5,scale=0.63,trim={48 500 55 80},clip]{dm_fayyad.pdf}
-\caption{KDD nach Fayyad\cite{fayyad1996data}}
+\caption{KDD nach Fayyad \cite{fayyad1996data}}
 \label{fig:fayyad1996data}
 \end{figure}
 \end{frame}
@@ -155,7 +172,7 @@ patterns in data.
 %\alert<3>{There are also unknown unknowns}\footnote{Donald H. Rumsfeld, US 
 %Secretary of 
 %Defense at a US Department of Defense news briefing, 12 February 
-%2002}\cite{AstronomicalDM}
+%2002} \cite{AstronomicalDM}
 %\end{block}
 %
 %\begin{alertblock}{}
@@ -168,8 +185,8 @@ patterns in data.
 %\end{frame}
 
 
-\subsection{Top 10 algorithms in data mining}
-\begin{frame}{\insertsectionhead - \insertsubsectionhead\cite{wu2008top}}
+\subsection{Top 10 algorithms in data mining~}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead \cite{wu2008top}}
 \begin{itemize}
 \item Anlass: IEEE International Conference on Data Mining
 \item Datum: Dezember 2006
@@ -179,22 +196,22 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \item 
 {\small\url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}}
 \item Per Abstimmung finden der Top 10
-\item Das Paper: Top 10 algorithms in data mining \cite{wu2008top}
+\item Das Paper: Top 10 algorithms in data mining  \cite{wu2008top}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead\cite{wu2008top}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead \cite{wu2008top}}
 \begin{columns}[onlytextwidth]
     \column{0.5\textwidth}
-		\begin{enumerate}
+		\begin{enumerate}[label=\bfseries\arabic*.]
 		\item C4.5 und ähnliche
 		\item \textbf{k-means}
 		\item \textbf{Suport Vector Machines}
-		\item \textbf{Apriori}
+		\item Apriori
 		\item EM Algorithm
 		\end{enumerate}
     \column{0.5\textwidth}
-	    \begin{enumerate}
+	    \begin{enumerate}[label=\bfseries\arabic*.]
 	    \setcounter{enumi}{5}
 	    \item PageRank
 	    \item AdaBoost
@@ -211,7 +228,7 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 
 \subsection{Clustering~}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung\cite{ester2000knowledge}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
 \begin{itemize}
 \item Einordnung von Objekten in unbekannten Klassen
 \item Finden der Funktion die Objekte gruppiert
@@ -220,7 +237,7 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Cluster\cite{dwh}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Cluster \cite{dwh}}
 \begin{itemize}
 \item Formen: sehr unterschiedlich
 \item Flach oder Hierarchisch
@@ -231,15 +248,15 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{itemize} 
 \item Qualitätsgüte: nicht zu klein oder groß
 \item Hard oder Soft - Clustering
-\item Keine großen \glqq Lücken\grqq\ zwischen den Daten
+\item Keine großen \enquote{Lücken} zwischen den Daten
 \item Cluster durch Heuristiken sonst zu großer Aufwand
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Distanzfunktion\cite{ester2000knowledge}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Distanzfunktion \cite{ester2000knowledge}}
 \begin{itemize}
 \item Menge von Objekten $O = \{o_1, o_2, \ldots, o_n\}$
-\item Jedes Objekt hat $A_i$ Aattribute
+\item Jedes Objekt hat $A_i$ Attribute
 \item Attributarten:
 \begin{itemize}
 \item Kategorische Attribute
@@ -247,41 +264,45 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{itemize}
 \item Es muss gelten 1.-3., für Metrik 4.:
 \begin{align}
-dist(o_1, o_2) &= d \in R^{n\geq 0}\\
-dist(o_1, o_2) &= 0 \mbox{ genau dann wenn } o_1 = o_2\\
-dist(o_1, o_2) &= dist(o_2, o_1) \mbox{ (Symmetrie)}\\
-dist(o_1, o_3) &\leq dist(o_1, o_2) + dist(o_2, o_3)
+\dist(o_1, o_2) &= d \in R^{n\geq 0}\\
+\dist(o_1, o_2) &= 0 \mbox{ genau dann wenn } o_1 = o_2\\
+\dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)}\\
+\dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3)
 \end{align}
 \item Manchmal auch Ähnlichkeitsfunktion genannt $\Rightarrow$ Interpretation anders herum.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Distanzfunktion\cite{ester2000knowledge}}
+\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Distanzfunktion \cite{ester2000knowledge}}
+\small
+\vspace{-0.5em}
 \begin{itemize}
 \item Datensätze $x = (x_1, \ldots, x_n)$ mit nummerischen Attributen $x_i$
-\only<1>{\begin{itemize}
-\item Euklidische-Distanz: $dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
-\item Manhattan-Distanz: ~$dist(x,y) = |x_1 - y_1| + \ldots + |x_n - y_n|$
-\item Maximum-Metrik: ~~~~~$dist(x,y) = \mbox{max}\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)$
-\item Alg. $L_p$-Metrik: ~~~~~~~~~~$dist(x,y) = \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}$
-\end{itemize}}
+\only<1>{\begin{description}
+\item[Euklidische-Distanz:] $\dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
+\item[Manhattan-Distanz:] $\dist(x,y) = |x_1 - y_1| + \ldots + |x_n - y_n|$
+\item[Maximum-Metrik:] $\dist(x,y) = \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)$
+\item[Alg. $L_p$-Metrik:] $\dist(x,y) = \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}$
+\end{description}}
 \item Datensätze $x = (x_1, \ldots, x_n)$ mit kategorischen Attributen $x_i$
 \only<1>{\begin{itemize}
-\item Summe der Unterschiede
-\item $dist(x,y) = \sum\limits_{i=1}^{a}\delta(x_i, y_i)$
-\item $\delta(x_i, y_i) = \begin{cases}
+%\item Summe der Unterschiede
+\item $\dist(x,y) = \sum\limits_{i=1}^{a}\delta(x_i, y_i)$
+\item $\delta(x_i, y_i) \ \ \ = \begin{cases}
 0 \mbox{ wenn } (x_i = y_i)\\
 1 \mbox{ wenn } (x_i \neq y_i)
 \end{cases} $
 \end{itemize}}
 \item Endliche Mengen $x = \{x_1, \ldots, x_n\}$\\
 \only<1>{
-Anteil verschiedener: $dist(x,y) = \frac{|x\cup y| - |x \cap y|}{|x \cup y|}$
+\begin{description}
+\item[Anteil verschiedener:] $\dist(x,y) = \frac{|x\cup y| - |x \cap y|}{|x \cup y|}$
+\end{description}
 }
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Beispiel\cite{ester2000knowledge}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Beispiel \cite{ester2000knowledge}}
 \begin{itemize}
 \item Clustering von Web-Sessions zur Bestimmung von Benutzergruppen
 \item Datenquelle: Logfile eines Webservers
@@ -299,30 +320,30 @@ Anteil verschiedener: $dist(x,y) = \frac{|x\cup y| - |x \cap y|}{|x \cup y|}$
 \end{frame}
 
 
-\subsubsection{k-means}\label{kmeans}
+\subsubsection{k-means~}\label{kmeans}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means\cite{dwh}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means \cite{dwh}}
 \begin{itemize}
 \item Hartes Flaches Clustering
 \item Bekannte Anzahl von $k$ Clustern
 \item Daten als Vektoren
-\item Idee: Minimiert den Abstand vom Clusterzentrum zu den Daten
+\item Idee: Minimiert den Abstand vom Clusterschwerpunkt zu den Daten
 \item Cluster ist Definiert als:
 \begin{itemize}
 \item $A = \{d_l, \ldots, d_m\}$, $A$ ist ein Cluster und $d_i$ Element 
-\item Zentrum ist: $\mu(A) = \frac{l}{m}\sum\limits_{i=l}^{m}{d_i}$
+\item $\mu(A) = \frac{l}{m}\sum\limits_{i=l}^{m}{d_i}$ ist Schwerpunkt
 \end{itemize}
-\item Qualität: gut wenn RSS$(\ldots)$ minimal ist
-\begin{itemize}
-\item Cluster: ~$\mbox{RSS}\,(A) = \sum\limits_{i=l}^{m}\big\|d_i - \mu(A)\big\|^2$
-\item Gesamt: $\mbox{RSS}\,(A_l, \ldots, A_k) = \sum\limits_{j=l}^{k}\,\mbox{RSS}\,(A_j)$
-\end{itemize}
+\item Qualität: gut wenn $\RSS(\ldots)$ minimal ist
+\begin{description}
+\item[Cluster:] $\RSS\,(A) = \sum\limits_{i=l}^{m}\big\|d_i - \mu(A)\big\|^2$
+\item[Gesamt:] $\RSS\,(A_l, \ldots, A_k) = \sum\limits_{j=l}^{k}\,\RSS\,(A_j)$
+\end{description}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means\cite{dwh}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means \cite{dwh}}
 Der $k$-means Algorithmus (Lloyd's Algorithmus)
-\begin{enumerate}
+\begin{enumerate}[label=\bfseries\arabic*.]
 \item Selektiere zufällig $k$ Schwerpunkte als Startwert
 \item Erstelle $k$ leere Cluster
 \item Weise jedem Cluser einen Schwerpunkt zu
@@ -360,9 +381,33 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \end{figure}
 \end{frame}
 
+\subsubsection{Zuordnung}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Zuordnung}
+\begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+		\begin{enumerate}[label=\bfseries\arabic*.]
+		\item \textbf{C4.5} und ähnliche %clu
+		\item \textbf{k-means} %clu
+		\item Suport Vector Machines %clas
+		\item Apriori %asso
+		\item \textbf{EM Algorithm} %clu
+		\end{enumerate}
+    \column{0.5\textwidth}
+	    \begin{enumerate}[label=\bfseries\arabic*.]
+	    \setcounter{enumi}{5}
+	    \item PageRank
+	    \item AdaBoost %cla
+	    \item k-nearest neighbor %cla
+	    \item Naive Bayes %cla
+	    \item \textbf{CART} %clu
+	    \end{enumerate}
+\end{columns}
+\end{frame}
+
 \subsection{Klassifikation~}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung\cite{ester2000knowledge}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
 \begin{itemize}
 \item Einordnung von Objekten in bekannten Klassen
 \item Trainingsdaten für Klassen $\Rightarrow$ Klassen bekannt
@@ -375,11 +420,11 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Training\cite{ester2000knowledge}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Training \cite{ester2000knowledge}}
 \begin{itemize}
 \item Menge von Objekten $O = \{o_1, o_2, \ldots, o_n\}$
-\item Klasse $c_i \in C = \{c_1, c_2, \ldots, c_n\}$ für jedes Objekt ist Bekannt
-\item Jedes Objekt hat $A_i$ Klassifizierung-Aattribute
+\item Klasse $c_i \in C = \{c_1, c_2, \ldots, c_n\}$ für jedes Objekt ist bekannt
+\item Jedes Objekt hat $A_i$ Klassifizierung-Attribute
 \item Attributarten:
 \begin{itemize}
 \item Kategorische Attribute
@@ -388,7 +433,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Beispiel\cite{ester2000knowledge}}
+\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Beispiel \cite{ester2000knowledge}}
 Trainingsdaten:
 \begin{table}
 \begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}\hline
@@ -399,7 +444,7 @@ ID 	& Alter	& Autotyp	& Risikoklasse \\\hline \hline
 4	& 68	& Familie	& Niedrig\\
 5	& 32	& LKW		& Niedrig \\\hline
 \end{tabular}
-\caption{Beispiele aus dem Buch\cite{ester2000knowledge}}
+\caption{Beispiele aus dem Buch \cite{ester2000knowledge}}
 \end{table}
 \pause
 Das gesuchte Wissen
@@ -410,15 +455,15 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Gesuchtes Wissen\cite{ester2000knowledge}}
-\begin{itemize}
-\item Formen:
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Gesuchtes Wissen \cite{ester2000knowledge}}
+\begin{description}
+\item[Formen:]
 \begin{itemize}
 \item Entscheidungsbaum % geordnet nach Informationsgewinn
 \item Funktion % alles mögliche, 
 \item Vektor im Koordinatensystem
 \end{itemize}
-\item Anwendung immer dann, wenn die Klassen bekannt ist
+\item[Anwendung:] Immer dann, wenn die Klassen bekannt sind \ldots
 \begin{itemize}
 \item Unterscheidung von Stern / Galaxie
 \item Sterne Einordnen
@@ -426,23 +471,26 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \item Medizinforschung
 \item \dots
 \end{itemize}
-\end{itemize}
+\end{description}
 \end{frame}
 
-\subsubsection{Support vector machines}\label{svm}
+\subsubsection{Support vector machines~}\label{svm}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM\cite{dwh}}
-\begin{itemize}
-\item Annahmen:
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM \cite{dwh}}
+\begin{description}
+\item[Annahmen:]
 \begin{itemize}
 \item Nur zwei Klassen
 \item Jedes Objekt ist ein Vektor im Koordinatensystem
 \end{itemize}
-\item Ziel:  Hyperplane\footnote{Hyperebene} die den Raum teilt 
-\item Training: Hyperplane mit maximalem Abstand zu allen Trainingsvektoren
-\item Training: Hyperplane Begrenzungsobjekte sind Supportvektoren
-\item Differenzfunktion $\delta(o_1, o_2)$ ist ähnlich zum Clustering
-\end{itemize}
+\item[Ziel:]  Hyperplane\footnote{Hyperebene} die den Raum teilt 
+\item[Training:]
+\begin{itemize}
+\item Hyperplane mit maximalem Abstand zu allen Trainingsvektoren
+\item Hyperplane Begrenzungsobjekte sind Supportvektoren
+\end{itemize} 
+\item[Differenzfunktion:] $\delta(o_1, o_2)$ ist ähnlich zum Clustering
+\end{description}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
@@ -475,7 +523,7 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \end{figure}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM\cite{dwh}}
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM \cite{dwh}}
 Mehrere Klassen:
 \begin{itemize}
 \item One-versus-all
@@ -501,170 +549,141 @@ Overfitting
 \end{figure}
 \end{frame}
 
+\subsubsection{Zuordnung}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Zuordnung}
+\begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+		\begin{enumerate}[label=\bfseries\arabic*.]
+		\item C4.5 und ähnliche %clu
+		\item k-means %clu
+		\item \textbf{Suport Vector Machines} %clas
+		\item Apriori %asso
+		\item EM Algorithm %clu
+		\end{enumerate}
+    \column{0.5\textwidth}
+	    \begin{enumerate}[label=\bfseries\arabic*.]
+	    \setcounter{enumi}{5}
+	    \item PageRank
+	    \item \textbf{AdaBoost} %cla
+	    \item \textbf{k-nearest neighbor} %cla
+	    \item \textbf{Naive Bayes} %cla
+	    \item CART %clu
+	    \end{enumerate}
+\end{columns}
+\end{frame}
+
 %\subsection{Regression~}
 %
-%\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung\cite{fahrmeir2007regressionsanalyse}}
+%\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{fahrmeir2007regressionsanalyse}}
 %
 %\end{frame}
 
-\subsection{Assoziation}	
-\subsubsection{Apriori}\label{apriori}
+\subsection{Assoziation~}
+
+\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
+\begin{description}
+%\item bla
+\item[Items:] $I = \{i_1, \ldots, i_m\}$, ein Itemset $X \subseteq I$
+\item[Transaktionsset:] $D = \{T_1, \ldots, T_n\}$, für $T_i$ gilt: $T_i \subseteq I$
+\item[Support der Menge:] $\delta(X,D)$: Anteil (\%) aller $T_i$ für die gilt $X \subseteq T_i$
+\item[Assoziationsregel:] $R_i = X \Rightarrow Y$ es gilt: $X, Y \subseteq I$ und $X \cap Y = \emptyset$ 
+\item[Support der Regel:] $\delta(R_i, D) = \delta(X \cup Y, D)$: Anteil (\%)
+\item[Konfidenz der Regel:] $\phi(R_i, D) = \delta(Y, \{T_i\;|\;\forall T_i \in D \wedge X \subseteq T_i\})$
+\item[Idee:] Finden von Regeln die einen Support und Konfidenz von einer gewissen Schwelle besitzen
+\end{description}
+\end{frame}
+	
+\subsubsection{Zuordnung}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Zuordnung}
+\begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+		\begin{enumerate}[label=\bfseries\arabic*.]
+		\item C4.5 und ähnliche %clu
+		\item k-means %clu
+		\item Suport Vector Machines %clas
+		\item \textbf{Apriori} %asso
+		\item EM Algorithm %clu
+		\end{enumerate}
+    \column{0.5\textwidth}
+	    \begin{enumerate}[label=\bfseries\arabic*.]
+	    \setcounter{enumi}{5}
+	    \item PageRank
+	    \item AdaBoost %cla
+	    \item k-nearest neighbor %cla
+	    \item Naive Bayes %cla
+	    \item CART %clu
+	    \end{enumerate}
+\end{columns}
+\end{frame}
+	
+%\subsubsection{Apriori}\label{apriori}
+
+\section{Big Data~}
+
+\begin{frame}[fragile]{\insertsectionhead - Einleitung \cite{mayer2014big} \cite{wu2014data}}
+\begin{itemize}
+\item Himmelskartografie-Projekt Sloan Digital Sky Survey startete 2000\footnote{Teleskop mit 2,5m Spiegel am Apache Point Observatory -- New Mexico}
+\item Sammelte in der ersten Wochen mehr Daten als die gesamte Astronomie davor
+\pause
+\item Bis 2010 ca. 140 TB Daten gesammelt (ca. 35\% Abdeckung)\\
+		Sterne	$260\;562\;744$ und Galaxien $208\;478\;448$ \cite{sdss3_scope:Online}
+\item 2019 geplanter Nachfolger Large Synoptic Survey Telescope\footnote{Teleskop mit 8,4m Spiegel am El-Peñón-Gipfel des Cerro Pachón -- Chile}
+\pause
+\item Erzeugt alle 5 Tage 140 TB an Daten!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsectionhead - Einleitung \cite{mayer2014big} \cite{wu2014data}}
+\begin{itemize}
+\item \enquote{Datenberge} wachsen immer weiter an
+\begin{itemize}
+\item Geschätzt 2007 an die $300$ Exabyte\footnote{1 Exabyte = $1\;000\;000$ TB} Daten 
+\item Geschätzt 2013 an die $1200$ Exabyte Daten\footnote{in CDs: 5 Stapel zum Mond}
+\end{itemize}
+\item Verarbeitung riesiger Datenmengen zur Gewinnung von Wahrscheinlichkeiten
+zu genaueren Vorhersagen
+\begin{itemize}
+\item Das eine E-Mail Spam ist
+\item Das \enquote{dei} bei der Autokorrektur \enquote{die} heißt
+\item Bewegungen von Menschen, ob dies eine Gefahr für selbstlenkende Fahrzeuge sind
+\end{itemize}
+\item Die Erkenntnis ist nicht das \textbf{WARUM} sondern das \textbf{WAS} 
+\item \enquote{Was wir an
+Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis
+auf der Makroebene.} \cite{mayer2014big}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsectionhead - HACE Theorem \cite{wu2014data}}
+\begin{quote}
+Big Data starts with large-volume, \underline{\textbf{H}}eterogeneous, 
+\underline{\textbf{A}}utonomous sources with distributed and decentralized control, 
+and seeks to explore \underline{\textbf{C}}omplex and \underline{\textbf{E}}volving relationships 
+among data.
+\end{quote} %\cite{wu2014data}
+\begin{description}\setlength{\itemsep}{15pt}
+\item[{\parbox[t]{4cm}{Huge Heterogeneous Data:}}] {\parbox[t]{6.3cm}{Viele unterschiedliche Repräsentationen der \enquote{Datenhaufen}}}
+\item[{\parbox[t]{4cm}{Autonomous Sources:}}] {\parbox[t]{6.3cm}{Wahllose Generierung von Daten ohne zentrale Steuerung}}
+\item[{\parbox[t]{4cm}{Complex and Evolving Relationships:}}] {\parbox[t]{6.3cm}{Verflechtung der Daten untereinander wird immer komplexer und nimmt zu}}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsectionhead - Herausforderungen für DM \cite{wu2014data}}
+%\begin{itemize} 
+%\item Skaliert mit den Daten nach dem HACE Theorem
+%\item 
+%\end{itemize}
+\begin{figure}
+\includegraphics[scale=0.7,trim={120 340 100 280},clip]{img/bigdata42.pdf}
+\caption{Datamining mit Big Data \cite{wu2014data}}
+\label{bigdata}
+\end{figure}
+\end{frame}
+
 \section{Neue Algorithmen~}
 
-%\begin{frame}{Hier steht der Titel der Folie}
-%Wir beginnen mit einer Aufzählung
-%\begin{itemize}
-%  \item Aufzählzeichen werden als Quadrate dargestellt
-%  \begin{itemize}
-%    \item Unterpunkte ebenfalls
-%    \item Allerdings etwas kleiner
-%  \end{itemize}
-%\end{itemize}
-%\end{frame}
-
-%\section{Kapitel 2}
-%
-%
-%\begin{frame}{Itemize-Test}
-%  \begin{itemize}
-%    \item Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-%      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-%    \item At vero eos et accusam et justo duo dolores et ea rebum.
-%      \begin{itemize}
-%        \item Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-%          dolor sit amet!
-%          \begin{itemize}
-%            \item Nam eget dui.
-%            \item Maecenas tempus, tellus eget condimentum rhoncus, sem quam
-%              semper libero, sit amet adipiscing sem neque sed ipsum.
-%          \end{itemize}
-%        \item Duis leo
-%      \end{itemize}
-%    \item Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. 
-%  \end{itemize}
-%\end{frame}
-%
-%
-%\subsection{Unterkapitel 1}
-%
-%
-%\begin{frame}{Mathe-Test}
-%  Gaußsche Summenformel:
-%  \[1 + 2 + 3 + 4 + \ldots + n = \sum_{k=1}^n k = \frac{n(n+1)}{2}\]
-%  Faltung:
-%  \[(f*g)(\xi) := \int_{\mathbb{R}^n} f(y)g(\xi-y)\mathrm{d}y\]
-%\end{frame}
-%
-%
-%
-%\section{Ende}
-%
-%
-%\begin{frame}{Farbtest}
-%  \color{tuRed}
-%  Dies ist ein Text in tuRed.
-%
-%  \color{tuSecondaryDark80}
-%  Dies ist ein Text in tuSecondaryDark80.
-%
-%  \color{tuSecondaryLight}
-%  Dies ist ein Text in tuSecondaryLight.
-%\end{frame}
-%
-%
-%\begin{frame}{Verwendung von Spalten}
-%  \begin{columns}[onlytextwidth]
-%    \column{0.5\textwidth}
-%      Dies ist die erste Spalte.
-%      Die Angabe der Option \texttt{[onlytextwidth]}
-%      sorgt dafür, dass die Spaltenbreite korrekt eingehalten wird.
-%    \column{0.5\textwidth}
-%      Dies ist die zweite Spalte mit weiteren Informationen.
-%  \end{columns}
-%\end{frame}
-%
-%
-%\begin{frame}{Blöcke}
-%  \begin{block}{Diest ist ein Block}
-%    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-%    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-%  \end{block}
-%  \begin{exampleblock}{Diest ist ein Example-Block}
-%    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-%    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-%  \end{exampleblock}
-%  \begin{alertblock}{Diest ist ein Alert-Block}
-%    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-%    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-%  \end{alertblock}
-%\end{frame}
-%
-%
-%\begin{frame}[fragile, allowframebreaks]{Quellcode}
-%\begin{lstlisting}[language=Java]
-%/**
-% * @author Vorname Name 1234567 Gruppe 4a
-% * @author Vorname Name 1234567 Gruppe 4a
-% *         <p>
-% *         Diese Klasse ist fuer Aufgabe XX und macht: Blablabla ...
-% *         (Aufgabentext oder kurze Beschreibung der Aufgabe usw. Also was es 
-% machen soll)
-% */
-%public class Uhrzeit {
-%    /**
-%     * wie immer halt ...
-%     *
-%     * @param args [0] = die Zeitzone
-%     */
-%    public static void main(String[] args) {
-%        int input;
-%        try {   // muesst ihr noch nicht kennen, ist nur zum Abfangen von Fehlerfaellen da
-%            input = Integer.parseInt(args[0]); // Einlesen des Argumentes und umwandeln in in
-%        } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
-%            // 1. Fehlerfall das Argument interessiert nicht
-%            // 2. das Argument ist keine int Zahl
-%            System.err.printf("Rufen sie das Programm auf mit \"java Uhrzeit2 [0-2]\"%n");
-%            // Schreibe das auf den Error Outputstream
-%            return;
-%        }
-%
-%        if (input < - 12 || input > 12) {
-%            System.err.printf("%2d ist keine gueltige Zeitzone.%n", input);
-%            return;
-%        }
-%
-%        long t = System.currentTimeMillis();
-%
-%        // die Stunden addieren
-%        t += input * 1000 * 60 * 60;
-%
-%        // umwandeln in richtige Zeitformate
-%        int h = (int) (t / (1000 * 60 * 60)) % 24;
-%        int m = (int) (t / (1000 * 60)) % 60;
-%        int s = (int) (t / 1000) % 60;
-%
-%        switch (input) {
-%            case 0:
-%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d Sekunden %%%%%%%%%(UTC).%n", h, m, s);
-%                break;
-%            case 1:
-%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d Sekunden %%%%%%%%%(MEZ).%n", h, m, s);
-%                break;
-%            case 2:
-%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d Sekunden %%%%%%%%%(MESZ).%n", h, m, s);
-%                break;
-%            default:
-%                System.out.printf("Es ist jetzt %2d:%2d Uhr und %2d %%%%%%%%%Sekunden.%n", h, m, s);
-%        }
-%    }
-%}
-%\end{lstlisting}
-%\end{frame}
-%
-%
-%\begin{frame}[highlight]{Wichtig}
-%Diese Folie ist wichtig!
-%\end{frame}
 
 \begin{frame}[highlight]{Diskussion}
 \centering
