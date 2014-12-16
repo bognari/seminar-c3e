@@ -631,10 +631,10 @@ Kunden, die diesen Artikel gekauft haben, kauften auch
 \pause
 \begin{columns}[onlytextwidth]
  \small
-    \column{0.4\textwidth}
+    \column{0.45\textwidth}
     \begin{table}
     	    \hspace{-2em}\begin{tabular}{c|l}
-    	    ID & Itemset\\ \hline
+    	    $T_i$ & Itemset ($X_i$)\\ \hline
     	    1 & Brot, Kaffee, Milch, Kuchen\\
     	    2 & Kaffee, Milch, Kuchen\\
     	    3 & Brot, Butter, Kaffee, Milch\\
@@ -642,16 +642,16 @@ Kunden, die diesen Artikel gekauft haben, kauften auch
     	    5 & Brot, Kuchen\\
     	    6 & Brot
     	    \end{tabular}
-    	    %\caption{Erkennungsraten der Algorithmen Stern / Galaxie \cite{o2009star}}
+    	    \caption{\footnotesize Transaktionsdatenbank \cite{ester2000knowledge}}
     	    \end{table}
     	    
-    \column{0.6\textwidth}
-    \vspace{-1.5em}
+    \column{0.55\textwidth}
+    \vspace{-1.2em}
 	   \begin{description}
-		   \item[Support:] \{Kaffee, Milch\} $= 50\%$
-		   \item[Support:] \{Kaffee, Kuchen, Milch\} $\approx 33\%$
-		   \item[Support:] \{Kaffee, Milch\} $\Rightarrow$ \{Kuchen\} \\ $\approx 33\%$
-		   \item[Konfidenz:] \{Kaffee, Milch\} $\Rightarrow$ \{Kuchen\} \\= $\frac{33\%}{50\%} \approx 66\%$
+		   \item[Support:] \{Kaffee, Milch\} $= 6 / 3 = 50\%$
+		   \item[Support:] \{Kaffee, Kuchen, Milch\} $= 3 / 2 \approx 33\%$
+		   \item[Support:] \{Kaffee, Milch\} $\Rightarrow$ \{Kuchen\}  $= 3 / 2 \approx 33\%$
+		   \item[Konfidenz:] \{Kaffee, Milch\} $\Rightarrow$ \{Kuchen\} $= \frac{33\%}{50\%} \approx 66\%$
 	   \end{description}
 \end{columns}
 \end{frame}
