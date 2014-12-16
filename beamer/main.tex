@@ -52,24 +52,24 @@
   stringstyle=\color{tuVioletMedium},    % string literal style
 }
 
-\AtBeginSection[]{
-  \begin{frame}[noframenumbering] 
-  		\scriptsize
-  		\frametitle{Überblick}  
-  		\tableofcontents[currentsection, subsectionstyle=show]
-  \end{frame}
-}
+%\AtBeginSection[]{
+%  \begin{frame}[noframenumbering] 
+%  		\scriptsize
+%  		\frametitle{Überblick}  
+%  		\tableofcontents[currentsection, subsectionstyle=show]
+%  \end{frame}
+%}
 
-\AtBeginSubsection[]{
-  \begin{frame}[noframenumbering]
-    	\scriptsize 
-  		\frametitle{\insertsectionhead - \insertsubsectionhead} 
-  		\tableofcontents[ 
-  			currentsubsection, 
-  		    sectionstyle=show/hide, 
-  		   	subsectionstyle=show/shaded/hide] 
-  \end{frame}
-}
+%\AtBeginSubsection[]{
+%  \begin{frame}[noframenumbering]
+%    	\scriptsize 
+%  		\frametitle{\insertsectionhead - \insertsubsectionhead} 
+%  		\tableofcontents[ 
+%  			currentsubsection, 
+%  		    sectionstyle=show/hide, 
+%  		   	subsectionstyle=show/shaded/hide] 
+%  \end{frame}
+%}
 
 \input{tikz.tex}
 
@@ -98,11 +98,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Inhalt}
-\tableofcontents
-\end{frame}
+%\begin{frame}{Inhalt}
+%\tableofcontents
+%\end{frame}
 
-\section*{Einleitung~}
+\section*{Motivation~}
 
 \begin{frame}[plain]{\insertsectionhead - Der Weltraum unendliche Weiten \dots}
 
@@ -115,54 +115,67 @@
 
 \begin{frame}{\insertsectionhead - Einsatz von DM in der Astronomie}
 \begin{itemize}
-\item Klassifizierung von Sternen mit $k$-nn\footnote{k-nearest neighbor}
+\item Klassifizierung von Sternen mit $k$-nearest neighbor ($k$-nn)
 \item Manuelle Klassifizierung unmöglich  \cite{ester2000knowledge}
 \item Pro Bild mehre $10000$ Objekte
 \item Kepler z.B. hat 13.2m Objekte erkannt
 \item Benutzung von Klassifizierungsalgorithmen aus DM
-\only<1>{\item Je Objekt 9 Attribute (8 Isophotenformen, Leuchtkraft)
-\item Ausgabewert \enquote{stellary}
-\begin{itemize}
-\item $0.0 - 0.1$ Galaxie
-\item $0.9 - 1.0$ Stern
-\end{itemize}} % zahlen nennen
 \end{itemize}
-\only<2>{
-\begin{table}
-\begin{tabular}{l|l}
-Name & Erkennung\\ \hline
-Random Forest & $82,89\%$ \\
-Decision Tree & $80,68\%$ \\
-Artificial Neural Network & $75.82\%$ \\
-Support Vector Machines & $37,82\%$ \\
-\end{tabular}
-\caption{Erkennungsraten der Algorithmen Stern / Galaxie \cite{o2009star}}
-\end{table}}
+\begin{columns}[onlytextwidth]
+    \column{0.4\textwidth}
+    	\vspace{-5.2em}
+		\begin{itemize}
+		\item Je Objekt 9 Attribute (8 Isophotenformen, Leuchtkraft)
+		\item Ausgabewert \enquote{stellary}
+		\begin{itemize}
+		\item $0.0 - 0.1$ Galaxie
+		\item $0.9 - 1.0$ Stern
+		\end{itemize}
+		\end{itemize}
+    \column{0.6\textwidth}
+	    \begin{table}
+	    \begin{tabular}{l|l}
+	    Name & Erkennung\\ \hline
+	    Random Forest & $82,89\%$ \\
+	    Decision Tree & $80,68\%$ \\
+	    Artificial Neural Network & $75.82\%$ \\
+	    Support Vector Machines & $37,82\%$ \\
+	    \end{tabular}
+	    \caption{Erkennungsraten der Algorithmen Stern / Galaxie \cite{o2009star}}
+	    \end{table}
+\end{columns}
 \end{frame}
 
 \section{Data Mining~}
 
 \begin{frame}{\insertsectionhead - Einleitung \cite{ester2000knowledge}}
-\begin{itemize}
-\item Gehört zum Gebiet des KDD\footnote{Knowledge Discovery in Databases}
+\small
+\vspace{-1em}
+\begin{itemize} % beide folien zusammen
+\setlength{\itemsep}{-3pt}
+%\item Gehört zum Gebiet des Knowledge Discovery in Databases (KDD)
 \item Idee: \textbf{Wissen} durch \textbf{Daten}
 \item Einsatz in der Forschung, Vermarktung, Medizin, (Wetter)-Vorhersagen, 
 Betrugsaufklärung usw.
 \end{itemize}
+\vspace{-1em}
 \begin{block}{Definition nach Fayyad \cite{fayyad1996data}}
 Knowledge Discovery in Databases describes the non-trivial process of 
 identifying valid, novel, potentially useful, and ultimately understandable 
 patterns in data.
+\begin{figure}
+\vspace{-2.7em} \hspace{-1.5em}
+\includegraphics[page=5,scale=0.67,trim={51 500 65 86},clip]{dm_fayyad.pdf}
+%\caption{KDD nach Fayyad \cite{fayyad1996data}}
+\label{fig:fayyad1996data}
+\end{figure}
+\vspace{-3.5em}
 \end{block}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - Einordnung}
-\begin{figure}
-\includegraphics[page=5,scale=0.63,trim={48 500 55 80},clip]{dm_fayyad.pdf}
-\caption{KDD nach Fayyad \cite{fayyad1996data}}
-\label{fig:fayyad1996data}
-\end{figure}
-\end{frame}
+%\begin{frame}{\insertsectionhead - Einordnung}
+%
+%\end{frame}
 
 %\begin{frame}{\insertsectionhead - Algorithmen Kategorien}
 %\begin{block}{}
@@ -201,17 +214,78 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead \cite{wu2008top}}
+% zuordnungen zusammen fassen, vorstellen rot usw
+\small
+\vspace{-0.6em}
+\begin{block}{\vspace{-0.2em}Clustering\vspace{-0.2em}}
+\vspace{-1.5em}
 \begin{columns}[onlytextwidth]
     \column{0.5\textwidth}
 		\begin{enumerate}[label=\bfseries\arabic*.]
+		\setlength{\itemsep}{-5pt}
+		\item \textbf{C4.5 und ähnliche}
+		\item \textbf{\textcolor{red}{k-means}}
+		\item \textcolor{red}{Suport Vector Machines}
+		\item Apriori
+		\item \textbf{EM Algorithm}
+		\end{enumerate}
+    \column{0.5\textwidth}
+	    \begin{enumerate}[label=\bfseries\arabic*.]
+	    \setlength{\itemsep}{-5pt}
+	    \setcounter{enumi}{5}
+	    \item PageRank
+	    \item AdaBoost
+	    \item k-nearest neighbor
+	    \item Naive Bayes
+	    \item \textbf{CART}
+	    \end{enumerate}
+\end{columns}
+\vspace{-0.3em}
+\end{block}
+\pause
+\vspace{-0.4em}
+\begin{block}{\vspace{-0.2em}Classification\vspace{-0.2em}}
+\vspace{-1.5em}
+\begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+		\begin{enumerate}[label=\bfseries\arabic*.]
+		\setlength{\itemsep}{-5pt}
 		\item C4.5 und ähnliche
-		\item \textbf{k-means}
-		\item \textbf{Suport Vector Machines}
+		\item \textcolor{red}{k-means}
+		\item \textbf{\textcolor{red}{Suport Vector Machines}}
 		\item Apriori
 		\item EM Algorithm
 		\end{enumerate}
     \column{0.5\textwidth}
 	    \begin{enumerate}[label=\bfseries\arabic*.]
+	    \setlength{\itemsep}{-5pt}
+	    \setcounter{enumi}{5}
+	    \item PageRank
+	    \item \textbf{AdaBoost}
+	    \item \textbf{k-nearest neighbor}
+	    \item \textbf{Naive Bayes}
+	    \item CART
+	    \end{enumerate}
+\end{columns}
+\vspace{-0.3em}
+\end{block}
+\pause
+\vspace{-0.4em}
+\begin{block}{\vspace{-0.2em}Assoziation\vspace{-0.2em}}
+\vspace{-1.5em}
+\begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+		\begin{enumerate}[label=\bfseries\arabic*.]
+		\setlength{\itemsep}{-5pt}
+		\item C4.5 und ähnliche
+		\item \textcolor{red}{k-means}
+		\item \textcolor{red}{Suport Vector Machines}
+		\item \textbf{Apriori}
+		\item EM Algorithm
+		\end{enumerate}
+    \column{0.5\textwidth}
+	    \begin{enumerate}[label=\bfseries\arabic*.]
+	    \setlength{\itemsep}{-5pt}
 	    \setcounter{enumi}{5}
 	    \item PageRank
 	    \item AdaBoost
@@ -220,6 +294,8 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 	    \item CART
 	    \end{enumerate}
 \end{columns}
+\vspace{-0.3em}
+\end{block}
 \end{frame}
 
 %\begin{frame}{\insertsectionhead - \insertsubsectionhead}
@@ -254,14 +330,9 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Distanzfunktion \cite{ester2000knowledge}}
-\begin{itemize}
+\begin{itemize} % ToDo folien mergen
 \item Menge von Objekten $O = \{o_1, o_2, \ldots, o_n\}$
-\item Jedes Objekt hat $A_i$ Attribute
-\item Attributarten:
-\begin{itemize}
-\item Kategorische Attribute
-\item Nummerische Attribute
-\end{itemize}
+\item Jedes Objekt $x$ hat $x_i$ Attribute
 \item Es muss gelten 1.-3., für Metrik 4.:
 \begin{align}
 \dist(o_1, o_2) &= d \in R^{n\geq 0}\\
@@ -269,41 +340,49 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)}\\
 \dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3)
 \end{align}
-\item Manchmal auch Ähnlichkeitsfunktion genannt $\Rightarrow$ Interpretation anders herum.
+\item Attributarten und jeweilige beispielhafte Distanzfunktionen:
+\begin{itemize}  
+\item Nummerisch $\dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
+\item Kategorisch ~$\dist(x,y) = \sum\limits_{i=1}^{n}\delta(x_i, y_i)$,~~~~~ $\delta(x_i, y_i) = \begin{cases}
+0  ,x_i = y_i\\
+1  ,x_i \neq y_i
+\end{cases} $
+\end{itemize}
+%\item Manchmal auch Ähnlichkeitsfunktion genannt $\Rightarrow$ Interpretation anders herum.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Distanzfunktion \cite{ester2000knowledge}}
-\small
-\vspace{-0.5em}
-\begin{itemize}
-\item Datensätze $x = (x_1, \ldots, x_n)$ mit nummerischen Attributen $x_i$
-\only<1>{\begin{description}
-\item[Euklidische-Distanz:] $\dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
-\item[Manhattan-Distanz:] $\dist(x,y) = |x_1 - y_1| + \ldots + |x_n - y_n|$
-\item[Maximum-Metrik:] $\dist(x,y) = \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)$
-\item[Alg. $L_p$-Metrik:] $\dist(x,y) = \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}$
-\end{description}}
-\item Datensätze $x = (x_1, \ldots, x_n)$ mit kategorischen Attributen $x_i$
-\only<1>{\begin{itemize}
-%\item Summe der Unterschiede
-\item $\dist(x,y) = \sum\limits_{i=1}^{a}\delta(x_i, y_i)$
-\item $\delta(x_i, y_i) \ \ \ = \begin{cases}
-0 \mbox{ wenn } (x_i = y_i)\\
-1 \mbox{ wenn } (x_i \neq y_i)
-\end{cases} $
-\end{itemize}}
-\item Endliche Mengen $x = \{x_1, \ldots, x_n\}$\\
-\only<1>{
-\begin{description}
-\item[Anteil verschiedener:] $\dist(x,y) = \frac{|x\cup y| - |x \cap y|}{|x \cup y|}$
-\end{description}
-}
-\end{itemize}
-\end{frame}
+%\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Distanzfunktion \cite{ester2000knowledge}}
+%\small
+%\vspace{-0.5em}
+%\begin{itemize}
+%\item Datensätze $x = (x_1, \ldots, x_n)$ mit nummerischen Attributen $x_i$
+%\only<1>{\begin{description}
+%\item[Euklidische-Distanz:] $\dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
+%\item[Manhattan-Distanz:] $\dist(x,y) = |x_1 - y_1| + \ldots + |x_n - y_n|$
+%\item[Maximum-Metrik:] $\dist(x,y) = \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)$
+%\item[Alg. $L_p$-Metrik:] $\dist(x,y) = \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}$
+%\end{description}}
+%\item Datensätze $x = (x_1, \ldots, x_n)$ mit kategorischen Attributen $x_i$
+%\only<1>{\begin{itemize}
+%%\item Summe der Unterschiede
+%\item $\dist(x,y) = \sum\limits_{i=1}^{a}\delta(x_i, y_i)$
+%\item $\delta(x_i, y_i) \ \ \ = \begin{cases}
+%0 \mbox{ wenn } (x_i = y_i)\\
+%1 \mbox{ wenn } (x_i \neq y_i)
+%\end{cases} $
+%\end{itemize}}
+%\item Endliche Mengen $x = \{x_1, \ldots, x_n\}$\\
+%\only<1>{
+%\begin{description}
+%\item[Anteil verschiedener:] $\dist(x,y) = \frac{|x\cup y| - |x \cap y|}{|x \cup y|}$
+%\end{description}
+%}
+%\end{itemize}
+%\end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Beispiel \cite{ester2000knowledge}}
-\begin{itemize}
+\begin{itemize} % mergen
 \item Clustering von Web-Sessions zur Bestimmung von Benutzergruppen
 \item Datenquelle: Logfile eines Webservers
 \item Eintrag: IP, User-ID, Timestamp, URL, \ldots
@@ -381,31 +460,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \end{figure}
 \end{frame}
 
-\subsubsection{Zuordnung}
-
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Zuordnung}
-\begin{columns}[onlytextwidth]
-    \column{0.5\textwidth}
-		\begin{enumerate}[label=\bfseries\arabic*.]
-		\item \textbf{C4.5} und ähnliche %clu
-		\item \textbf{k-means} %clu
-		\item Suport Vector Machines %clas
-		\item Apriori %asso
-		\item \textbf{EM Algorithm} %clu
-		\end{enumerate}
-    \column{0.5\textwidth}
-	    \begin{enumerate}[label=\bfseries\arabic*.]
-	    \setcounter{enumi}{5}
-	    \item PageRank
-	    \item AdaBoost %cla
-	    \item k-nearest neighbor %cla
-	    \item Naive Bayes %cla
-	    \item \textbf{CART} %clu
-	    \end{enumerate}
-\end{columns}
-\end{frame}
-
-\subsection{Klassifikation~}
+\subsection{Classification~}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
 \begin{itemize}
@@ -444,7 +499,7 @@ ID 	& Alter	& Autotyp	& Risikoklasse \\\hline \hline
 4	& 68	& Familie	& Niedrig\\
 5	& 32	& LKW		& Niedrig \\\hline
 \end{tabular}
-\caption{Beispiele aus dem Buch \cite{ester2000knowledge}}
+\caption{Beispiele aus Knowledge discovery in databases: Techniken und Anwendungen \cite{ester2000knowledge}}
 \end{table}
 \pause
 Das gesuchte Wissen
@@ -463,7 +518,7 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \item Funktion % alles mögliche, 
 \item Vektor im Koordinatensystem
 \end{itemize}
-\item[Anwendung:] Immer dann, wenn die Klassen bekannt sind \ldots
+\item[Anwendung:] Immer dann, wenn die Klassen bekannt sind
 \begin{itemize}
 \item Unterscheidung von Stern / Galaxie
 \item Sterne Einordnen
@@ -523,55 +578,31 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \end{figure}
 \end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM \cite{dwh}}
-Mehrere Klassen:
-\begin{itemize}
-\item One-versus-all
-\item One-versus-one
-\end{itemize}
-
-Overfitting
-\begin{itemize}
-\item Zu viele Trainingsdaten für eine Eigenschaft
-\item Lösungen
-\begin{itemize}
-\item Cross-validation
-\item Regularization
-\end{itemize} 
-\end{itemize}
-\end{frame}
-
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
-%Bild mit Overfitting (F 65)
-\begin{figure}
-\scalebox{1.1}{\input{img/svm4.tikz}}
-\caption{Overfitting: zu nahe}
-\end{figure}
-\end{frame}
-
-\subsubsection{Zuordnung}
-
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Zuordnung}
-\begin{columns}[onlytextwidth]
-    \column{0.5\textwidth}
-		\begin{enumerate}[label=\bfseries\arabic*.]
-		\item C4.5 und ähnliche %clu
-		\item k-means %clu
-		\item \textbf{Suport Vector Machines} %clas
-		\item Apriori %asso
-		\item EM Algorithm %clu
-		\end{enumerate}
-    \column{0.5\textwidth}
-	    \begin{enumerate}[label=\bfseries\arabic*.]
-	    \setcounter{enumi}{5}
-	    \item PageRank
-	    \item \textbf{AdaBoost} %cla
-	    \item \textbf{k-nearest neighbor} %cla
-	    \item \textbf{Naive Bayes} %cla
-	    \item CART %clu
-	    \end{enumerate}
-\end{columns}
-\end{frame}
+%\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM \cite{dwh}}
+%Mehrere Klassen:
+%\begin{itemize}
+%\item One-versus-all
+%\item One-versus-one
+%\end{itemize}
+%
+%Overfitting
+%\begin{itemize}
+%\item Zu viele Trainingsdaten für eine Eigenschaft
+%\item Lösungen
+%\begin{itemize}
+%\item Cross-validation
+%\item Regularization
+%\end{itemize} 
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
+%%Bild mit Overfitting (F 65)
+%\begin{figure}
+%\scalebox{1.1}{\input{img/svm4.tikz}}
+%\caption{Overfitting: zu nahe}
+%\end{figure}
+%\end{frame}
 
 %\subsection{Regression~}
 %
@@ -581,7 +612,51 @@ Overfitting
 
 \subsection{Assoziation~}
 
-\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
+% erst erklären
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
+
+\begin{alertblock}{Jedem bekannt?}
+\begin{quote}
+Kunden, die diesen Artikel gekauft haben, kauften auch
+\end{quote}
+\end{alertblock}
+\pause
+\begin{description}
+%\item[Synonym:] Warenkorbanalyse
+\item[Gesucht:] Beziehungen (Regeln: $A \Rightarrow B$) zwischen Objekten
+\item[Benötigt:] Tranaktionsdatenbank (Einkaufshistory)
+%\item[Beispiel:] $\{\mbox{Eier}, \mbox{Mehl}\} \Rightarrow \{\mbox{Butter}\}$
+\end{description}
+%\vspace{-1em}
+\begin{columns}[onlytextwidth]
+ \small
+    \column{0.4\textwidth}
+    \begin{table}
+    	    \hspace{-2em}\begin{tabular}{c|l}
+    	    ID & Itemset\\ \hline
+    	    1 & Brot, Kaffee, Milch, Kuchen\\
+    	    2 & Kaffee, Milch, Kuchen\\
+    	    3 & Brot, Butter, Kaffee, Milch\\
+    	    4 & Milch, Kuchen\\
+    	    5 & Brot, Kuchen\\
+    	    6 & Brot
+    	    \end{tabular}
+    	    %\caption{Erkennungsraten der Algorithmen Stern / Galaxie \cite{o2009star}}
+    	    \end{table}
+    	    
+    \column{0.6\textwidth}
+    \vspace{-1.5em}
+	   \begin{description}
+		   \item[Support:] \{Kaffee, Milch\} $= 50\%$
+		   \item[Support:] \{Kaffee, Kuchen, Milch\} $\approx 33\%$
+		   \item[Support:] \{Kaffee, Milch\} $\Rightarrow$ \{Kuchen\} \\ $\approx 33\%$
+		   \item[Konfidenz:] \{Kaffee, Milch\} $\Rightarrow$ \{Kuchen\} \\= $\frac{33\%}{50\%} \approx 66\%$
+	   \end{description}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\insertsectionhead - \insertsubsectionhead - Grundbegriffe \cite{ester2000knowledge}}
 \begin{description}
 %\item bla
 \item[Items:] $I = \{i_1, \ldots, i_m\}$, ein Itemset $X \subseteq I$
@@ -593,49 +668,24 @@ Overfitting
 \item[Idee:] Finden von Regeln die einen Support und Konfidenz von einer gewissen Schwelle besitzen
 \end{description}
 \end{frame}
-	
-\subsubsection{Zuordnung}
-
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Zuordnung}
-\begin{columns}[onlytextwidth]
-    \column{0.5\textwidth}
-		\begin{enumerate}[label=\bfseries\arabic*.]
-		\item C4.5 und ähnliche %clu
-		\item k-means %clu
-		\item Suport Vector Machines %clas
-		\item \textbf{Apriori} %asso
-		\item EM Algorithm %clu
-		\end{enumerate}
-    \column{0.5\textwidth}
-	    \begin{enumerate}[label=\bfseries\arabic*.]
-	    \setcounter{enumi}{5}
-	    \item PageRank
-	    \item AdaBoost %cla
-	    \item k-nearest neighbor %cla
-	    \item Naive Bayes %cla
-	    \item CART %clu
-	    \end{enumerate}
-\end{columns}
-\end{frame}
-	
+		
 %\subsubsection{Apriori}\label{apriori}
 
 \section{Big Data~}
 
-\begin{frame}[fragile]{\insertsectionhead - Einleitung \cite{mayer2014big} \cite{wu2014data}}
+\begin{frame}{\insertsectionhead - Einleitung \cite{mayer2014big} \cite{wu2014data}}
 \begin{itemize}
 \item Himmelskartografie-Projekt Sloan Digital Sky Survey startete 2000\footnote{Teleskop mit 2,5m Spiegel am Apache Point Observatory -- New Mexico}
-\item Sammelte in der ersten Wochen mehr Daten als die gesamte Astronomie davor
-\pause
+\item Sammelte in der ersten Wochen mehr Daten als die gesamte Astronomie davor\\ \vspace{1em}
+
 \item Bis 2010 ca. 140 TB Daten gesammelt (ca. 35\% Abdeckung)\\
 		Sterne	$260\;562\;744$ und Galaxien $208\;478\;448$ \cite{sdss3_scope:Online}
-\item 2019 geplanter Nachfolger Large Synoptic Survey Telescope\footnote{Teleskop mit 8,4m Spiegel am El-Peñón-Gipfel des Cerro Pachón -- Chile}
-\pause
-\item Erzeugt alle 5 Tage 140 TB an Daten!
+\item 2019 geplanter Nachfolger Large Synoptic Survey Telescope\footnote{Teleskop mit 8,4m Spiegel am El-Peñón-Gipfel des Cerro Pachón -- Chile} \\ \vspace{1em}
+\item[$\Rightarrow$] \textbf{Erzeugt alle 5 Tage 140 TB an Daten!}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\insertsectionhead - Einleitung \cite{mayer2014big} \cite{wu2014data}}
+\begin{frame}{\insertsectionhead - Einleitung \cite{mayer2014big} \cite{wu2014data}}
 \begin{itemize}
 \item \enquote{Datenberge} wachsen immer weiter an
 \begin{itemize}
@@ -656,7 +706,7 @@ auf der Makroebene.} \cite{mayer2014big}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\insertsectionhead - HACE Theorem \cite{wu2014data}}
+\begin{frame}{\insertsectionhead - HACE Theorem \cite{wu2014data}}
 \begin{quote}
 Big Data starts with large-volume, \underline{\textbf{H}}eterogeneous, 
 \underline{\textbf{A}}utonomous sources with distributed and decentralized control, 
@@ -670,27 +720,34 @@ among data.
 \end{description}
 \end{frame}
 
-\begin{frame}[fragile]{\insertsectionhead - Herausforderungen für DM \cite{wu2014data}}
-%\begin{itemize} 
-%\item Skaliert mit den Daten nach dem HACE Theorem
-%\item 
-%\end{itemize}
-\begin{figure}
-\includegraphics[scale=0.7,trim={120 340 100 280},clip]{img/bigdata42.pdf}
+\begin{frame}{\insertsectionhead - Herausforderungen für DM \cite{wu2014data}}
+\begin{itemize} 
+\item Skalierung und Verarbeitung der Daten nach dem HACE Theorem
+\item Komplexität und Verarbeitungsdauer der Algorithmen
+\end{itemize}
+\vspace{-1em}
+\begin{figure} % zwei stichpunkte
+\includegraphics[scale=0.65,trim={120 340 100 280},clip]{img/bigdata42.pdf}
 \caption{Datamining mit Big Data \cite{wu2014data}}
 \label{bigdata}
 \end{figure}
 \end{frame}
 
-\section{Neue Algorithmen~}
+\section{Fazit~}
+\begin{frame}{\insertsectionhead}
+\begin{itemize}
+\item 
+\end{itemize}
+\end{frame}
 
-
-\begin{frame}[highlight]{Diskussion}
+\section*{Diskussion~}
+\begin{frame}[highlight]{\insertsectionhead}
 \centering
 Gibt es Fragen?
 \end{frame}
 
-\begin{frame}{Danke}
+\section*{Danke~}
+\begin{frame}{\insertsectionhead}
 \centering
 Vielen Dank für Ihre Aufmerksamkeit und Ihr Interesse.
 \end{frame}
