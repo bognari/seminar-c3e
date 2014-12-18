@@ -120,12 +120,12 @@
 \item Pro Bild mehre $10000$ Objekte
 \item Kepler z.B. hat 13.2m Objekte erkannt
 \item Benutzung von Klassifizierungsalgorithmen aus DM
+\item Je Objekt 9 Attribute (8 Isophotenformen, Leuchtkraft)
 \end{itemize}
 \begin{columns}[onlytextwidth]
     \column{0.4\textwidth}
-    	\vspace{-5.2em}
+    	\vspace{-9.5em}
 		\begin{itemize}
-		\item Je Objekt 9 Attribute (8 Isophotenformen, Leuchtkraft)
 		\item Ausgabewert \enquote{stellary}
 		\begin{itemize}
 		\item $0.0 - 0.1$ Galaxie
@@ -150,15 +150,8 @@
 
 \begin{frame}{\insertsectionhead - Einleitung \cite{ester2000knowledge}}
 \small
-\vspace{-1em}
-\begin{itemize} % beide folien zusammen
-\setlength{\itemsep}{-3pt}
-%\item Gehört zum Gebiet des Knowledge Discovery in Databases (KDD)
-\item Idee: \textbf{Wissen} durch \textbf{Daten}
-\item Einsatz in der Forschung, Vermarktung, Medizin, (Wetter)-Vorhersagen, 
-Betrugsaufklärung usw.
-\end{itemize}
-\vspace{-1em}
+
+\vspace{-0.8em}
 \begin{block}{Definition nach Fayyad \cite{fayyad1996data}}
 Knowledge Discovery in Databases describes the non-trivial process of 
 identifying valid, novel, potentially useful, and ultimately understandable 
@@ -171,6 +164,14 @@ patterns in data.
 \end{figure}
 \vspace{-3.5em}
 \end{block}
+\vspace{-1em}
+\begin{itemize} % beide folien zusammen
+\setlength{\itemsep}{-3pt}
+%\item Gehört zum Gebiet des Knowledge Discovery in Databases (KDD)
+\item Idee: \textbf{Wissen} durch \textbf{Daten}
+\item Einsatz in der Forschung, Vermarktung, Medizin, (Wetter)-Vorhersagen, 
+Betrugsaufklärung usw.
+\end{itemize}
 \end{frame}
 
 %\begin{frame}{\insertsectionhead - Einordnung}
@@ -217,7 +218,7 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 % zuordnungen zusammen fassen, vorstellen rot usw
 \small
 \vspace{-0.6em}
-\begin{block}{\vspace{-0.2em}Clustering\vspace{-0.2em}}
+\begin{block}{\vspace{-0.2em}\textbf{Clustering}\vspace{-0.2em}}
 \vspace{-1.5em}
 \begin{columns}[onlytextwidth]
     \column{0.5\textwidth}
@@ -244,7 +245,7 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{block}
 \pause
 \vspace{-0.4em}
-\begin{block}{\vspace{-0.2em}Classification\vspace{-0.2em}}
+\begin{block}{\vspace{-0.2em}\textbf{Classification}\vspace{-0.2em}}
 \vspace{-1.5em}
 \begin{columns}[onlytextwidth]
     \column{0.5\textwidth}
@@ -271,7 +272,7 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{block}
 \pause
 \vspace{-0.4em}
-\begin{block}{\vspace{-0.2em}Assoziation\vspace{-0.2em}}
+\begin{block}{\vspace{-0.2em}\textbf{Assoziation}\vspace{-0.2em}}
 \vspace{-1.5em}
 \begin{columns}[onlytextwidth]
     \column{0.5\textwidth}
@@ -305,25 +306,34 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \subsection{Clustering~}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
+\begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
 \begin{itemize}
 \item Einordnung von Objekten in unbekannten Klassen
 \item Finden der Funktion die Objekte gruppiert
 %\item Cluster haben unterschiedliche Formen, sind verschachtelt usw.
 \item Ähnlichkeit von Objekten durch eine Distanzfunktion ermitteln
 \end{itemize}
+    \column{0.5\textwidth}
+\begin{figure}
+%\vspace{3.3em}
+\scalebox{0.75}{\input{img/kmeans3.tikz}}
+\caption{Beispiel}
+\end{figure}
+\end{columns}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Cluster \cite{dwh}}
 \begin{itemize}
 \item Formen: sehr unterschiedlich
 \item Flach oder Hierarchisch
+\item Hard oder Soft - Clustering
 \item Anzahl von Clustern:
 \begin{itemize}
 \item Festgelegte Anzahl von $k$-Clustern
 \item Anzahl hängt von der Qualitätsgüte der Cluster ab
 \end{itemize} 
 \item Qualitätsgüte: nicht zu klein oder groß
-\item Hard oder Soft - Clustering
 \item Keine großen \enquote{Lücken} zwischen den Daten
 \item Cluster durch Heuristiken sonst zu großer Aufwand
 \end{itemize}
@@ -463,9 +473,11 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \subsection{Classification~}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Einleitung \cite{ester2000knowledge}}
+\begin{columns}[onlytextwidth]
+    \column{0.55\textwidth}
 \begin{itemize}
 \item Einordnung von Objekten in bekannten Klassen
-\item Trainingsdaten für Klassen $\Rightarrow$ Klassen bekannt
+\item Trainingsdaten für Klassen \\$\Rightarrow$ Klassen bekannt
 \item Finden der Funktion die Objekte möglichst genau zuordnet
 \item Teilaufgaben:
 \begin{itemize}
@@ -473,6 +485,14 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \item Generierung von Wissen 
 \end{itemize}
 \end{itemize}
+    \column{0.45\textwidth}
+\begin{figure}
+%\hspace{-2em}
+\scalebox{.6}{\input{img/svm2.tikz}}
+\caption{Beispiel}
+\end{figure}
+\end{columns}
+
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Training \cite{ester2000knowledge}}
@@ -484,6 +504,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus)
 \begin{itemize}
 \item Kategorische Attribute
 \item Nummerische Attribute
+\item Genauso wie beim Clustering
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -551,7 +572,7 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
 %Bild bei der die richtige Teilung gesucht wird (F 55)
 \begin{figure}
-\scalebox{.7}{\input{img/svm1.tikz}}
+\scalebox{.8}{\input{img/svm1.tikz}}
 \caption{Gesucht: die richtige Hyperplane}
 \end{figure}
 \end{frame}
@@ -725,7 +746,7 @@ among data.
 \item Skalierung und Verarbeitung der Daten nach dem HACE Theorem
 \item Komplexität und Verarbeitungsdauer der Algorithmen
 \end{itemize}
-\vspace{-1em}
+\vspace{-0.5em}
 \begin{figure} % zwei stichpunkte
 \includegraphics[scale=0.65,trim={120 340 100 280},clip]{img/bigdata42.pdf}
 \caption{Datamining mit Big Data \cite{wu2014data}}
