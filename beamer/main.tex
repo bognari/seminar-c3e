@@ -88,7 +88,7 @@
 
 % Titelseite
 \title{Seminar Technische Informatik}
-\subtitle{Top 10 algorithms in data mining}
+\subtitle{Top 10 Algorithms in Data Mining}
 \author{Stephan Mielke}
 \date{22.01.2015}
 
@@ -117,8 +117,8 @@
 \begin{itemize}
 \item Klassifizierung von Sternen mit $k$-nearest neighbor ($k$-nn)
 \item Manuelle Klassifizierung unmöglich  \cite{ester2000knowledge}
-\item Pro Bild mehre $10000$ Objekte
-\item Kepler z.B. hat 13.2m Objekte erkannt
+\item Pro Bild zehntausende Objekte
+\item Kepler hat z.\,B. 13.2 Millionen Objekte erkannt
 \item Benutzung von Klassifizierungsalgorithmen aus DM
 \item Je Objekt 9 Attribute (8 Isophotenformen, Leuchtkraft)
 \end{itemize}
@@ -127,10 +127,10 @@
     	\vspace{-9.5em}
 		\begin{itemize}
 		\item Ausgabewert \enquote{stellary}
-		\begin{itemize}
-		\item $0.0 - 0.1$ Galaxie
-		\item $0.9 - 1.0$ Stern
-		\end{itemize}
+		\begin{description}
+		\item[Galaxie:] $0.0$--$0.1$ 
+		\item[Stern:] $0.9$--$1.0$ 
+		\end{description}
 		\end{itemize}
     \column{0.6\textwidth}
 	    \begin{table}
@@ -141,7 +141,7 @@
 	    Artificial Neural Network & $75.82\%$ \\
 	    Support Vector Machines & $37,82\%$ \\
 	    \end{tabular}
-	    \caption{Erkennungsraten der Algorithmen Stern / Galaxie \cite{o2009star}}
+	    \caption{Erkennungsraten der Algorithmen Stern/Galaxie \cite{o2009star}}
 	    \end{table}
 \end{columns}
 \end{frame}
@@ -199,19 +199,19 @@ Betrugsaufklärung usw.
 %\end{frame}
 
 
-\subsection{Top 10 algorithms in data mining~}
+\subsection{Top 10 Algorithms in Data Mining~}
 \begin{frame}{\insertsectionhead - \insertsubsectionhead \cite{wu2008top}}
 \begin{itemize}
 \setlength{\itemsep}{10pt}
 \item Anlass: IEEE International Conference on Data Mining
 \item Datum: Dezember 2006
-\item Erstellung: Jeder ACM KDD Innovation Award oder IEEE ICDM Research 
-Contributions Award Preisträger nominierte 10 Algorithmen
-\item Nur Nominierte mit $\geq$ 50 Referenzierungen in \emph{Google Scholar}
+\item Erstellung: Jeder Preisträger eines ACM KDD Innovation Awards oder eines IEEE ICDM Research 
+Contributions Awards nominierte 10 Algorithmen
+\item Nur Nominierte mit mind. 50 Referenzierungen in \emph{Google Scholar}
 \item 
 {\small\url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}}
 \item Per Abstimmung finden der Top 10
-\item Das Paper: Top 10 algorithms in data mining  \cite{wu2008top}
+\item Das Paper: \enquote{Top 10 Algorithms in Data Mining} \cite{wu2008top}
 \end{itemize}
 \end{frame}
 
@@ -330,15 +330,15 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \setlength{\itemsep}{10pt}
 \item Formen: sehr unterschiedlich
 \item Flach oder Hierarchisch
-\item Hard oder Soft - Clustering
+\item Hard oder Soft-Clustering
 \item Anzahl von Clustern:
 \begin{itemize}
 \item Festgelegte Anzahl von $k$-Clustern
 \item Anzahl hängt von der Qualitätsgüte der Cluster ab
 \end{itemize} 
-\item Qualitätsgüte: nicht zu klein oder groß
+\item Qualitätsgüte: nicht zu klein oder zu groß
 \item Keine großen \enquote{Lücken} zwischen den Daten
-\item Cluster durch Heuristiken sonst zu großer Aufwand
+\item Clustering durch Heuristiken, sonst zu großer Aufwand
 \end{itemize}
 \end{frame}
 
@@ -346,7 +346,7 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \begin{itemize} % ToDo folien mergen
 \item Menge von Objekten $O = \{o_1, o_2, \ldots, o_n\}$
 \item Jedes Objekt $x$ hat $x_i$ Attribute
-\item Es muss gelten 1.-3., für Metrik 4.:
+\item Generell müssen (1)--(3) gelten, für eine Metrik außerdem (4):
 \begin{align}
 \dist(o_1, o_2) &= d \in R^{n\geq 0}\\
 \dist(o_1, o_2) &= 0 \mbox{ genau dann wenn } o_1 = o_2\\
@@ -354,13 +354,13 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3)
 \end{align}
 \item Attributarten und jeweilige beispielhafte Distanzfunktionen:
-\begin{itemize}  
-\item Nummerisch $\dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
-\item Kategorisch ~$\dist(x,y) = \sum\limits_{i=1}^{n}\delta(x_i, y_i)$,~~~~~ $\delta(x_i, y_i) = \begin{cases}
+\begin{description}  
+\item[Nummerisch:] $\dist(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$
+\item[Kategorisch:] $\dist(x,y) = \sum\limits_{i=1}^{n}\delta(x_i, y_i)$,~~~~~ $\delta(x_i, y_i) = \begin{cases}
 0  ,x_i = y_i\\
 1  ,x_i \neq y_i
 \end{cases} $
-\end{itemize}
+\end{description}
 %\item Manchmal auch Ähnlichkeitsfunktion genannt $\Rightarrow$ Interpretation anders herum.
 \end{itemize}
 \end{frame}
@@ -399,15 +399,15 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \item Clustering von Web-Sessions zur Bestimmung von Benutzergruppen
 \item Datenquelle: Logfile eines Webservers
 \item Eintrag: IP, User-ID, Timestamp, URL, \ldots
-\item Einträge werden nach Session gruppiert, nach einem Zeitfenster
+\item Einträge werden nach Session gruppiert, welche durch Zeitfenster gebildet werden
 \item Session: IP, User-ID, Liste von URLs
-\item URLs werden geclustert, z.B.: Distanzfunktion für endliche Mengen
+\item URLs werden geclustert, z.\,B.: Distanzfunktion für endliche Mengen
 \item Wissen:
 \begin{itemize}
-\item Benutzergruppen / Benutzerprofilen, für Marketingstrategien 
+\item Benutzergruppen/Benutzerprofile für Marketingstrategien 
 \item URLs sind durch Interessen verbunden, Optimierung für Zugriffsgewohnheiten 
 \end{itemize}
-\item Ein Sozialmediabutton kann auch die nötigen Informationen liefern.
+\item Ein Sozialmedia-Button kann auch die nötigen Informationen liefern
 \end{itemize}
 \end{frame}
 
@@ -420,12 +420,12 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \item Bekannte Anzahl von $k$ Clustern
 \item Daten als Vektoren
 \item Idee: Minimiert den Abstand vom Clusterschwerpunkt zu den Daten
-\item Cluster ist Definiert als:
+\item Cluster ist definiert als:
 \begin{itemize}
 \item $A = \{d_l, \ldots, d_m\}$, $A$ ist ein Cluster und $d_i$ Element 
 \item $\mu(A) = \frac{l}{m}\sum\limits_{i=l}^{m}{d_i}$ ist Schwerpunkt
 \end{itemize}
-\item Qualität: gut wenn $\RSS(\ldots)$ minimal ist
+\item Qualität: gut für minimales $\RSS(\ldots)$
 \begin{description}
 \item[Cluster:] $\RSS\,(A) = \sum\limits_{i=l}^{m}\big\|d_i - \mu(A)\big\|^2$
 \item[Gesamt:] $\RSS\,(A_l, \ldots, A_k) = \sum\limits_{j=l}^{k}\,\RSS\,(A_j)$
@@ -434,16 +434,16 @@ Contributions Award Preisträger nominierte 10 Algorithmen
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means \cite{dwh}}
-Der $k$-means Algorithmus (Lloyd's Algorithmus)
+Der $k$-means Algorithmus (Lloyd's Algorithmus):
 \vspace{1em}
 \begin{enumerate}[label=\bfseries\arabic*.]
 \setlength{\itemsep}{10pt}
 \item Selektiere zufällig $k$ Schwerpunkte als Startwert
 \item Erstelle $k$ leere Cluster
-\item Weise jedem Cluser einen Schwerpunkt zu
-\item Weise jedem Datenvektor den den Cluster mit dem nächstem Schwerpunkt zu
+\item Weise jedem Cluster einen Schwerpunkt zu
+\item Weise jedem Datenvektor den Cluster mit dem nächstem Schwerpunkt zu
 \item Berechne den Schwerpunkt jedes Clusters neu
-\item Teste ob die Qualität des Clusterings ausreicht, sonst gehe zu 2.
+\item Teste, ob die Qualität des Clusterings ausreicht, sonst gehe zu 2.
 \end{enumerate}
 \end{frame}
 
@@ -528,7 +528,7 @@ ID 	& Alter	& Autotyp	& Risikoklasse \\\hline \hline
 4	& 68	& Familie	& Niedrig\\
 5	& 32	& LKW		& Niedrig \\\hline
 \end{tabular}
-\caption{Beispiele aus Knowledge discovery in databases: Techniken und Anwendungen \cite{ester2000knowledge}}
+\caption{Beispiele aus Knowledge Discovery in Databases: Techniken und Anwendungen \cite{ester2000knowledge}}
 \end{table}
 \pause
 Das gesuchte Wissen
@@ -552,7 +552,7 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \item[Anwendung:] Immer dann, wenn die Klassen bekannt sind \vspace{0.6em}
 \begin{itemize}
 \setlength{\itemsep}{5pt}
-\item Unterscheidung von Stern / Galaxie
+\item Unterscheidung von Stern/Galaxie
 \item Sterne Einordnen
 \item Zuordnung von Risikogruppen
 \item Medizinforschung
@@ -574,7 +574,7 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \item[Training:]
 \begin{itemize}
 \item Hyperplane mit maximalem Abstand zu allen Trainingsvektoren
-\item Hyperplane Begrenzungsobjekte sind Supportvektoren
+\item Hyperplane-Begrenzungsobjekte sind Supportvektoren
 \end{itemize} 
 \item[Differenzfunktion:] $\delta(o_1, o_2)$ ist ähnlich zum Clustering
 \end{description}
@@ -650,14 +650,14 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 
 \begin{alertblock}{Jedem bekannt?}
 \begin{quote}
-Kunden, die diesen Artikel gekauft haben, kauften auch
+Kunden, die diesen Artikel gekauft haben, kauften auch\ldots
 \end{quote}
 \end{alertblock}
 \pause
 \begin{description}
 %\item[Synonym:] Warenkorbanalyse
 \item[Gesucht:] Beziehungen (Regeln: $A \Rightarrow B$) zwischen Objekten
-\item[Benötigt:] Tranaktionsdatenbank (Einkaufshistory)
+\item[Benötigt:] Transaktionsdatenbank (Einkauf-History)
 %\item[Beispiel:] $\{\mbox{Eier}, \mbox{Mehl}\} \Rightarrow \{\mbox{Butter}\}$
 \end{description}
 \pause
@@ -698,7 +698,7 @@ Kunden, die diesen Artikel gekauft haben, kauften auch
 \item[Assoziationsregel:] $R_i = X \Rightarrow Y$ es gilt: $X, Y \subseteq I$ und $X \cap Y = \emptyset$ 
 \item[Support der Regel:] $\delta(R_i, D) = \delta(X \cup Y, D)$: Anteil (\%)
 \item[Konfidenz der Regel:] $\phi(R_i, D) = \delta(Y, \{T_i\;|\;\forall T_i \in D \wedge X \subseteq T_i\})$
-\item[Idee:] Finden von Regeln die einen Support und Konfidenz von einer gewissen Schwelle besitzen
+\item[Idee:] Finden von Regeln, die einen Support und Konfidenz von einer gewissen Schwelle besitzen
 \end{description}
 \end{frame}
 		
@@ -708,12 +708,12 @@ Kunden, die diesen Artikel gekauft haben, kauften auch
 
 \begin{frame}{\insertsectionhead - Einleitung \cite{mayer2014big} \cite{wu2014data}}
 \begin{itemize}
-\item Himmelskartografie-Projekt Sloan Digital Sky Survey startete 2000\footnote{Teleskop mit 2,5m Spiegel am Apache Point Observatory -- New Mexico}
+\item Himmelskartografie-Projekt Sloan Digital Sky Survey\footnote{Teleskop mit 2,5m Spiegel am Apache Point Observatory, New Mexico} startete 2000
 \item Sammelte in der ersten Wochen mehr Daten als die gesamte Astronomie davor\\ \vspace{1em}
 
 \item Bis 2010 ca. 140 TB Daten gesammelt (ca. 35\% Abdeckung)\\
 		Sterne	$260\;562\;744$ und Galaxien $208\;478\;448$ \cite{sdss3_scope:Online}
-\item 2019 geplanter Nachfolger Large Synoptic Survey Telescope\footnote{Teleskop mit 8,4m Spiegel am El-Peñón-Gipfel des Cerro Pachón -- Chile} \\ \vspace{1em}
+\item 2019 geplanter Nachfolger Large Synoptic Survey Telescope\footnote{Teleskop mit 8,4m Spiegel am El-Peñón-Gipfel des Cerro Pachón, Chile} \\ \vspace{1em}
 \item[$\Rightarrow$] \textbf{Erzeugt alle 5 Tage 140 TB an Daten!}
 \end{itemize}
 \end{frame}
@@ -728,11 +728,11 @@ Kunden, die diesen Artikel gekauft haben, kauften auch
 \item Verarbeitung riesiger Datenmengen zur Gewinnung von Wahrscheinlichkeiten
 zu genaueren Vorhersagen
 \begin{itemize}
-\item Das eine E-Mail Spam ist
-\item Das \enquote{dei} bei der Autokorrektur \enquote{die} heißt
-\item Bewegungen von Menschen, ob dies eine Gefahr für selbstlenkende Fahrzeuge sind
+\item Dass eine E-Mail Spam ist
+\item Dass \enquote{dei} bei der Autokorrektur \enquote{die} heißt
+\item Ob eine Bewegung eines Menschen eine Gefahr für selbstlenkende Fahrzeuge ist
 \end{itemize}
-\item Die Erkenntnis ist nicht das \textbf{WARUM} sondern das \textbf{WAS} 
+\item Die Erkenntnis ist nicht das \textbf{Warum} sondern das \textbf{Was} 
 \item \enquote{Was wir an
 Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis
 auf der Makroebene.} \cite{mayer2014big}
@@ -771,7 +771,7 @@ among data.
 \begin{itemize}
 \item Data Mining zeigt Zusammenhänge in Datenbeständen und erzeugt Wissen
 \item Vielfach genutzt in der Forschung, Entwicklung und im Alltag
-\item Jeder kommt mindestens ein mal am Tag mit DM in Kontakt \\ Stichwort: Google, Spamfilter, Versicherungen, \ldots
+\item Jeder kommt mindestens einmal am Tag mit DM in Kontakt \\ Stichwort: Google, Spamfilter, Versicherungen, \ldots
 \item Big Data verändert unser Verständnis von Wissensgewinnung, \\da nicht nur Stichproblem existieren
 \item Verdrängt das \enquote{Bauchgefühl} und stützt sich auf Fakten \\ Stichwort: Analyse von \enquote{Datenbergen}
 \item \enquote{Was wir an Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis
