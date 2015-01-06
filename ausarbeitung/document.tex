@@ -579,6 +579,9 @@ pdfkeywords={Data Mining, Big Data, Clustering, Clustering, Assoziation, Support
   stringstyle=\color{tuVioletMedium},    % string literal style
 }
 
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\RSS}{RSS}
+
 \begin{document}
 %
 % paper title
@@ -765,7 +768,7 @@ ein Quasar, eine Störung des Sensorchips usw.
 \label{fig:hs-2004-07-a-pdf}
 \end{figure}
 
-Die Unterscheidung ob ein Objekt ein Stern, eine Galaxie oder etwas Unbekanntes ist, lässt sich
+\IEEEPARstart{D}{ie} Unterscheidung ob ein Objekt ein Stern, eine Galaxie oder etwas Unbekanntes ist, lässt sich
 mittels Data Mining Techniken Automatisieren. In dem Paper \cite{o2009star} von Peter J. O’Keefe und weiteren
 wird dieser Vorgehen beschrieben. Jedem sichtbarem Objekt werden 9 Attribute zugeordnet, die aus den 
 $i$-Band Versionen der Aufnahmen extrahiert werden. Die Attribute bestehen aus der Leuchtkraft und 8 weiteren Lichteigenschaften
@@ -786,7 +789,7 @@ Support Vector Machines & $37,82\%$
 \end{tabular}
 \end{table}
 
-Das Paper \cite{wu2008top} von Xindong Wu und weiteren mit dem Titel \emph{Top 10 Algorithms in Data Mining} wurde 
+\IEEEPARstart{D}{as} Paper \cite{wu2008top} von Xindong Wu und weiteren mit dem Titel \emph{Top 10 Algorithms in Data Mining} wurde 
 im Dezember 2006 für die \emph{IEEE International Conference on Data Mining} erstellt, behandelt die zum damaligen 
 Zeitpunkt wichtigsten Algorithmen fürs Data Mining und dient als Quelle für das gesamte Paper. Die Auswahl der einzelnen Algorithmen erfolge, indem jeder 
 Preisträger eines \emph{ACM KDD Innovation Awards} oder eines \emph{IEEE ICDM Research Contributions Awards} jeweils 
@@ -798,18 +801,18 @@ zu finden. In der Tabelle \ref{top10} werden die 10 besten Algorithmen genannt.
 \centering
 \label{top10}
 \caption{Top 10 Algorithmen \cite{wu2008top}}
-\begin{tabular}{l|l}
-Name & Art\\ \hline
-~1. C4.5 & Classification\\
-~2. k-means & Clustering\\
-~3. Suport Vector Machines & Classification\\
-~4. Apriori & Association\\
-~5. EM Algorithm & Classification\\
-~6. PageRank & Link Mining\\
-~7. AdaBoost & Classification\\
-~8. k-nearest neighbor & Classification\\
-~9. Naive Bayes & Classification\\
-10. CART & Classification
+\begin{tabular}{r|l|l}
+Platz & Name & Art\\ \hline
+1.& C4.5 & Classification\\
+2.& k-means & Clustering\\
+3.& Suport Vector Machines & Classification\\
+4.& Apriori & Association\\
+5.& EM Algorithm & Classification\\
+6.& PageRank & Link Mining\\
+7.& AdaBoost & Classification\\
+8.& k-nearest neighbor & Classification\\
+9.& Naive Bayes & Classification\\
+10.& CART & Classification
 \end{tabular}
 \end{table}
 
@@ -817,7 +820,7 @@ Name & Art\\ \hline
 
 \IEEEPARstart{D}{er} Begriff Data Mining wird im Deutschen für den gesamten Prozess des \emph{Knowledge Discovery in Databases} (KDD) 
 verwendet. Dies ist jedoch falsch, da Data Mining nur einen Teil des KDD einnimmt. Dies ist in Abbildung \ref{kdd} zu sehen. 
-Für KDD werden die Daten homogenisiert und dann mittels eines Data Mining Algorithmuses verarbeitet, sodass \enquote{Wissen} 
+Für KDD werden zuerst die Daten homogenisiert und dann mittels eines Data Mining Algorithmus verarbeitet, sodass \enquote{Wissen} 
 entsteht. 
 
  \begin{figure}[!th]
@@ -826,15 +829,97 @@ entsteht.
   \caption{KDD nach Fayyad \cite{fayyad1996data}}
   \label{kdd}
   \end{figure}
-  
-Die Idee von KKD ist \emph{Wissen} durch \emph{Daten} und wird nach Fayyad \cite{fayyad1996data} wie folgt definiert: \begin{quote}
+\IEEEPARstart{D}{ata Mining} wird in der Forschung, Vermarktung, Medizin, (Wetter-) Vorhersagen,
+Betrugsaufklärung usw. eingesetzt. Die Idee von KKD ist \emph{Wissen} durch \emph{Daten} und wird nach Fayyad \cite{fayyad1996data} wie folgt definiert: \begin{quote}
 Knowledge Discovery in Databases describes the non-trivial process of identifying valid, novel, potentially useful, and ultimately understandable
 Articles patterns in data.
 \end{quote} 
-Data Mining wird in der Forschung, Vermarktung, Medizin, (Wetter-) Vorhersagen,
-Betrugsaufklärung usw. eingesetzt.
  
- \subsection{Clustering}
+ \subsection{Clustering-Algorithmen}
+ \IEEEPARstart{D}{ie} Kategorie der Clustering-Algorithmen beschreibt Algorithmen, 
+ die Daten unbekannten Klassen, den so genannten \emph{Clustern} (Abschnitt \ref{cluster}), zu ordnen. Damit ist die Grundidee 
+ das Finden eines Algorithmus, der Objekte gruppiert. Diese Gruppierung wird mit Hilfe
+ einer \emph{Distanzfunktion} (Abschnitt \ref{distanzfunktion}) erreicht, die die Ähnlichkeit zwischen Objekten numerisch ermittelt.
+ Alle Clustering-Algorithmen arbeiten mit Heuristiken, da das Clustering NP-Vollständig ist.
+
+\subsubsection{Cluster} \label{cluster}
+\IEEEPARstart{D}{ie} Gestalt und Form der Cluster ist in den einzelnen Algorithmen sehr 
+unterschiedlich. So gibt es Algorithmen bei denen die Cluster hierarchisch verschachtelt
+sind, das so genannte Flache- oder Hierarchische-Clustering. Es existiert ebenfalls das Hard- 
+und Soft-Clustering, bei denen Objekte zu einem oder mehreren von einander unabhängigen Clustern 
+zu geordnet sind. Bei allen Algorithmen ist die Anzahl der Cluster begrenzt durch direkte Festlegung 
+der Anzahl oder durch eine Angegebene ausreichende Qualität der einzelnen Cluster. Die Cluster-Qualität
+ist ebenfalls nie genau definiert, jedoch kann man diese recht ungenau beschreiben durch, Anzahl der 
+einzelnen Objekte die einem Cluster angehören, Größe des maximalen Unähnlichkeit eines Objektes zu seinem Cluster oder
+das vermeiden von \emph{Lücken} im Cluster. In Abbildung \ref{p4 k-means} sind beispielhaft zwei Cluster (rot / blau) 
+und die Clusterzentren (schwarz) des k-means Algorithmus (Abschnitt \ref{k-means}) gezeigt. Vergleiche das Buch \cite{ester2000knowledge} 
+und die Vorlesung \cite{dwh}.
+
+
+\subsubsection{Distanzfunktion} \label{distanzfunktion}
+\IEEEPARstart{D}{ie} Distanzfunktion bestimmt den Abstandsvektor zwischen zwei Objekten. Statt einer Distanzfunktion
+wird manchmal auch eine Ähnlichkeits- bzw. Simulierungsfunktion benutzt, jedoch sind in diesem
+Fall die Werte invertiert zu betrachten. Der Gebrauch von Distanzfunktionen hat sich jedoch durch
+gesetzt, da alle Rechnungen nummerisch stabiler sind, weil bei der Bedingung \ref{dist2} mit $\vec{0}$ 
+statt $\vec{\infty}$ gerechnet wird. Jedes Objekt $o_i = (a_1, \ldots, a_n)$ besteht aus $n$ Attributen, jedes 
+Attribut ist entweder ein Nummerisches oder Kategorisches-Attribut und besitzt für sich selbst 
+spezielle Distanzfunktionen. Die Bedingungen \ref{dist1} -- \ref{dist3} müssen für jede 
+Distanzfunktion gelten. Wenn die Bedingung \ref{dist4} gilt, handelt es sich um eine Metrik.
+\begin{align}
+\dist(o_1, o_2) &= d \in R^{n\geq 0} \label{dist1}\\
+\dist(o_1, o_2) &= 0 \Leftrightarrow o_1 = o_2 \label{dist2}\\
+\dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)} \label{dist3}\\
+\dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{dist4}
+\end{align} 
+
+\IEEEPARstart{F}{ür} Nummerische-Attribute existieren die folgenden Distanzfunktionen:
+\begin{align}
+\intertext{Euklidische-Distanz:}
+\dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\\
+\intertext{Manhattan-Distanz:}
+\dist(x,y) &= |x_1 - y_1| + \ldots + |x_n - y_n|\\
+\intertext{Maximum-Metrik:} 
+\dist(x,y) &= \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)\\
+\intertext{Alg. $L_p$-Metrik:}
+\dist(x,y) &= \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}
+\end{align}
+
+\IEEEPARstart{F}{ür} Kategorische-Attribute existiert die die Summe der Unterschiede als Distanzfunktion, 
+die wie folgt definiert ist:
+ \begin{align}
+ \dist(x,y) &= \sum\limits_{i=1}^{a}\delta(x_i, y_i)\\
+ \delta(x_i, y_i) &= \begin{cases}
+ 0 \mbox{ wenn } (x_i = y_i)\\
+ 1 \mbox{ wenn } (x_i \neq y_i)
+ \end{cases} 
+ \end{align} 
+
+\subsubsection{k-means} \label{k-means}
+xftjzjku
+\begin{figure}
+\centering
+\label{p1-3 k-means}
+\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans1.tikz}}
+\caption{Phase 1--3 k-means}
+\end{figure}
+\begin{figure}
+\centering
+\label{p4 k-means}
+\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans3.tikz}}
+\caption{Phase 4 k-means}
+\end{figure}
+\begin{figure}
+\centering
+\label{p5 k-means}
+\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans2.tikz}}
+\caption{Phase 5 k-means}
+\end{figure}
+\begin{figure}
+\centering
+\label{p6 k-means}
+\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans4.tikz}}
+\caption{Phase 6 und 2 k-means}
+\end{figure}
  \subsection{Classification}
  \subsection{Assoziation}
  \section{Big Data}
