@@ -307,7 +307,7 @@
 
 % *** SUBFIGURE PACKAGES ***
 %\ifCLASSOPTIONcompsoc
-%\usepackage[tight,normalsize,sf,SF]{subfigure}
+\usepackage[tight,normalsize,sf,SF]{subfigure}
 %\else
 %\usepackage[tight,footnotesize]{subfigure}
 %\fi
@@ -325,6 +325,7 @@
 
 %\ifCLASSOPTIONcompsoc
 %  \usepackage[caption=false]{caption}
+%  \usepackage{caption}
 %  \usepackage[font=normalsize,labelfont=sf,textfont=sf]{subfig}
 %\else
 %  \usepackage[caption=false]{caption}
@@ -340,7 +341,7 @@
 % (recommended due to many improvements over 1.2) of subfig.sty supports
 % the caption=false option directly:
 %\ifCLASSOPTIONcompsoc
-%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+% \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
 %\else
 %  \usepackage[caption=false,font=footnotesize]{subfig}
 %\fi
@@ -565,7 +566,6 @@ pdfkeywords={Data Mining, Big Data, Clustering, Clustering, Assoziation, Support
 
 \usepackage[ngerman]{babel}
 
-\usepackage{pxfonts}
 \usepackage{listings}
 \lstset{ %
   backgroundcolor=\color{white},         % choose the background color
@@ -843,6 +843,7 @@ Articles patterns in data.
  Alle Clustering-Algorithmen arbeiten mit Heuristiken, da das Clustering NP-Vollständig ist.
 
 \subsubsection{Cluster} \label{cluster}
+
 \IEEEPARstart{D}{ie} Gestalt und Form der Cluster ist in den einzelnen Algorithmen sehr 
 unterschiedlich. So gibt es Algorithmen bei denen die Cluster hierarchisch verschachtelt
 sind, das so genannte Flache- oder Hierarchische-Clustering. Es existiert ebenfalls das Hard- 
@@ -854,6 +855,7 @@ einzelnen Objekte die einem Cluster angehören, Größe des maximalen Unähnlich
 das vermeiden von \emph{Lücken} im Cluster. In Abbildung \ref{p4 k-means} sind beispielhaft zwei Cluster (rot / blau) 
 und die Clusterzentren (schwarz) des k-means Algorithmus (Abschnitt \ref{k-means}) gezeigt. Vergleiche das Buch \cite{ester2000knowledge} 
 und die Vorlesung \cite{dwh}.
+
 
 
 \subsubsection{Distanzfunktion} \label{distanzfunktion}
@@ -874,18 +876,18 @@ Distanzfunktion gelten. Wenn die Bedingung \ref{dist4} gilt, handelt es sich um 
 
 \IEEEPARstart{F}{ür} Nummerische-Attribute existieren die folgenden Distanzfunktionen:
 \begin{align}
-\intertext{Euklidische-Distanz:}
+\intertext{Euklidische-Distanz:\vspace{-1em}}
 \dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\\
-\intertext{Manhattan-Distanz:}
+\intertext{Manhattan-Distanz:\vspace{-1em}}
 \dist(x,y) &= |x_1 - y_1| + \ldots + |x_n - y_n|\\
-\intertext{Maximum-Metrik:} 
+\intertext{Maximum-Metrik:\vspace{-1em}} 
 \dist(x,y) &= \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)\\
-\intertext{Alg. $L_p$-Metrik:}
+\intertext{Alg. $L_p$-Metrik:\vspace{-1em}}
 \dist(x,y) &= \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}
 \end{align}
 
-\IEEEPARstart{F}{ür} Kategorische-Attribute existiert die die Summe der Unterschiede als Distanzfunktion, 
-die wie folgt definiert ist:
+\IEEEPARstart{F}{ür} Kategorische-Attribute existiert die die Summe 
+der Unterschiede als Distanzfunktion, die wie folgt definiert ist:
  \begin{align}
  \dist(x,y) &= \sum\limits_{i=1}^{a}\delta(x_i, y_i)\\
  \delta(x_i, y_i) &= \begin{cases}
@@ -895,31 +897,40 @@ die wie folgt definiert ist:
  \end{align} 
 
 \subsubsection{k-means} \label{k-means}
-xftjzjku
-\begin{figure}
+\IEEEPARstart{D}{er} k-means ,oder auch Lloyd's Algorithmus genannt, gehört zu den Clustering-Algorithmen und basiert auf 
+einem harten flachen Clustering. Die Objekte $o_i$ werden als ein Vektor aus dem 
+Vektorraum $R^n$ interpretiert. Ein Cluster $A = \{o_1, \ldots o_i\}$ ist eine Menge
+von Objekten $o_i$ und dessen Zentrum ist wie folgt definiert: 
+$\mu(A) = \frac{l}{m}\sum\limits_{i=l}^{m}o_i$. Ein Cluster besitzt eine hohe Güte, 
+wenn $\RSS\,(A) = \sum\limits_{i=l}^{m}\big\|d_i - \mu(A)\big\|^2$ minimal ist. 
+Das gesamte Clustering ist optimal wenn $\RSS\,(A_l, \ldots, A_k) = \sum\limits_{j=l}^{k}\,\RSS\,(A_j)$ minimal ist. 
+
+\begin{figure}[!h]
 \centering
-\label{p1-3 k-means}
-\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans1.tikz}}
-\caption{Phase 1--3 k-means}
+\subfigure[Phase 1--3]{\scalebox{0.5}{\input{../beamer/img/kmeans1.tikz}}\label{p1-3 k-means}}
+\subfigure[Phase 4]{\scalebox{0.5}{\input{../beamer/img/kmeans3.tikz}}\label{p4 k-means}}
+\caption{k-meains}
+\label{k-meains 1--4}
 \end{figure}
-\begin{figure}
+
+Der Algorithmus ist wie folgt:
+\begin{enumerate}
+\item Selektiere zufällig $k$ Zentren als Startwert
+\item Erstelle $k$ leere Cluster
+\item Weise jedem Cluster einen Zentren zu (Siehe Abbildung \ref{p1-3 k-means})
+\item Weise jedem Datenvektor den Cluster mit dem nächstem Zentrum zu (Siehe Abbildung \ref{p4 k-means})
+\item Berechne den Zentrum jedes Clusters neu (Siehe Abbildung \ref{p5 k-means})
+\item Teste, ob die Qualität des Clusterings ausreicht, sonst gehe zu 2. (Siehe Abbildung \ref{p6 k-means})
+\end{enumerate}
+
+\begin{figure}[!h]
 \centering
-\label{p4 k-means}
-\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans3.tikz}}
-\caption{Phase 4 k-means}
-\end{figure}
-\begin{figure}
-\centering
-\label{p5 k-means}
-\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans2.tikz}}
-\caption{Phase 5 k-means}
-\end{figure}
-\begin{figure}
-\centering
-\label{p6 k-means}
-\hspace{-4em}\scalebox{1.1}{\input{../beamer/img/kmeans4.tikz}}
-\caption{Phase 6 und 2 k-means}
-\end{figure}
+\subfigure[Phase 5]{\scalebox{0.5}{\input{../beamer/img/kmeans2.tikz}}\label{p5 k-means}}
+\subfigure[Phase 6]{\scalebox{0.5}{\input{../beamer/img/kmeans4.tikz}}\label{p6 k-means}}
+\caption{k-meains}
+\label{k-meains 5--6}
+\end{figure} 
+
  \subsection{Classification}
  \subsection{Assoziation}
  \section{Big Data}
