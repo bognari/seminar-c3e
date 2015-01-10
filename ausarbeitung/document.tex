@@ -45,7 +45,7 @@
 \ifCLASSINFOpdf
   \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
+  \graphicspath{{/beamer/}{../beamer/img/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
   \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
@@ -56,7 +56,7 @@
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
   % driver is specified.
-  % \usepackage[dvips]{graphicx}
+  \usepackage[dvips]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../eps/}}
   % and their extensions so you won't have to specify these with
@@ -446,11 +446,11 @@
 
 % NOTE: PDF thumbnail features are not required in IEEE papers
 %       and their use requires extra complexity and work.
-%\ifCLASSINFOpdf
-%  \usepackage[pdftex]{thumbpdf}
-%\else
-%  \usepackage[dvips]{thumbpdf}
-%\fi
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{thumbpdf}
+\else
+  \usepackage[dvips]{thumbpdf}
+\fi
 % thumbpdf.sty and its companion Perl utility were written by Heiko Oberdiek.
 % It allows the user a way to produce PDF documents that contain fancy
 % thumbnail images of each of the pages (which tools like acrobat reader can
@@ -673,7 +673,9 @@ pdfkeywords={Data Mining, Big Data, Clustering, Clustering, Assoziation, Support
 \begin{abstract}
 %\boldmath
 In diesem Paper werden die wichtigsten 10 Datamining Algorithmen aus dem Paper \cite{wu2008top} 
-von Xindong Wu vorgestellt sowie eingeordnet. Anschließend wird auf Big Data sowie die Verbindung zwischen 
+von Xindong Wu vorgestellt sowie eingeordnet. Zu diesem Zweck wird auf die Kategorie der Cluster-,
+Classification- und Assoziation-Algorithmen eingegangen. Hierbei werden der k-means und der
+SVM näher vorgestellt. Anschließend wird auf Big Data sowie die Verbindung zwischen 
 Datamining und Big Data eingegangen.
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -864,38 +866,40 @@ wird manchmal auch eine Ähnlichkeits- bzw. Simulierungsfunktion benutzt, jedoch
 Fall die Werte invertiert zu betrachten. Der Gebrauch von Distanzfunktionen hat sich jedoch durch
 gesetzt, da alle Rechnungen nummerisch stabiler sind, weil bei der Bedingung \ref{dist2} mit $\vec{0}$ 
 statt $\vec{\infty}$ gerechnet wird. Jedes Objekt $o_i = (a_1, \ldots, a_n)$ besteht aus $n$ Attributen, jedes 
-Attribut ist entweder ein Nummerisches oder Kategorisches-Attribut und besitzt für sich selbst 
-spezielle Distanzfunktionen. Die Bedingungen \ref{dist1} -- \ref{dist3} müssen für jede 
-Distanzfunktion gelten. Wenn die Bedingung \ref{dist4} gilt, handelt es sich um eine Metrik.
+Attribut ist ein Nummerisches oder Kategorisches- oder anders artiges-Attribut und besitzt für sich selbst 
+spezielle Distanzfunktionen. Die Bedingungen \ref{bed1} -- \ref{bed3} müssen für jede 
+Distanzfunktion gelten. Wenn die Bedingung \ref{bed4} gilt, handelt es sich um eine Metrik.
 \begin{align}
-\dist(o_1, o_2) &= d \in R^{n\geq 0} \label{dist1}\\
-\dist(o_1, o_2) &= 0 \Leftrightarrow o_1 = o_2 \label{dist2}\\
-\dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)} \label{dist3}\\
-\dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{dist4}
+\dist(o_1, o_2) &= d \in R^{n\geq 0} \label{bed1}\\
+\dist(o_1, o_2) &= 0 \Leftrightarrow o_1 = o_2 \label{bed2}\\
+\dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)} \label{bed3}\\
+\dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{bed4}
 \end{align} 
 
-\IEEEPARstart{F}{ür} Nummerische-Attribute existieren die folgenden Distanzfunktionen:
+\IEEEPARstart{F}{ür} Nummerische-Attribute existieren die beispielhaften Distanzfunktionen (\ref{dist1} -- \ref{dist4}) und für 
+Kategorische-Attribute existiert die Summe der Unterschiede (\ref{dist5}). 
+Allerdings existieren nicht nur Kategorische- und Nummerische-Attribute sondern ebenfalls 
+Textuelle-Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen genauso mindestens die
+Bedingungen \ref{bed1} -- \ref{bed3}.
+{
+\setlength{\jot}{0pt}
 \begin{align}
-\intertext{Euklidische-Distanz:\vspace{-0.8em}}
-\dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\\
-\intertext{Manhattan-Distanz:\vspace{-0.8em}}
-\dist(x,y) &= |x_1 - y_1| + \ldots + |x_n - y_n|\\
-\intertext{Maximum-Metrik:\vspace{-0.8em}} 
-\dist(x,y) &= \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)\\
-\intertext{Alg. $L_p$-Metrik:\vspace{-0.8em}}
-\dist(x,y) &= \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}
-\end{align}
-
-\IEEEPARstart{F}{ür} Kategorische-Attribute existiert die die Summe 
-der Unterschiede als Distanzfunktion, die wie folgt definiert ist:
- \begin{align}
- \dist(x,y) &= \sum\limits_{i=1}^{a}\delta(x_i, y_i)\\
+\intertext{Euklidische-Distanz:} 
+\dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\label{dist1}\\
+\intertext{Manhattan-Distanz:}
+\dist(x,y) &= |x_1 - y_1| + \ldots + |x_n - y_n|\label{dist2}\\
+\intertext{Maximum-Metrik:} 
+\dist(x,y) &= \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)\label{dist3}\\
+\intertext{Alg. $L_p$-Metrik:}
+\dist(x,y) &= \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}\label{dist4}\\
+\intertext{Summe der Unterschiede:} 
+ \dist(x,y) &= \sum\limits_{i=1}^{a}\delta(x_i, y_i)\label{dist5}\\
  \delta(x_i, y_i) &= \begin{cases}
  0 \mbox{ wenn } (x_i = y_i)\\
  1 \mbox{ wenn } (x_i \neq y_i)
  \end{cases} 
  \end{align} 
-
+ }
 \subsubsection{k-means} \label{k-means}
 \IEEEPARstart{D}{er} k-means, oder auch Lloyd's Algorithmus genannt, gehört zu den Clustering-Algorithmen und basiert auf 
 einem harten flachen Clustering. Die Objekte $o_i$ werden als ein Vektor aus dem 
@@ -907,7 +911,7 @@ Das gesamte Clustering ist optimal, wenn $\RSS\,(A_l, \ldots, A_k) = \sum\limits
 
 \begin{figure}[!t]
 \centering
-\subfigure[Phase 1--3]{\scalebox{0.5}{\input{../beamer/img/kmeans1.tikz}}\label{p1-3 k-means}}
+\subfigure[Phase 1 -- 3]{\scalebox{0.5}{\input{../beamer/img/kmeans1.tikz}}\label{p1-3 k-means}}
 \subfigure[Phase 4]{\scalebox{0.5}{\input{../beamer/img/kmeans3.tikz}}\label{p4 k-means}}
 \subfigure[Phase 5]{\scalebox{0.5}{\input{../beamer/img/kmeans2.tikz}}\label{p5 k-means}}
 \subfigure[Phase 6]{\scalebox{0.5}{\input{../beamer/img/kmeans4.tikz}}\label{p6 k-means}}
@@ -941,7 +945,7 @@ Der Algorithmus ist wie folgt:
  (siehe Abschnitt \ref{distanzfunktion}). Um das Training zu verdeutlichen wird ein Beispiel 
  aus dem Buch \cite{ester2000knowledge} verwendet. Dabei sind in Tabelle 
  \ref{trainingdata} Objekte mit ihren Attributen und der jeweils zugeordneten Klasse gezeigt. 
- Aus diesen Trainingsdaten wird der, in Listing \ref{dt} als Bedingung formulierter, Entscheidungsbaum
+ Aus diesen Trainingsdaten wird der, in Listing \ref{dt} als Bedingung formulierte, Entscheidungsbaum
  erzeugt. Mit Hilfe dieses Entscheidungsbaums können unklassifizierte Objekte klassifiziert werden. 
 
 \begin{table}[!h]
@@ -988,11 +992,11 @@ ist maximal. Dieser Abstand wird mittels Differenzfunktionen wie beim Clustering
 (rot / blau) zugeordnet. Die beiden äußeren Hyperplanekadidaten sind ungültig, da diese nicht die Menge 
 der Objekten in zwei disjunkte Teilmengen schneidet. Von den inneren Hyperplanekadidaten 
 fallen die beiden äußeren weg, da diese einen geringeren Abstand zu den Supportvektoren als die mittlere haben.
-Der mittlere Hyperplanekadidaten ist die richtige Hyperplane und ist in Abbildung \ref{hyperplane gefunden} zu sehen. 
+Der mittlere Hyperplanekadidat ist die richtige Hyperplane und ist in Abbildung \ref{hyperplane gefunden} zu sehen. 
 Der grün markierte Bereich kennzeichnet den Bereich des maximalen Abstands zu den Supportvektoren.
 Nach dem Training werden die unklassifizierten Objekte eingefügt und werden je nach dem auf welcher Seite der
-Hyperplane sie sich befinden den beiden Klassen zugeordnet. Dieses ist in Abbildung \ref{einordnung} gezeigt. 
-In Abbildung \ref{ungueltig} sind ungültige Trainigsdaten dargestellt. Bei diesen Daten kann keine gültige Hyperplane 
+Hyperplane sie sich befinden der passenden Klasse zugeordnet. Dieses ist in Abbildung \ref{einordnung} gezeigt. 
+In Abbildung \ref{ungueltig} sind ungültige Trainingsdaten dargestellt. Bei diesen Daten kann keine gültige Hyperplane 
 gefunden werden. Somit müssen zwangsweise Objekte falsch klassifiziert werden.
  \subsection{Assoziation}
  \section{Big Data}
