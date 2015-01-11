@@ -778,7 +778,7 @@ und werden zu einer Zahl, genannt \emph{stellary}, zwischen 0 und 1 ausgewertet.
 Stern und sonst ist das Objekt unbekannt aber könnte trotzdem ein Stern oder Galaxie sein. In Tabelle \ref{Erkennungswahrscheinlichkeiten} sind die Erkennungswahrscheinlichkeiten einiger 
 Data Mining Algorithmen für die Klassifizierung von stellaren Objekten aufgelistet.
 
-\begin{table}[!h]
+\begin{table}[!t]
 \centering
 \label{Erkennungswahrscheinlichkeiten}
 \caption{Erkennung \cite{o2009star}}
@@ -799,7 +799,7 @@ Preisträger eines \emph{ACM KDD Innovation Awards} oder eines \emph{IEEE ICDM R
 Referenzierungen in \emph{Google Scholar} erreichen. Eine vollständige Liste der Kandidaten ist unter \url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}
 zu finden. In der Tabelle \ref{top10} werden die 10 besten Algorithmen genannt.
 
-\begin{table}
+\begin{table}[t]
 \centering
 \caption{Top 10 Algorithmen \cite{wu2008top}}
 \begin{tabular}{r|l|l}
@@ -861,9 +861,9 @@ und die Vorlesung \cite{dwh}.
 \IEEEPARstart{D}{ie} Distanzfunktion bestimmt den Abstandsvektor zwischen zwei Objekten. Statt einer Distanzfunktion
 wird manchmal auch eine Ähnlichkeits- bzw. Simulierungsfunktion benutzt, jedoch sind in diesem
 Fall die Werte invertiert zu betrachten. Der Gebrauch von Distanzfunktionen hat sich jedoch durch
-gesetzt, da alle Rechnungen nummerisch stabiler sind, weil bei der Bedingung \ref{dist2} mit $\vec{0}$ 
-statt $\vec{\infty}$ gerechnet wird. Jedes Objekt $o_i = (a_1, \ldots, a_n)$ besteht aus $n$ Attributen, jedes 
-Attribut ist ein nummerisches oder kategorisches oder anders artiges Attribut und besitzt für sich selbst 
+gesetzt, da alle Rechnungen nummerisch stabiler sind, weil bei der Bedingung \ref{bed2} mit dem $\vec{0}$ 
+statt dem $\vec{\infty}$ gerechnet wird. Jedes Objekt $o_i = (a_1, \ldots, a_n)$ besteht aus $n$ Attributen, jedes 
+Attribut ist ein nummerisches, kategorisches oder anders artiges Attribut und besitzt für sich selbst 
 spezielle Distanzfunktionen. Die Bedingungen \ref{bed1} -- \ref{bed3} müssen für jede 
 Distanzfunktion gelten. Wenn die Bedingung \ref{bed4} gilt, handelt es sich um eine Metrik.
 \begin{align}
@@ -873,13 +873,13 @@ Distanzfunktion gelten. Wenn die Bedingung \ref{bed4} gilt, handelt es sich um e
 \dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{bed4}
 \end{align} 
 
-\IEEEPARstart{F}{ür} nummerische Attribute existieren die beispielhaften Distanzfunktionen (\ref{dist1} -- \ref{dist4}) und für 
-kategorische Attribute existiert die Summe der Unterschiede (\ref{dist5}). 
+\IEEEPARstart{F}{ür} nummerische Attribute existieren die beispielhaften Distanzfunktionen (siehe Formeln \ref{dist1} -- \ref{dist4}) und für 
+kategorische Attribute existiert die Summe der Unterschiede (siehe Formel \ref{dist5}). 
 Allerdings existieren nicht nur kategorische und nummerische Attribute sondern ebenfalls 
-textuelle Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen genauso mindestens die
+textuelle Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen mindestens genauso die
 Bedingungen \ref{bed1} -- \ref{bed3}.
 {
-\setlength{\jot}{0pt}
+%\setlength{\jot}{0pt}
 \small
 \begin{align}
 \intertext{Euklidische-Distanz:} 
@@ -946,7 +946,7 @@ Der Algorithmus ist wie folgt:
  Aus diesen Trainingsdaten wird der, in Listing \ref{dt} als Bedingung formulierte, Entscheidungsbaum
  erzeugt. Mit Hilfe dieses Entscheidungsbaums können unklassifizierte Objekte klassifiziert werden. 
 
-\begin{table}[!h]
+\begin{table}[!t]
 \caption{Beispiel Daten Versicherung}
 \centering
 \begin{tabular}{l|l|l}\hline
@@ -959,7 +959,7 @@ Alter	& Autotyp	& Risikoklasse \\\hline
 \end{tabular}
 \label{trainingdata}
 \end{table}
-\begin{lstlisting}[caption={Entscheidungsbaum},label=dt,frame=single]
+\begin{lstlisting}[caption={Entscheidungsbaum},label=dt,frame=single,floatplacement=t]
 if Alter > 50 then Risikoklasse = Niedrig
 if Alter <= 50 and Autotyp = LKW 
   then Risikoklasse = Niedrig
@@ -997,7 +997,7 @@ Hyperplane sie sich befinden der passenden Klasse zugeordnet. Dieses ist in Abbi
 In Abbildung \ref{ungueltig} sind ungültige Trainingsdaten dargestellt. Bei diesen Daten kann keine gültige Hyperplane 
 gefunden werden. Somit müssen zwangsweise Objekte falsch klassifiziert werden.
 
-\subsection{Assoziation}
+\subsection{Assoziation-Algorithmen}
  \IEEEPARstart{D}{ie} meisten online Einkäufer ist der Satz \enquote{
  Kunden, die diesen Artikel gekauft haben, kauften auch\ldots
  } 
@@ -1007,9 +1007,9 @@ gefunden werden. Somit müssen zwangsweise Objekte falsch klassifiziert werden.
  wie zum Beispiel eine Einkaufshistory. 
  Die Transaktionsdatenbank $D = \{T_1, \ldots, T_n\}$ ist eine Menge von Transaktionen, wobei jede Transaktion $T_i \subseteq I$ eine Teilmenge aller Items (Waren) ist.
  Die Itemmenge $I = \{i_1, \ldots, i_m\}$ stellt die verkaufbaren Waren dar und ein Itemset $X \subseteq I$ ist eine Teilmenge aller Waren. Der Unterschied zwischen $T_i$ und $X$ ist,
- das $T_i$ eine reale Transaktion und $X$ nur ein Teil einer Transaktion ist. 
+ das $T_i$ eine reale Transaktion und $X$ nur ein Ausschnitt einer Transaktion ist. 
 {
-\setlength{\jot}{0pt}
+%\setlength{\jot}{0pt}
 \small
 \begin{align}
 \intertext{Assoziationsregel:}
@@ -1031,7 +1031,7 @@ $R = \{$Kaffee, Milch$\}\Rightarrow\{$Kuchen$\}$ gebildet wird. Die Regel $R$ (s
 ($\delta(R, D) = 33\%$). 
 Somit ist es zu $33\%$ Wahrscheinlich, das ein Kunde zugleich alle drei Produkte kauft und zu $66\%$ Wahrscheinlich, das ein Kunde, der Kaffee und Milch kauft, auch Kuchen kauft.
 
-\begin{table}
+\begin{table}[!t]
 \caption{Transaktionsdatenbank}
 \centering
 \begin{tabular}{c|l}
@@ -1047,16 +1047,33 @@ Somit ist es zu $33\%$ Wahrscheinlich, das ein Kunde zugleich alle drei Produkte
 \end{table}
   
  \section{Big Data}
- \section{Zusammenfassung}
+ \IEEEPARstart{N}{ach} Schätzungen speicherte die gesamte Menschheit im Jahre 2007 ganze $300$
+ Exabyte an digitalen Daten. Bis zum Jahr 2013 vervierfachte sich diese Datenmenge auf $1200$ Exabyte, 
+dies würde auf CDs gespeichert fünf Stapel von der Erde bis zum Mond bilden (siehe \cite{mayer2014big}). 
+Diese Anzahl an Daten wird immer mehr, mit jedem Facebook Eintrag, jedem Tweet, jedem neuen Foto auf 
+Instagram oder jeden neuen Nachricht per Whatsapp. Noch nie in der Geschichte der Menschheit, hat der 
+Mensch so viele Daten produziert sowie aufgezeichnet wie heutzutage und damit sind nicht einmal die Sammelwut 
+unserer Geheimdienste gemeint. 
+ 
+\IEEEPARstart{B}{ig Data} verschiebt die Schwierigkeit von der Datenbeschaffung zur Datenauswertung. 
+Bis ins letzte Jahrzehnt war die Gewinnung der Daten, sei es in Forschung, Medizin, Marketing oder 
+auch \enquote{Spionage} usw., im Gegensatz zur Analyse und Auswertung das eigentliche Problem der Datenverarbeitung.
+Damit verschiebt sich die Erkenntnis durch Big Data vom \emph{WARUM} ist etwas so wie es ist, zum \emph{WAS} ist wie es ist.
+Der Grundgedanke von Big Data ist die Verarbeitung riesiger Datenmengen zur Gewinnung von Wahrscheinlichkeiten zu genaueren Vorhersagen von zum Beispiel:
+gehört eine E-Mail zum Spam, ist bei der Autokorrektur das eingegebene \enquote{dei} doch besser ein \enquote{die}, welcher Spieler der Bundesliga 
+passt am besten in das Team, wie ist die zukünftige Entwicklung an der Börse und so weiter. Für Big Data muss man sich jedoch immer
+wieder in den Kopf rufen, das alle Aussagen nur Wahrscheinlichkeiten sind und somit auch völlig falsch sein können. In dem Buch \cite{mayer2014big} ist es wie folgt beschrieben.
+\enquote{Was wir an Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis auf der Makroebene.}
+\section{Zusammenfassung}
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+%\subsection{Subsection Heading Here}
+%Subsection text here.
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+%\subsubsection{Subsubsection Heading Here}
+%Subsubsection text here.
 
 
 % An example of a floating figure using the graphicx package.
@@ -1147,8 +1164,8 @@ Subsubsection text here.
 
 
 
-\section{Conclusion}
-The conclusion goes here.
+%\section{Conclusion}
+%The conclusion goes here.
 
 
 
@@ -1169,27 +1186,28 @@ The conclusion goes here.
 %
 
 
-\appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
+%\appendices
+%\section{Proof of the First Zonklar Equation}
+%Appendix one text goes here.
 
 % you can choose not to have a title for an appendix
 % if you want by leaving the argument blank
-\section{}
-Appendix two text goes here.
+%\section{}
+%Appendix two text goes here.
 
 
 % use section* for acknowledgement
 \ifCLASSOPTIONcompsoc
   % The Computer Society usually uses the plural form
-  \section*{Acknowledgments}
+  \section*{Danksagungen}
 \else
   % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
+  \section*{Danksagung}
 \fi
 
 
-The authors would like to thank...
+\IEEEPARstart{E}{in} großer Dank gilt meinem Seminarbetreuer Patrick Siegl (Kontakt unter \url{www.tu-braunschweig.de/c3e/staff}) 
+sowie meinen Freunden für deren Unterstützung und Korrekturlesen.
 
 
 % Can use something like this to put references on a page
@@ -1215,16 +1233,13 @@ The authors would like to thank...
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 %\bibliography{IEEEabrv,../bib/paper}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\bibliographystyle{../IEEEtranBST/IEEEtran} % nummerierung
-%\setbeamertemplate{bibliography item}{[\theenumiv]}
-%\bibliographystyle{apacite}
 \bibliography{../lit}
 
 % biography section
