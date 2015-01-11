@@ -819,19 +819,16 @@ Platz & Name & Art\\ \hline
 \end{table}
 
 \section{Data Mining}
-
-\IEEEPARstart{D}{er} Begriff Data Mining wird im Deutschen für den gesamten Prozess des \emph{Knowledge Discovery in Databases} (KDD) 
-verwendet. Dies ist jedoch falsch, da Data Mining nur einen Teil des KDD einnimmt. Dies ist in Abbildung \ref{kdd} zu sehen. 
-Für KDD werden zuerst die Daten homogenisiert und dann mittels eines Data Mining Algorithmus verarbeitet, sodass \enquote{Wissen} 
-entsteht. 
-
- \begin{figure}[!t]
+\begin{figure}[!b]
   \centering
   \hspace{-4em}\includegraphics[page=5,scale=0.6,trim={51 500 65 86},clip]{../beamer/dm_fayyad.pdf}
   \caption{KDD nach Fayyad \cite{fayyad1996data}}
   \label{kdd}
   \end{figure}
-\IEEEPARstart{D}{ata Mining} wird in der Forschung, Vermarktung, Medizin, (Wetter-) Vorhersagen,
+\IEEEPARstart{D}{er} Begriff Data Mining wird im Deutschen für den gesamten Prozess des \emph{Knowledge Discovery in Databases} (KDD) 
+verwendet. Dies ist jedoch falsch, da Data Mining nur einen Teil des KDD einnimmt. Dies ist in Abbildung \ref{kdd} zu sehen. 
+Für KDD werden zuerst die Daten homogenisiert und dann mittels eines Data Mining Algorithmus verarbeitet, sodass \enquote{Wissen} 
+entsteht. Data Mining wird in der Forschung, Vermarktung, Medizin, (Wetter-) Vorhersagen,
 Betrugsaufklärung usw. eingesetzt. Die Idee von KKD ist \emph{Wissen} durch \emph{Daten} und wird nach Fayyad \cite{fayyad1996data} wie folgt definiert: \begin{quote}
 Knowledge Discovery in Databases describes the non-trivial process of identifying valid, novel, potentially useful, and ultimately understandable
 Articles patterns in data.
@@ -866,23 +863,24 @@ wird manchmal auch eine Ähnlichkeits- bzw. Simulierungsfunktion benutzt, jedoch
 Fall die Werte invertiert zu betrachten. Der Gebrauch von Distanzfunktionen hat sich jedoch durch
 gesetzt, da alle Rechnungen nummerisch stabiler sind, weil bei der Bedingung \ref{dist2} mit $\vec{0}$ 
 statt $\vec{\infty}$ gerechnet wird. Jedes Objekt $o_i = (a_1, \ldots, a_n)$ besteht aus $n$ Attributen, jedes 
-Attribut ist ein Nummerisches oder Kategorisches- oder anders artiges-Attribut und besitzt für sich selbst 
+Attribut ist ein nummerisches oder kategorisches oder anders artiges Attribut und besitzt für sich selbst 
 spezielle Distanzfunktionen. Die Bedingungen \ref{bed1} -- \ref{bed3} müssen für jede 
 Distanzfunktion gelten. Wenn die Bedingung \ref{bed4} gilt, handelt es sich um eine Metrik.
 \begin{align}
 \dist(o_1, o_2) &= d \in R^{n\geq 0} \label{bed1}\\
-\dist(o_1, o_2) &= 0 \Leftrightarrow o_1 = o_2 \label{bed2}\\
+\dist(o_1, o_2) &= \vec{0} \Leftrightarrow o_1 = o_2 \label{bed2}\\
 \dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)} \label{bed3}\\
 \dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{bed4}
 \end{align} 
 
-\IEEEPARstart{F}{ür} Nummerische-Attribute existieren die beispielhaften Distanzfunktionen (\ref{dist1} -- \ref{dist4}) und für 
-Kategorische-Attribute existiert die Summe der Unterschiede (\ref{dist5}). 
-Allerdings existieren nicht nur Kategorische- und Nummerische-Attribute sondern ebenfalls 
-Textuelle-Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen genauso mindestens die
+\IEEEPARstart{F}{ür} nummerische Attribute existieren die beispielhaften Distanzfunktionen (\ref{dist1} -- \ref{dist4}) und für 
+kategorische Attribute existiert die Summe der Unterschiede (\ref{dist5}). 
+Allerdings existieren nicht nur kategorische und nummerische Attribute sondern ebenfalls 
+textuelle Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen genauso mindestens die
 Bedingungen \ref{bed1} -- \ref{bed3}.
 {
 \setlength{\jot}{0pt}
+\small
 \begin{align}
 \intertext{Euklidische-Distanz:} 
 \dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\label{dist1}\\
@@ -949,7 +947,7 @@ Der Algorithmus ist wie folgt:
  erzeugt. Mit Hilfe dieses Entscheidungsbaums können unklassifizierte Objekte klassifiziert werden. 
 
 \begin{table}[!h]
-\caption{Beispiel Daten}
+\caption{Beispiel Daten Versicherung}
 \centering
 \begin{tabular}{l|l|l}\hline
 Alter	& Autotyp	& Risikoklasse \\\hline
@@ -998,7 +996,56 @@ Nach dem Training werden die unklassifizierten Objekte eingefügt und werden je 
 Hyperplane sie sich befinden der passenden Klasse zugeordnet. Dieses ist in Abbildung \ref{einordnung} gezeigt. 
 In Abbildung \ref{ungueltig} sind ungültige Trainingsdaten dargestellt. Bei diesen Daten kann keine gültige Hyperplane 
 gefunden werden. Somit müssen zwangsweise Objekte falsch klassifiziert werden.
- \subsection{Assoziation}
+
+\subsection{Assoziation}
+ \IEEEPARstart{D}{ie} meisten online Einkäufer ist der Satz \enquote{
+ Kunden, die diesen Artikel gekauft haben, kauften auch\ldots
+ } 
+ wohl bekannt. Die angezeigten Ergebnis werden mit Hilfe von Data Mining Algorithmen der Assoziation-Kategorie ermittelt.
+ Die Grundidee dieser Algorithmen ist es, Regeln der Form $A \Rightarrow B$ (siehe Definition \ref{regel}) zu finden, die einen \emph{Support} (siehe Definition \ref{supportregel}) und eine 
+ \emph{Konfidenz} (siehe Definition \ref{konfidenz}) besitzen, welche einen festgelegten Schwellenwert übersteigt. Um die Regeln zu finden, benötigt man eine Transaktionsdatenbank,
+ wie zum Beispiel eine Einkaufshistory. 
+ Die Transaktionsdatenbank $D = \{T_1, \ldots, T_n\}$ ist eine Menge von Transaktionen, wobei jede Transaktion $T_i \subseteq I$ eine Teilmenge aller Items (Waren) ist.
+ Die Itemmenge $I = \{i_1, \ldots, i_m\}$ stellt die verkaufbaren Waren dar und ein Itemset $X \subseteq I$ ist eine Teilmenge aller Waren. Der Unterschied zwischen $T_i$ und $X$ ist,
+ das $T_i$ eine reale Transaktion und $X$ nur ein Teil einer Transaktion ist. 
+{
+\setlength{\jot}{0pt}
+\small
+\begin{align}
+\intertext{Assoziationsregel:}
+R_i &= X \Rightarrow Y \mbox{ es gilt: } X, Y \subseteq I \wedge X \cap Y = \emptyset\label{regel}\\
+\intertext{Support der Regel:} 
+\delta(R_i, D) &= \delta(X \cup Y, D)\label{supportregel}\\
+\intertext{Support der Menge:} 
+\delta(X,D) &= \mbox{Anteil (\%) aller $T_i$ für die gilt $X \subseteq T_i$}\label{supportset}\\
+\intertext{Konfidenz der Regel:}
+\phi(R_i, D) &= \delta(Y, \{T_i\;|\;\forall T_i \in D \wedge X \subseteq T_i\})\label{konfidenz}
+\end{align} 
+}
+
+\IEEEPARstart{U}{m} den Sachverhalt zu verdeutlichen wird folgendes Beispiel aus dem Buch \cite{ester2000knowledge} genutzt. In Tabelle \ref{dataass} ist eine Transaktionsdatenbank
+mit sechs Einträgen beschrieben. Von dieses Einträgen wird das Itemset $X = \{$Kaffee, Milch$\}$ betrachtet. Dieses ist in drei 
+der sechs Einträge vorhanden und besitzt somit einen Support (siehe Formel \ref{supportset}) von 50\% ($\delta(X, D) = 50\%$). Als nächstes wird ein Itemset
+gesucht, bei dem ein weiteres Item existiert und von dem $X$ eine Teilmenge ist. Hierfür wird das Itemset $Z = \{$Kaffee, Milch, Kuchen$\}$ gewählt, mit dem die Regel 
+$R = \{$Kaffee, Milch$\}\Rightarrow\{$Kuchen$\}$ gebildet wird. Die Regel $R$ (siehe Formel \ref{regel}) besitzt eine Konfidenz (siehe Formel \ref{konfidenz}) von $66\%$ ($\phi(R, D) = 66\%$) und einen Support (siehe Formel \ref{supportregel}) von $33\%$
+($\delta(R, D) = 33\%$). 
+Somit ist es zu $33\%$ Wahrscheinlich, das ein Kunde zugleich alle drei Produkte kauft und zu $66\%$ Wahrscheinlich, das ein Kunde, der Kaffee und Milch kauft, auch Kuchen kauft.
+
+\begin{table}
+\caption{Transaktionsdatenbank}
+\centering
+\begin{tabular}{c|l}
+    	    $T_i$ & Itemset ($X_i$)\\ \hline
+    	    1 & Brot, Kaffee, Milch, Kuchen\\
+    	    2 & Kaffee, Milch, Kuchen\\
+    	    3 & Brot, Butter, Kaffee, Milch\\
+    	    4 & Milch, Kuchen\\
+    	    5 & Brot, Kuchen\\
+    	    6 & Brot
+    	    \end{tabular}
+\label{dataass}
+\end{table}
+  
  \section{Big Data}
  \section{Zusammenfassung}
 
