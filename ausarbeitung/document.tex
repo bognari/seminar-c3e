@@ -578,6 +578,7 @@ pdfkeywords={Data Mining, Big Data, Clustering, Clustering, Assoziation, Support
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\RSS}{RSS}
 
+
 \begin{document}
 %
 % paper title
@@ -875,8 +876,9 @@ Allerdings existieren nicht nur kategorische und nummerische Attribute sondern e
 textuelle Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen mindestens genauso die
 Bedingungen \ref{bed1} -- \ref{bed3}.
 {
-%\setlength{\jot}{0pt}
 \small
+\setlength{\belowdisplayskip}{0pt}%
+\setlength{\abovedisplayskip}{0pt}%
 \begin{align}
 \intertext{Euklidische-Distanz:} 
 \dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\label{dist1}\\
@@ -1005,8 +1007,9 @@ gefunden werden. Somit müssen zwangsweise Objekte falsch klassifiziert werden.
  Die Itemmenge $I = \{i_1, \ldots, i_m\}$ stellt die verkaufbaren Waren dar und ein Itemset $X \subseteq I$ ist eine Teilmenge aller Waren. Der Unterschied zwischen $T_i$ und $X$ ist,
  das $T_i$ eine reale Transaktion und $X$ nur ein Ausschnitt einer Transaktion ist. 
 {
-%\setlength{\jot}{0pt}
 \small
+\setlength{\belowdisplayskip}{0pt}%
+\setlength{\abovedisplayskip}{0pt}%
 \begin{align}
 \intertext{Assoziationsregel:}
 R_i &= X \Rightarrow Y \mbox{ es gilt: } X, Y \subseteq I \wedge X \cap Y = \emptyset\label{regel}\\
@@ -1060,8 +1063,38 @@ gehört eine E-Mail zum Spam, ist bei der Autokorrektur das eingegebene \enquote
 passt am besten in das Team, wie ist die zukünftige Entwicklung an der Börse und so weiter. Für Big Data muss man sich jedoch immer
 wieder in den Kopf rufen, das alle Aussagen nur Wahrscheinlichkeiten sind und somit auch völlig falsch sein können. In dem Buch \cite{mayer2014big} ist es wie folgt beschrieben.
 \enquote{Was wir an Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis auf der Makroebene.}
+\subsection{HACE Theorem}
+\IEEEPARstart{D}{as} HACE Theorem wird im behandelt die dauerhafte Generierung unterschiedlichster und im Extremfall ungenauer bis falscher Daten 
+und deren immer komplexer sowie verzweigter werdenden Beziehungen. Im Paper von Wu Xindon \cite{wu2014data} wird das Theorem wie folgt Definiert:
+\begin{quote}
+Big Data starts with large-volume, \underline{\textbf{H}}eterogeneous, 
+\underline{\textbf{A}}utonomous sources with distributed and decentralized control, 
+and seeks to explore \underline{\textbf{C}}omplex and \underline{\textbf{E}}volving relationships 
+among data.
+\end{quote}
+\subsection{Herausforderungen für Data Mining}
+\begin{figure}[!t]
+\centering
+\includegraphics[scale=0.65,trim={120 340 100 280},clip]{../beamer/img/bigdata42.pdf}
+\caption{Big Data Herausforderungen \cite{wu2014data}}
+\label{bigdata}
+\end{figure}
+\IEEEPARstart{D}{urch} das HACE Theorem entstehen für das Data Mining viele Schwierigkeiten. In der Abbildung \ref{bigdata} 
+sind die drei Ebenen des Data Mining für Big Data und deren Aufgaben, von innen nach außen, beschrieben. In der ersten Ebene, 
+existieren die Schwierigkeiten des Datenzugriffs und der Datenanalyse, Da sich die Datenquellen räumlich getrennt von einander 
+befinden, müssen diese über das Internet an den Verarbeitungsknoten transportiert werden. Des Weiteren sind  die meisten Data 
+Mining Algorithem für kleine Datenmengen ausgelegt, weil alle Daten lokal im RAM gespeichert sein müssen.  
+Auf der zweiten Ebene sind ethische und moralische Bedenken ein Problem. Das verknüpfen von Informationen über Patienten, wie Ernährung,
+Aktivitäten, Krankheitsverläufe usw., in der medizinischen 
+Forschung ist für die Gesellschaft weniger ein Problem als das gleiche für die Risikobewertung in einer Krankenversicherung.  Aus diesen 
+Gründen beleuchtet die zweite Ebene die Gefahr des gläsernen Menschen. Die dritte Ebene befasst sich mit dem Algorithmen Design für die 
+Anforderungen an Big Data mit dem HACE Theorem. Diese Algorithmen müssen die heterogenen und teilweise ungenauen bis falschen oder auch 
+doppelte Daten filtern und homogenisieren. Das gefundene Wissen bzw. die Muster oder Modelle müssen nach der Analyse zusammen gefasst und in ihrer 
+Gesamtheit betrachtet werden. 
 \section{Zusammenfassung}
-
+\IEEEPARstart{M}{ittels} Data Mining werden Zusammenhänge und \enquote{Wissen} aus relativ kleinen Datenbeständen erzeugt. Im Alltag kommt jeder 
+mit dessen Ergebnissen in Kontakt, sei es bei der Google Suche oder einem Einkauf bei Amazon. Big Data verändert unser Verständnis von der 
+Wissensgewinnung und verdrängt das \enquote{Bauchgefühl} durch auf Fakten und Statistiken fundierte Entscheidungen. Die Gefahr des gläsernen Mensch ist bei Big Data omnipräsent.
 %\subsection{Subsection Heading Here}
 %Subsection text here.
 
@@ -1236,8 +1269,10 @@ sowie meinen Freunden für deren Unterstützung und Korrekturlesen.
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
+{
+\tiny
 \bibliography{../lit}
-
+}
 % biography section
 % 
 % If you have an EPS/PDF photo (graphicx package needed) extra braces are
