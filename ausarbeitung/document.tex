@@ -669,11 +669,11 @@ pdfkeywords={Data Mining, Big Data, Clustering, Clustering, Assoziation, Support
 \IEEEcompsoctitleabstractindextext{%
 \begin{abstract}
 %\boldmath
-In diesem Paper werden die wichtigsten 10 Datamining Algorithmen aus dem Paper \cite{wu2008top} 
-von Xindong Wu vorgestellt sowie eingeordnet. Zu diesem Zweck wird auf die Kategorie der Cluster-,
-Classification- und Assoziation-Algorithmen eingegangen. Hierbei werden der k-means und der
-SVM näher vorgestellt. Anschließend wird auf Big Data sowie die Verbindung zwischen 
-Datamining und Big Data eingegangen.
+In diesem Paper werden die 10 von Xindong Wu \cite{wu2008top} 
+beschriebenen Data-Mining-Algorithmen eingeordnet sowie die wichtigsten vorgestellt. Zu diesem Zweck wird auf die Kategorie der Cluster-,
+Klassifizierungs- und Assoziations-Algorithmen eingegangen. Näher vorgestellt werden der k-means und der
+SVM. Anschließend wird auf Big Data sowie dessen Bedeutung für 
+Data Mining eingegangen.
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -754,11 +754,10 @@ Data Mining, Big Data, Clustering, Classification, Assoziation, Support Vector M
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{D}{as} Hubble Teleskop nahm vom 3. September bis zum 16. Januar
-2004 das so genannte \emph{Hubble Ultra Deep Field} Bild auf. Dieses Bild ist in 
-Abbildung \ref{fig:hs-2004-07-a-pdf} zu sehen. Auf diesem Bild $10.000$ kosmische Objekte zu erkennen.
-Problematisch ist jedoch, \emph{WAS} ist ein solches Objekt? Ist es ein Stern, eine Galaxie,
-ein Quasar, eine Störung des Sensorchips usw. 
+\IEEEPARstart{D}{as} Hubble-Teleskop nahm vom 3. September bis zum 16. Januar
+2004 das \emph{Hubble Ultra Deep Field} auf, welches als Ausschnitt in Abbildung \ref{fig:hs-2004-07-a-pdf} zu sehen ist. Auf dieser Aufnahme sind über 10.000 stellare Objekte abgebildet.
+Problematisch ist jedoch die Identifikation eines solchen Objekts. Ist es ein Stern, eine Galaxie,
+ein Quasar oder einfach eine Störung des Sensorchips?
 
 \begin{figure}[!t]
 \centering
@@ -767,36 +766,27 @@ ein Quasar, eine Störung des Sensorchips usw.
 \label{fig:hs-2004-07-a-pdf}
 \end{figure}
 
-\IEEEPARstart{D}{ie} Unterscheidung ob ein Objekt ein Stern, eine Galaxie oder etwas Unbekanntes ist, lässt sich
-mittels Data Mining Techniken Automatisieren. In dem Paper \cite{o2009star} von Peter J. O’Keefe und weiteren
-wird dieser Vorgehen beschrieben. Jedem sichtbarem Objekt werden 9 Attribute zugeordnet, die aus den 
-$i$-Band Versionen der Aufnahmen extrahiert werden. Die Attribute bestehen aus der Leuchtkraft und 8 weiteren Lichteigenschaften
-und werden zu einer Zahl, genannt \emph{stellary}, zwischen 0 und 1 ausgewertet. Das Intervall $0.0$--$0.1$ repräsentiert eine Galaxie, $0.9$--$1.0$ einen 
-Stern und sonst ist das Objekt unbekannt aber könnte trotzdem ein Stern oder Galaxie sein. In Tabelle \ref{Erkennungswahrscheinlichkeiten} sind die Erkennungswahrscheinlichkeiten einiger 
-Data Mining Algorithmen für die Klassifizierung von stellaren Objekten aufgelistet.
+Das Problem der Unterscheidung, ob es sich bei einem Objekt um einen Stern, eine Galaxie oder etwas Unbekanntes handelt, fällt in den Bereich des Data Mining. Peter J. O'Keefe et al.~\cite{o2009star}
+beschreiben einige Algorithmen zur rechnerunterstützten Lösung des Problems. Konkret werden jedem sichtbarem Objekt 9 Attribute wie Leuchtkraft zugeordnet, die aus Aufnahmen in verschiedenen Frequenzbereichen extrahiert werden und zu einem als \emph{stellary} bezeichneten Wert zwischen $0$ und $1$ ausgewertet werden, welcher zwischen $0.0$ und $0.1$ eine Galaxie und zwischen $0.9$ und $1.0$ ein 
+Stern repräsentiert. Zwischen diesen Intervallen ist das Objekt nicht eindeutig identifizierbar. In Tabelle \ref{Erkennungswahrscheinlichkeiten} sind die Erkennungswahrscheinlichkeiten einiger 
+Algorithmen für die Klassifizierung von stellaren Objekten aufgelistet.
 
 \begin{table}[!t]
 \centering
 \label{Erkennungswahrscheinlichkeiten}
-\caption{Erkennung \cite{o2009star}}
+\caption{Korrektheit verschiedener Algorithmen zur Klassifizierung stellarer Objekte \cite{o2009star}}
 \begin{tabular}{l|l}
-Name & Erkennung\\ \hline
-Random Forest & $82,89\%$ \\
-Decision Tree & $80,68\%$ \\
+Algorithmus               & korrekt erkannte Objekte\\ \hline
+Random Forest             & $82.89\%$ \\
+Decision Tree             & $80.68\%$ \\
 Artificial Neural Network & $75.82\%$ \\
-Support Vector Machines & $37,82\%$
+Support Vector Machines   & $37.82\%$
 \end{tabular}
 \end{table}
 
-\IEEEPARstart{D}{as} Paper \cite{wu2008top} von Xindong Wu und weiteren mit dem Titel \emph{Top 10 Algorithms in Data Mining} wurde 
-im Dezember 2006 für die \emph{IEEE International Conference on Data Mining} erstellt, behandelt die zum damaligen 
-Zeitpunkt wichtigsten Algorithmen fürs Data Mining und dient als Quelle für das gesamte Paper. Die Auswahl der einzelnen Algorithmen erfolge, indem jeder 
-Preisträger eines \emph{ACM KDD Innovation Awards} oder eines \emph{IEEE ICDM Research Contributions Awards} jeweils 
-10 Algorithmen nominierte. Aus diesen Nominierten wurden nur die zur Abstimmung zugelassen, die mindestens 50 
-Referenzierungen in \emph{Google Scholar} erreichen. Eine vollständige Liste der Kandidaten ist unter \url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}
-zu finden. In der Tabelle \ref{top10} werden die 10 besten Algorithmen genannt.
+Tabelle \ref{top10} listet die 10 bedeutendsten Algorithmen in Data Mining im allgemeinen Kontext ausgewählt anhand von Nominierungen\footnote{\url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}} durch Preisträger eines \emph{ACM KDD Innovation Awards} oder eines \emph{IEEE ICDM Research Contributions Awards} \cite{wu2008top}.
 
-\begin{table}[t]
+\begin{table}[!t]
 \centering
 \caption{Top 10 Algorithmen \cite{wu2008top}}
 \begin{tabular}{r|l|l}
@@ -816,43 +806,25 @@ Platz & Name & Art\\ \hline
 \end{table}
 
 \section{Data Mining}
-\begin{figure}[!b]
+
+\begin{figure*}[!b]
   \centering
-  \hspace{-4em}\includegraphics[page=5,scale=0.6,trim={51 500 65 86},clip]{../beamer/dm_fayyad.pdf}
+  \includegraphics[page=5,scale=1,trim={51 500 65 86},clip]{../beamer/dm_fayyad.pdf}
   \caption{KDD nach Fayyad \cite{fayyad1996data}}
   \label{kdd}
-  \end{figure}
-\IEEEPARstart{D}{er} Begriff Data Mining wird im Deutschen für den gesamten Prozess des \emph{Knowledge Discovery in Databases} (KDD) 
-verwendet. Dies ist jedoch falsch, da Data Mining nur einen Teil des KDD einnimmt. Dies ist in Abbildung \ref{kdd} zu sehen. 
-Für KDD werden zuerst die Daten homogenisiert und dann mittels eines Data Mining Algorithmus verarbeitet, sodass \enquote{Wissen} 
-entsteht. Data Mining wird in der Forschung, Vermarktung, Medizin, (Wetter-) Vorhersagen,
-Betrugsaufklärung usw. eingesetzt. Die Idee von KKD ist \emph{Wissen} durch \emph{Daten} und wird nach Fayyad \cite{fayyad1996data} wie folgt definiert: \begin{quote}
-Knowledge Discovery in Databases describes the non-trivial process of identifying valid, novel, potentially useful, and ultimately understandable
-Articles patterns in data.
-\end{quote} 
+  \end{figure*}
+  
+\IEEEPARstart{D}{ata Mining} wird in der Forschung, Vermarktung, Medizin, (Wetter)vorhersagen, Betrugsaufklärung usw.~eingesetzt. Der Begriff \enquote{Data Mining} wird allerdings im Deutschen fälschlicherweise für den gesamten Prozess der \emph{Knowledge Discovery in Databases} (KDD) verwendet. Wie in Abbildung \ref{kdd} ersichtlich, stellt Data Mining jedoch lediglich einen Schritt im Prozess der KDD dar. Für KDD werden zuerst die Daten gesammelt, aufbereitet und homogenisiert und dann mittels eines Data-Mining-Algorithmus verarbeitet, sodass Muster entstehen, die schließlich zum Ziel des \emph{Wissens} interpretiert werden. Im Folgenden seien die wichtigsten Kategorien dieser Data-Mining-Algorithmen erläutert.
  
- \subsection{Clustering-Algorithmen}
- \IEEEPARstart{D}{ie} Kategorie der Clustering-Algorithmen beschreibt Algorithmen, 
- die Daten unbekannten Klassen, den so genannten \emph{Clustern} (Abschnitt \ref{cluster}), zu ordnen. Damit ist die Grundidee 
- das Finden eines Algorithmus, der Objekte gruppiert. Diese Gruppierung wird mit Hilfe
- einer \emph{Distanzfunktion} (Abschnitt \ref{distanzfunktion}) erreicht, die die Ähnlichkeit zwischen Objekten numerisch ermittelt.
- Alle Clustering-Algorithmen arbeiten mit Heuristiken, da das Clustering NP-Vollständig ist.
+\subsection{Clustering-Algorithmen}
+
+\IEEEPARstart{D}{ie Kategorie der Clustering-Algorithmen} beinhaltet Algorithmen, die Daten unbekannten Klassen, den so genannten \emph{Clustern} (Abschnitt \ref{cluster}), zuordnen. Während des Clustering wird also eine Funktion gesucht, die Objekte auf Gruppen abbildet. Diese Gruppierung wird mithilfe
+einer \emph{Distanzfunktion} (siehe Abschnitt \ref{distanzfunktion}) erreicht, die die Ähnlichkeit zwischen Objekten numerisch ermittelt.
+Alle Clustering-Algorithmen arbeiten mit vereinfachenden Heuristiken, da das Clustering $\mathcal{NP}$-vollständig ist und somit effizient nur annäherungsweise zu lösen ist.
 
 \subsubsection{Cluster} \label{cluster}
 
-\IEEEPARstart{D}{ie} Gestalt und Form der Cluster ist in den einzelnen Algorithmen sehr 
-unterschiedlich. So gibt es Algorithmen bei denen die Cluster hierarchisch verschachtelt
-sind, das so genannte Flache- oder Hierarchische-Clustering. Es existiert ebenfalls das Hard- 
-und Soft-Clustering, bei denen Objekte zu einem oder mehreren von einander unabhängigen Clustern 
-zu geordnet sind. Bei allen Algorithmen ist die Anzahl der Cluster begrenzt durch direkte Festlegung 
-der Anzahl oder durch eine Angegebene ausreichende Qualität der einzelnen Cluster. Die Cluster-Qualität
-ist ebenfalls nie genau definiert, jedoch kann man diese recht ungenau beschreiben durch, Anzahl der 
-einzelnen Objekte die einem Cluster angehören, Größe des maximalen Unähnlichkeit eines Objektes zu seinem Cluster oder
-das vermeiden von \emph{Lücken} im Cluster. In Abbildung \ref{p4 k-means} sind beispielhaft zwei Cluster (rot / blau) 
-und die Clusterzentren (schwarz) des k-means Algorithmus (Abschnitt \ref{k-means}) gezeigt. Vergleiche das Buch \cite{ester2000knowledge} 
-und die Vorlesung \cite{dwh}.
-
-
+\IEEEPARstart{D}{ie Gestalt und Form} der Cluster ist in den einzelnen Algorithmen sehr unterschiedlich \cite{ester2000knowledge}. Beispielsweise können die Cluster untereinander Untermengen bilden (hierarchisches Clustering) oder hierarchisch unabhängig sein (flaches Clustering). Auch können Objekte zu einem (hartes Clustering) oder zu mehreren voneinander unabhängigen Clustern (weiches Clustering) zugeordnet werden. Bei allen Algorithmen ist die Anzahl der Cluster begrenzt, wobei sich die Schwelle durch Anzahl (fixe Anzahl) oder durch eine minimale Qualität der einzelnen Cluster (dynamische Anzahl) ergibt. Außerdem ist die Clustering-Qualität nie genau definiert, doch sie kann durch Anzahl der einzelnen Objekte die einem Cluster angehören, durch die Größe der maximalen Unähnlichkeit eines Objektes zu seinem Cluster oder das Vermeiden von \enquote{Lücken} im Cluster beschrieben werden \cite{dwh}. In Abbildung \ref{p4 k-means} sind beispielhaft 2 Cluster (rot/blau) und die Clusterzentren (schwarz) des k-means-Algorithmus (siehe Abschnitt \ref{k-means}) abgebildet.
 
 \subsubsection{Distanzfunktion} \label{distanzfunktion}
 \IEEEPARstart{D}{ie} Distanzfunktion bestimmt den Abstandsvektor zwischen zwei Objekten. Statt einer Distanzfunktion
@@ -870,7 +842,7 @@ Distanzfunktion gelten. Wenn die Bedingung \ref{bed4} gilt, handelt es sich um e
 \dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{bed4}
 \end{align} 
 
-\IEEEPARstart{F}{ür} nummerische Attribute existieren die beispielhaften Distanzfunktionen (siehe Formeln \ref{dist1} -- \ref{dist4}) und für 
+Für nummerische Attribute existieren die beispielhaften Distanzfunktionen (siehe Formeln \ref{dist1} -- \ref{dist4}) und für 
 kategorische Attribute existiert die Summe der Unterschiede (siehe Formel \ref{dist5}). 
 Allerdings existieren nicht nur kategorische und nummerische Attribute sondern ebenfalls 
 textuelle Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen mindestens genauso die
@@ -984,7 +956,7 @@ ist maximal. Dieser Abstand wird mittels Differenzfunktionen wie beim Clustering
 \label{svm_pic}
 \end{figure}
 
-\IEEEPARstart{I}{n} der Abbildung \ref{hyperplane gesucht} sind die Trainingsdaten den beiden Klassen
+In der Abbildung \ref{hyperplane gesucht} sind die Trainingsdaten den beiden Klassen
 (rot / blau) zugeordnet. Die beiden äußeren Hyperplanekadidaten sind ungültig, da diese nicht die Menge 
 der Objekten in zwei disjunkte Teilmengen schneidet. Von den inneren Hyperplanekadidaten 
 fallen die beiden äußeren weg, da diese einen geringeren Abstand zu den Supportvektoren als die mittlere haben.
@@ -1022,7 +994,7 @@ R_i &= X \Rightarrow Y \mbox{ es gilt: } X, Y \subseteq I \wedge X \cap Y = \emp
 \end{align} 
 }
 
-\IEEEPARstart{U}{m} den Sachverhalt zu verdeutlichen wird folgendes Beispiel aus dem Buch \cite{ester2000knowledge} genutzt. In Tabelle \ref{dataass} ist eine Transaktionsdatenbank
+Um den Sachverhalt zu verdeutlichen wird folgendes Beispiel aus dem Buch \cite{ester2000knowledge} genutzt. In Tabelle \ref{dataass} ist eine Transaktionsdatenbank
 mit sechs Einträgen beschrieben. Von dieses Einträgen wird das Itemset $X = \{$Kaffee, Milch$\}$ betrachtet. Dieses ist in drei 
 der sechs Einträge vorhanden und besitzt somit einen Support (siehe Formel \ref{supportset}) von 50\% ($\delta(X, D) = 50\%$). Als nächstes wird ein Itemset
 gesucht, bei dem ein weiteres Item existiert und von dem $X$ eine Teilmenge ist. Hierfür wird das Itemset $Z = \{$Kaffee, Milch, Kuchen$\}$ gewählt, mit dem die Regel 
@@ -1054,7 +1026,7 @@ Instagram oder jeden neuen Nachricht per Whatsapp. Noch nie in der Geschichte de
 Mensch so viele Daten produziert sowie aufgezeichnet wie heutzutage und damit sind nicht einmal die Sammelwut 
 unserer Geheimdienste gemeint. 
  
-\IEEEPARstart{B}{ig Data} verschiebt die Schwierigkeit von der Datenbeschaffung zur Datenauswertung. 
+Big Data verschiebt die Schwierigkeit von der Datenbeschaffung zur Datenauswertung. 
 Bis ins letzte Jahrzehnt war die Gewinnung der Daten, sei es in Forschung, Medizin, Marketing oder 
 auch \enquote{Spionage} usw., im Gegensatz zur Analyse und Auswertung das eigentliche Problem der Datenverarbeitung.
 Damit verschiebt sich die Erkenntnis durch Big Data vom \emph{WARUM} ist etwas so wie es ist, zum \emph{WAS} ist wie es ist.
