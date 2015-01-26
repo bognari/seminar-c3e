@@ -92,10 +92,15 @@
 \author{Stephan Mielke}
 \date{22.01.2015}
 
+\usepackage{pdfcomment}
+\newcommand{\pdfnote}[1]{\marginnote{\pdfcomment[icon=note]{#1}}}
+
 \begin{document}
 
 \begin{frame}[plain, noframenumbering]
 \titlepage
+\pdfnote{Hallo mein Name ist ... }
+\pdfnote{Ich möchte ihnen meinen Seminarvortrag zum Thema  ... vorstellen	}
 \end{frame}
 
 %\begin{frame}{Inhalt}
@@ -111,13 +116,16 @@
 \caption{Hubble Ultra Deep Field \cite{HUDF}}
 \label{fig:hs-2004-07-a-pdf}
 \end{figure}
+\pdfnote{Viele von Ihnen kennen sicher das ...}
+\pdfnote{viele Objekte}
+\pdfnote{Stern / Galaxie / irgendwas anderes}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - Einsatz von DM in der Astronomie}
 \begin{itemize}
 \item Klassifizierung von Sternen mit $k$-nearest neighbor ($k$-nn)
 \item Manuelle Klassifizierung unmöglich  \cite{ester2000knowledge}
-\item Pro Bild zehntausende Objekte
+\item Pro Aufnahme zehntausende Objekte
 \item Kepler hat z.\,B. 13.2 Millionen Objekte erkannt
 \item Benutzung von Klassifizierungsalgorithmen aus DM
 \item Je Objekt 9 Attribute (Leuchtkraft und 8 weitere Lichteigenschaften)
@@ -172,6 +180,8 @@ patterns in data.
 \item Einsatz in der Forschung, Vermarktung, Medizin, (Wetter-) Vorhersagen, 
 Betrugsaufklärung usw.
 \end{itemize}
+\pdfnote{Auswahl der Daten, Filtern, Homogenisieren}
+\pdfnote{Auswertung}
 \end{frame}
 
 %\begin{frame}{\insertsectionhead - Einordnung}
@@ -234,6 +244,8 @@ Platz & Name & Art\\ \hline
 \end{tabular}
 \label{top10}
 \caption{Top 10 Algorithmen \cite{wu2008top}}
+\pdfnote{Lernen ist Untermenge von Klassifikation}
+\pdfnote{Bagging and Boosting ist Untermenge von Klassifikation}
 \end{table}
 
 % zuordnungen zusammen fassen, vorstellen rot usw
@@ -383,6 +395,10 @@ Platz & Name & Art\\ \hline
 \end{description}
 %\item Manchmal auch Ähnlichkeitsfunktion genannt $\Rightarrow$ Interpretation anders herum.
 \end{itemize}
+\pdfnote{Manchmal auf Simulierungs- Ähnlichkeitsfunktion}
+\pdfnote{Nicht numerisch stabil wegen unendlich}
+\pdfnote{Euklidische Distanz, Summe der Unterschiede}
+\pdfnote{Weitere Arten: Texte, Bilder usw.}
 \end{frame}
 
 %\begin{frame}[fragile]{\insertsectionhead - \insertsubsectionhead - Distanzfunktion \cite{ester2000knowledge}}
@@ -414,22 +430,22 @@ Platz & Name & Art\\ \hline
 %\end{itemize}
 %\end{frame}
 
-\begin{frame}{\insertsectionhead - \insertsubsectionhead - Beispiel \cite{ester2000knowledge}}
-\begin{itemize} % mergen
-\item Clustering von Web-Sessions zur Bestimmung von Benutzergruppen
-\item Datenquelle: Logfile eines Webservers
-\item Eintrag: IP, User-ID, Timestamp, URL, \ldots
-\item Einträge werden nach Session gruppiert, welche durch Zeitfenster gebildet werden
-\item Session: IP, User-ID, Liste von URLs
-\item URLs werden geclustert, z.\,B.: Distanzfunktion für endliche Mengen
-\item Wissen:
-\begin{itemize}
-\item Benutzergruppen/Benutzerprofile für Marketingstrategien 
-\item URLs sind durch Interessen verbunden, Optimierung für Zugriffsgewohnheiten 
-\end{itemize}
-\item Ein Sozialmedia-Button kann auch die nötigen Informationen liefern
-\end{itemize}
-\end{frame}
+%\begin{frame}{\insertsectionhead - \insertsubsectionhead - Beispiel \cite{ester2000knowledge}}
+%\begin{itemize} % mergen
+%\item Clustering von Web-Sessions zur Bestimmung von Benutzergruppen
+%\item Datenquelle: Logfile eines Webservers
+%\item Eintrag: IP, User-ID, Timestamp, URL, \ldots
+%\item Einträge werden nach Session gruppiert, welche durch Zeitfenster gebildet werden
+%\item Session: IP, User-ID, Liste von URLs
+%\item URLs werden geclustert, z.\,B.: Distanzfunktion für endliche Mengen
+%\item Wissen:
+%\begin{itemize}
+%\item Benutzergruppen/Benutzerprofile für Marketingstrategien 
+%\item URLs sind durch Interessen verbunden, Optimierung für Zugriffsgewohnheiten 
+%\end{itemize}
+%\item Ein Sozialmedia-Button kann auch die nötigen Informationen liefern
+%\end{itemize}
+%\end{frame}
 
 
 \subsubsection{k-means~}\label{kmeans}
@@ -451,6 +467,8 @@ Platz & Name & Art\\ \hline
 \item[Gesamt:] $\RSS\,(A_l, \ldots, A_k) = \sum\limits_{j=l}^{k}\,\RSS\,(A_j)$
 \end{description}
 \end{itemize}
+\pdfnote{Berechnung des Clusterzentrums, Zentrum ist kein Datenpunkt}
+\pdfnote{Durchschnittlicher Abstand von Daten zum Zentrum}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means \cite{dwh}}
@@ -472,6 +490,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus):
 \scalebox{1.1}{\input{img/kmeans1.tikz}}
 \caption{Ersten 3 Phasen, $k = 2$}
 \end{figure}
+\pdfnote{2 Schwerpunkte zufällig in die Daten geworfen}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
@@ -479,6 +498,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus):
 \scalebox{1.1}{\input{img/kmeans3.tikz}}
 \caption{Phase 4, Zuordnung nur beispielhaft}
 \end{figure}
+\pdfnote{Daten dem nächsten Clusterzentrum zugeordnet}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
@@ -486,6 +506,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus):
 \scalebox{1.1}{\input{img/kmeans2.tikz}}
 \caption{Phase 5, Schwerpunkte sind nur beispielhaft}
 \end{figure}
+\pdfnote{Neuberechnung und test der Güte}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - $k$-means}
@@ -493,6 +514,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus):
 \scalebox{1.1}{\input{img/kmeans4.tikz}}
 \caption{Phase 6 und noch mal von Phase 2 an}
 \end{figure}
+\pdfnote{Neuzuordnung der Daten zu den neuberechneten Clusterzentren}
 \end{frame}
 
 \subsection{Classification~}
@@ -501,15 +523,15 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus):
 \begin{columns}[onlytextwidth]
     \column{0.55\textwidth}
 \begin{itemize}
-\setlength{\itemsep}{10pt}
+\setlength{\itemsep}{20pt}
 \item Einordnung von Objekten in bekannten Klassen
 \item Trainingsdaten für Klassen \\$\Rightarrow$ Klassen bekannt
 \item Finden der Funktion die Objekte möglichst genau zuordnet
-\item Teilaufgaben:
-\begin{itemize}
-\item Zuordnung zu einer Klasse
-\item Generierung von Wissen 
-\end{itemize}
+%\item Teilaufgaben:
+%\begin{itemize}
+%\item Zuordnung zu einer Klasse
+%\item Generierung von Wissen 
+%\end{itemize}
 \end{itemize}
     \column{0.45\textwidth}
 \begin{figure}
@@ -518,7 +540,7 @@ Der $k$-means Algorithmus (Lloyd's Algorithmus):
 \caption{Repräsentierende Beispiel-Classifiication}
 \end{figure}
 \end{columns}
-
+\pdfnote{Existiren Trainingsdaten die manuell zuoeordnet wurden}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Training \cite{ester2000knowledge}}
@@ -550,6 +572,8 @@ ID 	& Alter	& Autotyp	& Risikoklasse \\\hline \hline
 \end{tabular}
 \caption{Beispiele aus Knowledge Discovery in Databases: Techniken und Anwendungen \cite{ester2000knowledge}}
 \end{table}
+\pdfnote{Daten einer Versicherung}
+\pdfnote{Attribut id ist unwichtig und muss dementsprechend markiert werden}
 \pause
 Das gesuchte Wissen
 \begin{lstlisting}[language=Haskell]
@@ -557,6 +581,7 @@ if Alter > 50                    then Risikoklasse = Niedrig
 if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
                                  else Risikoklasse = Hoch
 \end{lstlisting}
+\pdfnote{Entscheidungsbaum als IF Klausel, der die gesuchte Funktion repräsentier}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - Gesuchte Wissen \cite{ester2000knowledge}}
@@ -606,6 +631,8 @@ if Alter <= 50 and Autotyp = LKW then Risikoklasse = Niedrig
 \scalebox{.8}{\input{img/svm1.tikz}}
 \caption{Gesucht: die richtige Hyperplane}
 \end{figure}
+\pdfnote{beide außen sind schwachsinn}
+\pdfnote{mitte sind links und rechts zu nahe}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - \insertsubsectionhead - SVM}
@@ -706,6 +733,7 @@ Kunden, die diesen Artikel gekauft haben, kauften auch\ldots
 		   \item[Konfidenz:] \{Kaffee, Milch\} $\Rightarrow$ \{Kuchen\} $= 33\% / 50\% \approx 66\%$
 	   \end{description}
 \end{columns}
+\pdfnote{Jedem Kundes eines gewissen Onlinehändlers ist folgender Satz bekannt}
 \end{frame}
 
 %\begin{frame}{\insertsectionhead - \insertsubsectionhead - Grundbegriffe \cite{ester2000knowledge}}
@@ -745,18 +773,20 @@ Kunden, die diesen Artikel gekauft haben, kauften auch\ldots
 \item Geschätzt 2007 an die $300$ Exabyte\footnote{1 Exabyte = $1\;000\;000$ TB} Daten 
 \item Geschätzt 2013 an die $1200$ Exabyte Daten\footnote{in CDs: 5 Stapel zum Mond}
 \end{itemize}
-\item Verarbeitung riesiger Datenmengen zur Gewinnung von Wahrscheinlichkeiten
-zu genaueren Vorhersagen
+\item Verarbeitung riesiger Datenmengen zur Gewinnung von Wahrscheinlichkeiten zu genaueren Vorhersagen
 \begin{itemize}
 \item Dass eine E-Mail Spam ist
 \item Dass \enquote{dei} bei der Autokorrektur \enquote{die} heißt
-\item Ob eine Bewegung eines Menschen eine Gefahr für selbstlenkende Fahrzeuge ist
+%\item Ob eine Bewegung eines Menschen eine Gefahr für selbstlenkende Fahrzeuge ist
 \end{itemize}
 \item Die Erkenntnis ist nicht das \textbf{Warum} sondern das \textbf{Was} 
 \item \enquote{Was wir an
 Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis
 auf der Makroebene.} \cite{mayer2014big}
 \end{itemize}
+\pdfnote{Wie wir an dem Beispiel sehen wachsen die Datenberge}
+\pdfnote{Verändert die Art der Wissensgewinnung}
+\pdfnote{Problem von Generierung der Daten zur Auswertung}
 \end{frame}
 
 \begin{frame}{\insertsectionhead - HACE Theorem \cite{wu2014data}}
@@ -784,6 +814,9 @@ among data.
 \caption{Datamining mit Big Data \cite{wu2014data}}
 \label{bigdata}
 \end{figure}
+\pdfnote{1(Mitte).: Datenzugriff, Verteilelte Daten, wahllose Generierung, RAM Problem -> Algos wollten alle Daten im RAM haben}
+\pdfnote{2.: Ethnische Probleme: Gläserne Mensch, usw. Beispiele}
+\pdfnote{3.: Anforderungen an doe Algos, nach dem Theorem, Daten Filtern (Doppelt, Falsch, Ungenau), Zusammensetzen des Wissens}
 \end{frame}
 
 \section{Fazit~}
