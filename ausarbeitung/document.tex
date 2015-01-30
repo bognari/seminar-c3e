@@ -1,5 +1,5 @@
 
-\documentclass[12pt,journal,compsoc]{IEEEtran}
+\documentclass[12pt,journal,compsoc,ngerman]{IEEEtran}
 
 
 % *** CITATION PACKAGES ***
@@ -578,6 +578,7 @@ pdfkeywords={Data Mining, Big Data, Clustering, Clustering, Assoziation, Support
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\RSS}{RSS}
 
+\usepackage{cleveref}
 
 \begin{document}
 %
@@ -669,12 +670,17 @@ pdfkeywords={Data Mining, Big Data, Clustering, Clustering, Assoziation, Support
 \IEEEcompsoctitleabstractindextext{%
 \begin{abstract}
 %\boldmath
-In diesem Paper werden die 10 von Xindong Wu \cite{wu2008top} 
-beschriebenen Data-Mining-Algorithmen eingeordnet sowie die wichtigsten vorgestellt. Zu diesem Zweck wird auf die Kategorie der Cluster-,
+In diesem Paper werden die 10 von Xindong Wu 
+beschriebenen Data-Mining-Algorithmen eingeordnet sowie die wichtigsten vorgestellt \cite{wu2008top}. Zu diesem Zweck wird auf die Kategorie der Cluster-,
 Klassifizierungs- und Assoziations-Algorithmen eingegangen. Näher vorgestellt werden der k-means und der
 SVM. Anschließend wird auf Big Data sowie dessen Bedeutung für 
 Data Mining eingegangen.
 \end{abstract}
+
+% mehr motivation
+% zitierung hinten
+% warum wichtig, wie eingeordnet
+
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
 % if the journal you are submitting to favors bold math in      the abstract,
@@ -754,10 +760,17 @@ Assoziation, Big Data, Clustering, Data Mining, k-means, Klassifikation, Support
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
+
+% cref nutzen
+% 
+
 \IEEEPARstart{D}{as} Hubble-Teleskop nahm vom 3. September bis zum 16. Januar
-2004 das \emph{Hubble Ultra Deep Field} auf, welches als Ausschnitt in Abbildung \ref{fig:hs-2004-07-a-pdf} zu sehen ist. Auf dieser Aufnahme sind über 10.000 stellare Objekte abgebildet.
+2004 das \emph{Hubble Ultra Deep Field} auf, welches als Ausschnitt in \cref{fig:hs-2004-07-a-pdf} zu sehen ist. Auf dieser Aufnahme sind über 10.000 stellare Objekte abgebildet.
 Problematisch ist jedoch die Identifikation eines solchen Objekts. Ist es ein Stern, eine Galaxie,
 ein Quasar oder einfach eine Störung des Sensorchips?
+
+% frage raus und mit dem dem satz davor mischen
+% 
 
 \begin{figure}[!t]
 \centering
@@ -766,16 +779,19 @@ ein Quasar oder einfach eine Störung des Sensorchips?
 \label{fig:hs-2004-07-a-pdf}
 \end{figure}
 
-Das Problem der Unterscheidung, ob es sich bei einem Objekt um einen Stern, eine Galaxie oder etwas Unbekanntes handelt, fällt in den Bereich des Data Mining. Peter J. O'Keefe et al.~\cite{o2009star}
-beschreiben einige Algorithmen zur rechnerunterstützten Lösung des Problems. Konkret werden jedem sichtbarem Objekt 9 Attribute wie Leuchtkraft zugeordnet, die aus Aufnahmen in verschiedenen Frequenzbereichen extrahiert werden und zu einem als \emph{stellary} bezeichneten Wert zwischen $0$ und $1$ ausgewertet werden, welcher zwischen $0.0$ und $0.1$ eine Galaxie und zwischen $0.9$ und $1.0$ ein 
-Stern repräsentiert. Zwischen diesen Intervallen ist das Objekt nicht eindeutig identifizierbar. In Tabelle \ref{Erkennungswahrscheinlichkeiten} sind die Erkennungswahrscheinlichkeiten einiger 
+% die einorndung der objekte in die kategorie der sterne
+
+Das Problem der Unterscheidung, ob es sich bei einem Objekt um einen Stern, eine Galaxie oder etwas Unbekanntes handelt, fällt in den Bereich des Data Mining. Peter J. O'Keefe et al. % die forschungsgruppe rum um ... hat hierzu verfahren entwickelt ....
+beschreiben einige Algorithmen zur rechnerunterstützten Lösung des Problems \cite{o2009star}. Konkret werden jedem sichtbarem Objekt 9 Attribute wie Leuchtkraft zugeordnet, die aus Aufnahmen in verschiedenen Frequenzbereichen extrahiert werden und zu einem als \emph{stellary} bezeichneten Wert zwischen $0$ und $1$ ausgewertet werden. Dabei repräsentiert ein Wert zwischen $0.0$ und $0.1$ eine Galaxie und zwischen $0.9$ und $1.0$ ein
+% attribute spezifiieren   
+Stern repräsentiert. Zwischen diesen Intervallen ist das Objekt nicht eindeutig identifizierbar. In \cref{tab:Erkennungswahrscheinlichkeiten} sind die Erkennungswahrscheinlichkeiten einiger 
 Algorithmen für die Klassifizierung von stellaren Objekten aufgelistet.
 
 
 \begin{table}[!t]
 \centering
-\label{Erkennungswahrscheinlichkeiten}
-\caption{Korrektheit verschiedener Algorithmen zur Klassifizierung stellarer Objekte \cite{o2009star}}
+\label{tab:Erkennungswahrscheinlichkeiten}
+\caption{Erkennungsrate verschiedener Algorithmen zur Klassifizierung stellarer Objekte \cite{o2009star}}
 \begin{tabular}{l|l}
 Algorithmus               & korrekt erkannte Objekte\\ \hline
 Random Forest             & $82.89\%$ \\
@@ -787,6 +803,7 @@ Support Vector Machines   & $37.82\%$
 
 \begin{table}[!b]
 \centering
+\label{tab:top10}
 \caption{Top 10 Algorithmen \cite{wu2008top}}
 \begin{tabular}{r|l|l}
 Platz & Name & Art\\ \hline
@@ -801,10 +818,10 @@ Platz & Name & Art\\ \hline
 9.& Naive Bayes & Classification\\
 10.& CART & Classification
 \end{tabular}
-\label{top10}
 \end{table}
 
-Tabelle \ref{top10} listet die 10 bedeutendsten Algorithmen in Data Mining im allgemeinen Kontext ausgewählt anhand von Nominierungen\footnote{\url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}} durch Preisträger eines \emph{ACM KDD Innovation Awards} oder eines \emph{IEEE ICDM Research Contributions Awards} \cite{wu2008top}.
+Während die %kategoriesung von sternen und galaxien dm zur auswertung instrumentalisiert, wirt dieses pater inbesondere fokus auf die bedeutensten dm algos, hierzu wurde im jahr 2006 ...
+\cref{tab:top10} listet die 10 bedeutendsten Algorithmen in Data Mining im allgemeinen Kontext ausgewählt anhand von Nominierungen\footnote{\url{http://www.cs.uvm.edu/~icdm/algorithms/CandidateList.shtml}} durch Preisträger eines \emph{ACM KDD Innovation Awards} oder eines \emph{IEEE ICDM Research Contributions Awards} \cite{wu2008top}.
 
 
 \section{Data Mining}
@@ -813,64 +830,70 @@ Tabelle \ref{top10} listet die 10 bedeutendsten Algorithmen in Data Mining im al
   \centering
   \includegraphics[page=5,scale=.8,trim={51 500 65 86},clip]{../beamer/dm_fayyad.pdf}
   \caption{KDD nach Fayyad \cite{fayyad1996data}}
-  \label{kdd}
-  \end{figure*}
+  \label{fig:kdd}
+\end{figure*}
   
-\IEEEPARstart{D}{ata Mining} wird in der Forschung, Vermarktung, Medizin, (Wetter)vorhersagen, Betrugsaufklärung usw.~eingesetzt. Der Begriff \enquote{Data Mining} wird allerdings im Deutschen fälschlicherweise für den gesamten Prozess der \emph{Knowledge Discovery in Databases} (KDD) verwendet. Wie in Abbildung \ref{kdd} ersichtlich, stellt Data Mining jedoch lediglich einen Schritt im Prozess der KDD dar. Für KDD werden zuerst die Daten gesammelt, aufbereitet und homogenisiert und dann mittels eines Data-Mining-Algorithmus verarbeitet, sodass Muster entstehen, die schließlich zum Ziel des \emph{Wissens} interpretiert werden. Im Folgenden seien die wichtigsten Kategorien dieser Data-Mining-Algorithmen erläutert.
+\IEEEPARstart{D}{ata Mining} wird in der Forschung, Vermarktung, Medizin, (Wetter)vorhersagen, Betrugsaufklärung usw.~eingesetzt. Der Begriff \enquote{Data Mining} wird allerdings im Deutschen fälschlicherweise für den gesamten Prozess der \emph{Knowledge Discovery in Databases} (KDD) verwendet. Wie in \cref{fig:kdd} ersichtlich, stellt Data Mining jedoch lediglich einen Schritt im Prozess der KDD dar. Für KDD werden zuerst die Daten gesammelt, aufbereitet und homogenisiert um mittels eines Data-Mining-Algorithmus verarbeitet zu werden, wodurch Muster entstehen, die schließlich zum Ziel das heißt zur Interpretation und dementsprechend der \emph{Wissens}gewinnung führt. Im Folgenden seien die wichtigsten Kategorien dieser Data-Mining-Algorithmen erläutert.
+
+% wie in abbildung 2 -> raus
+% dm stellt nur einen prozess in kdd dar, mit cref (abbildung) 
  
 \subsection{Clustering-Algorithmen}
 
-\IEEEPARstart{D}{ie Kategorie der Clustering-Algorithmen} beinhaltet Algorithmen, die Daten unbekannten Klassen, den so genannten \emph{Clustern} (Abschnitt \ref{cluster}), zuordnen. Während des Clustering wird also eine Funktion gesucht, die Objekte auf Gruppen abbildet. Diese Gruppierung wird mithilfe
-einer \emph{Distanzfunktion} (siehe Abschnitt \ref{distanzfunktion}) erreicht, die die Ähnlichkeit zwischen Objekten numerisch ermittelt.
-Alle Clustering-Algorithmen arbeiten mit vereinfachenden Heuristiken, da das Clustering $\mathcal{NP}$-vollständig ist und somit effizient nur annäherungsweise zu lösen ist.
+\IEEEPARstart{A}{lgorithmen die des Clusterings} zugeschrieben werden, ordnen Daten unbekannter Klassen, den so genannten \emph{Clustern} (\cref{sec:cluster}), zu. Während des Clustering wird eine Funktion gesucht, die Objekte auf Gruppen abbildet. Diese Gruppierung wird mithilfe
+einer \emph{Distanzfunktion} (\cref{sec:distanzfunktion}) erreicht, die die Ähnlichkeit zwischen Objekten numerisch ermittelt.
+Alle Clustering-Algorithmen arbeiten mit vereinfachenden Heuristiken, da das Clustering $\mathcal{NP}$-vollständig ist. % und somit nicht effizient, sondern nur annäherungsweise zu lösen ist.
 
-\subsubsection{Cluster} \label{cluster}
+\subsubsection{Cluster} \label{sec:cluster}
 
-\IEEEPARstart{D}{ie Gestalt und Form} der Cluster ist in den einzelnen Algorithmen sehr unterschiedlich \cite{ester2000knowledge}. Beispielsweise können die Cluster untereinander Untermengen bilden (hierarchisches Clustering) oder hierarchisch unabhängig sein (flaches Clustering). Auch können Objekte zu einem (hartes Clustering) oder zu mehreren voneinander unabhängigen Clustern (weiches Clustering) zugeordnet werden. Bei allen Algorithmen ist die Anzahl der Cluster begrenzt, wobei sich die Schwelle durch Anzahl (fixe Anzahl) oder durch eine minimale Qualität der einzelnen Cluster (dynamische Anzahl) ergibt. Außerdem ist die Clustering-Qualität nie genau definiert, doch sie kann durch Anzahl der einzelnen Objekte die einem Cluster angehören, durch die Größe der maximalen Unähnlichkeit eines Objektes zu seinem Cluster oder das Vermeiden von \enquote{Lücken} im Cluster beschrieben werden \cite{dwh}. In Abbildung \ref{p4 k-means} sind beispielhaft 2 Cluster (rot/blau) und die Clusterzentren (schwarz) des k-means-Algorithmus (siehe Abschnitt \ref{k-means}) abgebildet.
+% zutreffender beschreiben, in einem satz
+% kein beispielsweise am satzanfang
+% labels sollen richtig sein
+\IEEEPARstart{D}{ie Gestalt und Form} der Cluster ist in den einzelnen Algorithmen sehr unterschiedlich \cite{ester2000knowledge}. Beispielsweise können die Cluster untereinander Untermengen bilden (hierarchisches Clustering) oder hierarchisch unabhängig sein (flaches Clustering). Auch können Objekte zu einem (hartes Clustering) oder zu mehreren voneinander unabhängigen Clustern (weiches Clustering) zugeordnet werden. Bei allen Algorithmen ist die Anzahl der Cluster begrenzt, wobei sich die Schwelle durch Anzahl (fixe Anzahl) oder durch eine minimale Qualität der einzelnen Cluster (dynamische Anzahl) ergibt. Außerdem ist die Clustering-Qualität nie genau definiert, doch sie kann durch Anzahl der einzelnen Objekte die einem Cluster angehören, durch die Größe der maximalen Unähnlichkeit eines Objektes zu seinem Cluster oder das Vermeiden von \enquote{Lücken} im Cluster beschrieben werden \cite{dwh}. In \cref{fig:p4_k-means} sind beispielhaft 2 Cluster (rot/blau) und die Clusterzentren (schwarz) des k-means-Algorithmus (\cref{sec:k-means}) aufgezeigt.
 
-\subsubsection{Distanzfunktion} \label{distanzfunktion}
+\subsubsection{Distanzfunktion} \label{sec:distanzfunktion}
 \IEEEPARstart{D}{ie} Distanzfunktion bestimmt den Abstandsvektor zwischen zwei Objekten. Statt einer Distanzfunktion
 wird manchmal auch eine Ähnlichkeits- bzw. Simulierungsfunktion benutzt, jedoch sind in diesem
 Fall die Werte invertiert zu betrachten. Der Gebrauch von Distanzfunktionen hat sich jedoch durch
-gesetzt, da alle Rechnungen nummerisch stabiler sind, weil bei der Bedingung \ref{bed2} mit dem $\vec{0}$ 
-statt dem $\vec{\infty}$ gerechnet wird. Jedes Objekt $o_i = (a_1, \ldots, a_n)$ besteht aus $n$ Attributen, jedes 
-Attribut ist ein nummerisches, kategorisches oder anders artiges Attribut und besitzt für sich selbst 
-spezielle Distanzfunktionen. Die Bedingungen \ref{bed1} -- \ref{bed3} müssen für jede 
-Distanzfunktion gelten. Wenn die Bedingung \ref{bed4} gilt, handelt es sich um eine Metrik.
+gesetzt, da die zugrundeliegende Algebra nummerisch stabiler sind, was auf die Bedingung  (\cref{eqn:bed2}) zurück zuführen ist. (statt $\vec{\infty}$ wird $\vec{0}$ angewandt). Jedes Objekt $o_i = (a_1, \ldots, a_n)$ besteht aus $n$ Attributen. Jedes 
+Attribut wiederum ist eine nummerisches, kategorisches oder anders artige Eigenschaft % genauer spezifizieren
+ und besitzt für sich selbst 
+spezielle Distanzfunktionen. Die Bedingungen (\crefrange{eqn:bed1}{eqn:bed3}) müssen für jede 
+Distanzfunktion gelten. Wenn die Bedingung (\cref{eqn:bed4}) gilt, handelt es sich um eine Metrik.
 \begin{align}
-\dist(o_1, o_2) &= d \in R^{n\geq 0} \label{bed1}\\
-\dist(o_1, o_2) &= \vec{0} \Leftrightarrow o_1 = o_2 \label{bed2}\\
-\dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)} \label{bed3}\\
-\dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{bed4}
+\dist(o_1, o_2) &= d \in R^{n\geq 0} \label{eqn:bed1}\\
+\dist(o_1, o_2) &= \vec{0} \Leftrightarrow o_1 = o_2 \label{eqn:bed2}\\
+\dist(o_1, o_2) &= \dist(o_2, o_1) \mbox{ (Symmetrie)} \label{eqn:bed3}\\
+\dist(o_1, o_3) &\leq \dist(o_1, o_2) + \dist(o_2, o_3) \label{eqn:bed4}
 \end{align} 
 
-Für nummerische Attribute existieren die beispielhaften Distanzfunktionen (siehe Formeln \ref{dist1} -- \ref{dist4}) und für 
-kategorische Attribute existiert die Summe der Unterschiede (siehe Formel \ref{dist5}). 
-Allerdings existieren nicht nur kategorische und nummerische Attribute sondern ebenfalls 
-textuelle Attribute usw. die dazu gehörigen Distanzfunktionen erfüllen mindestens genauso die
-Bedingungen \ref{bed1} -- \ref{bed3}.
+Für nummerische Attribute sind beispielhaft Distanzfunktionen (\crefrange{eqn:dist1}{eqn:dist4}) und für 
+kategorische Attribute (\cref{eqn:dist5}) angegeben. 
+Darüber hinaus existieren noch weitere Attribute wie zum Beispiel 
+textuelle die für ihre gehörigen Distanzfunktion mindestens die 
+Bedingungen \crefrange{eqn:bed1}{eqn:bed3} erfüllen müssen.
 {
 \small
 \setlength{\belowdisplayskip}{0pt}%
 \setlength{\abovedisplayskip}{0pt}%
 \begin{align}
 \intertext{Euklidische-Distanz:} 
-\dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\label{dist1}\\
+\dist(x,y) &= \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}\label{eqn:dist1}\\
 \intertext{Manhattan-Distanz:}
-\dist(x,y) &= |x_1 - y_1| + \ldots + |x_n - y_n|\label{dist2}\\
+\dist(x,y) &= |x_1 - y_1| + \ldots + |x_n - y_n|\label{eqn:dist2}\\
 \intertext{Maximum-Metrik:} 
-\dist(x,y) &= \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)\label{dist3}\\
+\dist(x,y) &= \max\big(|x_1 - y_1| + \ldots + |x_n - y_n|\big)\label{eqn:dist3}\\
 \intertext{Alg. $L_p$-Metrik:}
-\dist(x,y) &= \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}\label{dist4}\\
+\dist(x,y) &= \sqrt[p]{\sum\limits_{i=1}^{d}{(x_i-y_i)^p}}\label{eqn:dist4}\\
 \intertext{Summe der Unterschiede:} 
- \dist(x,y) &= \sum\limits_{i=1}^{a}\delta(x_i, y_i)\label{dist5}\\
+ \dist(x,y) &= \sum\limits_{i=1}^{a}\delta(x_i, y_i)\label{eqn:dist5}\\
  \delta(x_i, y_i) &= \begin{cases}
  0 \mbox{ wenn } (x_i = y_i)\\
  1 \mbox{ wenn } (x_i \neq y_i)
  \end{cases} 
  \end{align} 
  }
-\subsubsection{k-means} \label{k-means}
+\subsubsection{k-means} \label{sec:k-means}
 \IEEEPARstart{D}{er} k-means, oder auch Lloyd's Algorithmus genannt, gehört zu den Clustering-Algorithmen und basiert auf 
 einem harten flachen Clustering. Die Objekte $o_i$ werden als ein Vektor aus dem 
 Vektorraum $R^n$ interpretiert. Ein Cluster $A = \{o_1, \ldots o_i\}$ ist eine Menge
@@ -881,42 +904,40 @@ Das gesamte Clustering ist optimal, wenn $\RSS\,(A_l, \ldots, A_k) = \sum\limits
 
 \begin{figure}[!t]
 \centering
-\subfigure[Phase 1 -- 3]{\scalebox{0.5}{\input{../beamer/img/kmeans1.tikz}}\label{p1-3 k-means}}
-\subfigure[Phase 4]{\scalebox{0.5}{\input{../beamer/img/kmeans3.tikz}}\label{p4 k-means}}
-\subfigure[Phase 5]{\scalebox{0.5}{\input{../beamer/img/kmeans2.tikz}}\label{p5 k-means}}
-\subfigure[Phase 6]{\scalebox{0.5}{\input{../beamer/img/kmeans4.tikz}}\label{p6 k-means}}
+\subfigure[Phase 1 -- 3]{\scalebox{0.5}{\input{../beamer/img/kmeans1.tikz}}\label{fig:p1-3_k-means}}
+\subfigure[Phase 4]{\scalebox{0.5}{\input{../beamer/img/kmeans3.tikz}}\label{fig:p4_k-means}}
+\subfigure[Phase 5]{\scalebox{0.5}{\input{../beamer/img/kmeans2.tikz}}\label{fig:p5_k-means}}
+\subfigure[Phase 6]{\scalebox{0.5}{\input{../beamer/img/kmeans4.tikz}}\label{fig:p6_k-means}}
 \caption{k-means}
-\label{k-means 1-6}
+\label{fig:k-means}
 \end{figure}
 
-Der Algorithmus ist wie folgt:
+Die Arbeitsweise des Algorithmus ist wie folgt:
 \begin{enumerate}
 \item Selektiere zufällig $k$ Zentren als Startwert
-\item Erstelle $k$ leere Cluster
-\item Weise jedem Cluster einen Zentren zu (siehe Abbildung \ref{p1-3 k-means})
-\item Weise jedem Datenvektor den Cluster mit dem nächstem Zentrum zu (siehe Abbildung \ref{p4 k-means})
-\item Berechne den Zentrum jedes Clusters neu (siehe Abbildung \ref{p5 k-means})
-\item Teste, ob die Qualität des Clusterings ausreicht, sonst gehe zu 2. (siehe Abbildung \ref{p6 k-means})
+\item Erstelle $k$ leere Cluster \label{item:algo2}
+\item Weise jedem Cluster einen Zentren zu (\cref{p1-3_k-means})
+\item Weise jedem Datenvektor den Cluster mit dem nächstem Zentrum zu (\cref{p4_k-means})
+\item Berechne den Zentrum jedes Clusters neu (\cref{p5_k-means})
+\item Teste, ob die Qualität des Clusterings ausreicht, sonst gehe zu \cref{item:algo2} (\cref{p6_k-means})
 \end{enumerate}
 
 
  \subsection{Classification-Algorithmen}
  \IEEEPARstart{B}{ei} der Kategorie der Classification-Algorithmen sind anders 
  als bei den Clustering-Algorithmen die genauen Klassen in die 
- eingruppiert wird bereits bekannt. Der einzige weitere große 
- Unterschied zwischen beiden Kategorien ist, das bei den 
- Classification-Algorithmen Trainingsdaten (siehe Abschnitt \ref{training}) verwendet werden. 
- Die verwendeten Distanzfunktionen sind mit denen fürs Clustering (Abschnitt \ref{distanzfunktion}) vergleichbar.
+ eingruppiert wird bereits bekannt. Zusätzlich werden jedoch Trainingsdaten bei er Klassifikation verwendet (\cref{sec:training}). 
+ Die verwendeten Distanzfunktionen sind mit denen des Clusterings (\cref{sec:distanzfunktion}) vergleichbar.
  
- \subsubsection{Training}\label{training}
+ \subsubsection{Training}\label{sec:training}
  \IEEEPARstart{T}{rainingsdaten} sind eine Menge von Objekten $O = \{o_1, \ldots, o_n\}$
  bei denen die Klassen $C = \{c_1, \ldots, c_m\}$ bereits bekannt sind oder manuell 
  ermittelt wurden. Für die Objekte gelten die gleichen Eigenschaften wie beim Clustering 
- (siehe Abschnitt \ref{distanzfunktion}). Um das Training zu verdeutlichen wird ein Beispiel 
- aus dem Buch \cite{ester2000knowledge} verwendet. Dabei sind in Tabelle 
- \ref{trainingdata} Objekte mit ihren Attributen und der jeweils zugeordneten Klasse gezeigt. 
- Aus diesen Trainingsdaten wird der, in Listing \ref{dt} als Bedingung formulierte, Entscheidungsbaum
- erzeugt. Mit Hilfe dieses Entscheidungsbaums können unklassifizierte Objekte klassifiziert werden. 
+ (\cref{sec:distanzfunktion}). Um das Training zu verdeutlichen wird ein Beispiel 
+ aus dem Buch \cite{ester2000knowledge} verwendet.  
+ \cref{tab:trainingdata} illustriert die Objekte mit entsprechenden Attributen und entsprechend zugeordneter Klasse. 
+ Aus diesen Trainingsdaten wird der, in \cref{list:dt} als Bedingung formulierte, Entscheidungsbaum
+ erzeugt. Mit welchem unklassifizierte Objekte klassifiziert werden können. 
 
 \begin{table}[!t]
 \caption{Beispiel Daten Versicherung}
@@ -929,9 +950,9 @@ Alter	& Autotyp	& Risikoklasse \\\hline
 68	& Familie	& Niedrig\\
 32	& LKW		& Niedrig
 \end{tabular}
-\label{trainingdata}
+\label{tab:trainingdata}
 \end{table}
-\begin{lstlisting}[caption={Entscheidungsbaum},label=dt,frame=single,floatplacement=t]
+\begin{lstlisting}[caption={Entscheidungsbaum},label=list:dt,frame=single,floatplacement=t]
 if Alter > 50 then Risikoklasse = Niedrig
 if Alter <= 50 and Autotyp = LKW 
   then Risikoklasse = Niedrig
@@ -939,74 +960,73 @@ if Alter <= 50 and Autotyp = LKW
 \end{lstlisting}
 
 \subsubsection{Support Vector Machines}
-\IEEEPARstart{B}{ei} den Support Vector Machines (SVM) handelt es sich eigentlich 
-um einen Algorithmus des \emph{Statistical Learning} aber diese Algorithmen sind eine
-Unterkategorie der Classification. Der SVM kann eine Menge von Objekten nur in zwei 
-disjunkte Teilmengen spalten. Zwischen den beiden Teilmengen der Trainingsdaten wird 
+\IEEEPARstart{B}{ei} den Support Vector Machines (SVM) handelt es sich um eine Untergruppe des \emph{Statistical Learning} und darüber hinaus um eine Unterkategorie der Klassifikation. Der SVM kann spaltet eine Menge von Objekten in zwei 
+disjunkte Teilmengen. Zwischen den beiden Teilmengen der Trainingsdaten wird 
 eine Hyperplane im $n$-dimensionalen Vektorraum erstellt. Der Abstand zwischen der
 Hyperebene und den Begrenzungsobjekten der Teilmengen, die so genannten Supportvektoren, 
 ist maximal. Dieser Abstand wird mittels Differenzfunktionen wie beim Clustering 
-(siehe Abschnitt \ref{distanzfunktion}) ermittelt.
+(\cref{sec:distanzfunktion}) ermittelt.
 
 \begin{figure}[!t]
 \centering
-\subfigure[Gesucht]{\scalebox{0.42}{\input{../beamer/img/svm1.tikz}}\label{hyperplane gesucht}}
-\subfigure[Gefunden]{\scalebox{0.42}{\input{../beamer/img/svm2.tikz}}\label{hyperplane gefunden}}
-\subfigure[Einordnung]{\scalebox{0.49}{\input{../beamer/img/svm2b.tikz}}\label{einordnung}}
-\subfigure[Ungültige Daten]{\scalebox{0.49}{\input{../beamer/img/svm3.tikz}}\label{ungueltig}}
+\subfigure[Gesucht]{\scalebox{0.42}{\input{../beamer/img/svm1.tikz}}\label{fig:hyperplane_gesucht}}
+\subfigure[Gefunden]{\scalebox{0.42}{\input{../beamer/img/svm2.tikz}}\label{fig:hyperplane_gefunden}}
+\subfigure[Einordnung]{\scalebox{0.49}{\input{../beamer/img/svm2b.tikz}}\label{fig:einordnung}}
+\subfigure[Ungültige Daten]{\scalebox{0.49}{\input{../beamer/img/svm3.tikz}}\label{fig:ungueltig}}
 \caption{SVM}
-\label{svm_pic}
+\label{fig:svm}
 \end{figure}
 
-In der Abbildung \ref{hyperplane gesucht} sind die Trainingsdaten den beiden Klassen
-(rot / blau) zugeordnet. Die beiden äußeren Hyperplanekadidaten sind ungültig, da diese nicht die Menge 
-der Objekten in zwei disjunkte Teilmengen schneidet. Von den inneren Hyperplanekadidaten 
-fallen die beiden äußeren weg, da diese einen geringeren Abstand zu den Supportvektoren als die mittlere haben.
-Der mittlere Hyperplanekadidat ist die richtige Hyperplane und ist in Abbildung \ref{hyperplane gefunden} zu sehen. 
+In der \cref{fig:hyperplane_gesucht} sind die Trainingsdaten den beiden Klassen
+(rot / blau) zugeordnet. Die beiden äußeren Hyperplanekadidaten sind ungültig, da diese die Menge 
+der Objekten nicht in zwei disjunkte Teilmengen schneidet. Von den inneren Hyperplanekadidaten 
+fallen die beiden Äußeren weg, da diese einen geringeren Abstand zu den Supportvektoren als die Mittlere haben.
+Der mittlere Hyperplanekadidat ist dementsprechend die richtige Hyperplane (\cref{fig:hyperplane_gefunden}). 
 Der grün markierte Bereich kennzeichnet den Bereich des maximalen Abstands zu den Supportvektoren.
 Nach dem Training werden die unklassifizierten Objekte eingefügt und werden je nach dem auf welcher Seite der
-Hyperplane sie sich befinden der passenden Klasse zugeordnet. Dieses ist in Abbildung \ref{einordnung} gezeigt. 
-In Abbildung \ref{ungueltig} sind ungültige Trainingsdaten dargestellt. Bei diesen Daten kann keine gültige Hyperplane 
-gefunden werden. Somit müssen zwangsweise Objekte falsch klassifiziert werden.
+Hyperplane sie sich befinden der passenden Klasse zugeordnet (\cref{fig:einordnung}). 
+Bei ungültigen Trainingsdaten kann keine gültige Hyperplane gefunden werden, wodurch Objekte zwangsweise Objekte falsch klassifiziert werden (\cref{fig:ungueltig}).
 
 \subsection{Assoziation-Algorithmen}
- \IEEEPARstart{D}{ie} meisten online Einkäufer ist der Satz \enquote{
+ \IEEEPARstart{D}{ie} meisten online Käufern ist der Satz \enquote{
  Kunden, die diesen Artikel gekauft haben, kauften auch\ldots
  } 
+ % emph für die sachworte
  wohl bekannt. Die angezeigten Ergebnis werden mit Hilfe von Data Mining Algorithmen der Assoziation-Kategorie ermittelt.
- Die Grundidee dieser Algorithmen ist es, Regeln der Form $A \Rightarrow B$ (siehe Definition \ref{regel}) zu finden, die einen \emph{Support} (siehe Definition \ref{supportregel}) und eine 
- \emph{Konfidenz} (siehe Definition \ref{konfidenz}) besitzen, welche einen festgelegten Schwellenwert übersteigt. Um die Regeln zu finden, benötigt man eine Transaktionsdatenbank,
- wie zum Beispiel eine Einkaufshistory. 
+ Die Grundidee dieser Algorithmen ist es, Regeln der Form $A \Rightarrow B$ (Definition \cref{regel}) zu finden, die einen \emph{Support} (Definition \cref{supportregel}) und eine 
+ \emph{Konfidenz} (Definition \cref{konfidenz}) besitzen, welche einen festgelegten Schwellenwert übersteigt. Um die Regeln zu finden, benötigt man eine Transaktionsdatenbank,
+ wie zum Beispiel eine Einkaufshistorie. 
  Die Transaktionsdatenbank $D = \{T_1, \ldots, T_n\}$ ist eine Menge von Transaktionen, wobei jede Transaktion $T_i \subseteq I$ eine Teilmenge aller Items (Waren) ist.
- Die Itemmenge $I = \{i_1, \ldots, i_m\}$ stellt die verkaufbaren Waren dar und ein Itemset $X \subseteq I$ ist eine Teilmenge aller Waren. Der Unterschied zwischen $T_i$ und $X$ ist,
- das $T_i$ eine reale Transaktion und $X$ nur ein Ausschnitt einer Transaktion ist. 
+ Die Itemmenge $I = \{i_1, \ldots, i_m\}$ stellt die verkaufbaren Waren dar, während ein Itemset $X \subseteq I$ eine Teilmenge aller Waren ist. Der Unterschied zwischen $T_i$ und $X$ ist, dass $T_i$ eine reale Transaktion und $X$ somit ein Ausschnitt einer Transaktion ist. 
 {
 \small
 \setlength{\belowdisplayskip}{0pt}%
 \setlength{\abovedisplayskip}{0pt}%
 \begin{align}
 \intertext{Assoziationsregel:}
-R_i &= X \Rightarrow Y \mbox{ es gilt: } X, Y \subseteq I \wedge X \cap Y = \emptyset\label{regel}\\
+R_i &= X \Rightarrow Y \mbox{ es gilt: } X, Y \subseteq I \wedge X \cap Y = \emptyset\label{eqn:regel}\\
 \intertext{Support der Regel:} 
-\delta(R_i, D) &= \delta(X \cup Y, D)\label{supportregel}\\
+\delta(R_i, D) &= \delta(X \cup Y, D)\label{eqn:supportregel}\\
 \intertext{Support der Menge:} 
-\delta(X,D) &= \mbox{Anteil (\%) aller $T_i$ für die gilt $X \subseteq T_i$}\label{supportset}\\
+\delta(X,D) &= \mbox{Anteil (\%) aller $T_i$ für die gilt $X \subseteq T_i$}\label{eqn:supportset}\\
 \intertext{Konfidenz der Regel:}
-\phi(R_i, D) &= \delta(Y, \{T_i\;|\;\forall T_i \in D \wedge X \subseteq T_i\})\label{konfidenz}
+\phi(R_i, D) &= \delta(Y, \{T_i\;|\;\forall T_i \in D \wedge X \subseteq T_i\})\label{eqn:konfidenz}
 \end{align} 
 }
 
-Um den Sachverhalt zu verdeutlichen wird folgendes Beispiel aus dem Buch \cite{ester2000knowledge} genutzt. In Tabelle \ref{dataass} ist eine Transaktionsdatenbank
-mit sechs Einträgen beschrieben. Von dieses Einträgen wird das Itemset $X = \{$Kaffee, Milch$\}$ betrachtet. Dieses ist in drei 
-der sechs Einträge vorhanden und besitzt somit einen Support (siehe Formel \ref{supportset}) von 50\% ($\delta(X, D) = 50\%$). Als nächstes wird ein Itemset
-gesucht, bei dem ein weiteres Item existiert und von dem $X$ eine Teilmenge ist. Hierfür wird das Itemset $Z = \{$Kaffee, Milch, Kuchen$\}$ gewählt, mit dem die Regel 
-$R = \{$Kaffee, Milch$\}\Rightarrow\{$Kuchen$\}$ gebildet wird. Die Regel $R$ (siehe Formel \ref{regel}) besitzt eine Konfidenz (siehe Formel \ref{konfidenz}) von $66\%$ ($\phi(R, D) = 66\%$) und einen Support (siehe Formel \ref{supportregel}) von $33\%$
+Zur Verdeutlichung ist eine Transaktionsdatenbank mit sechts Einträgen gegeben \cref{tab:database}. 
+In drei 
+der sechs Einträgen ist ein Itemset von $x = ... $ vorhanden und besitzt somit einen Support (\cref{eqn:supportset}) von 50\% ($\delta(X, D) = 50\%$). 
+% besser beschreiben
+Als nächstes wird ein Itemset
+gesucht, bei dem ein weiteres Item existiert und von dem $X$ eine Teilmenge ist. Hierfür wird das Itemset $Z = \{$Kaffee, Milch, Kuchen$\}$ gewählt, aus welchem die Regel 
+$R = \{$Kaffee, Milch$\}\Rightarrow\{$Kuchen$\}$ gebildet wird. Die Regel $R$ (\cref{eqn:regel}) besitzt eine Konfidenz (\cref{eqn:konfidenz}) von $66\%$ ($\phi(R, D) = 66\%$) und einen Support (\cref{eqn:supportregel}) von $33\%$
 ($\delta(R, D) = 33\%$). 
-Somit ist es zu $33\%$ Wahrscheinlich, das ein Kunde zugleich alle drei Produkte kauft und zu $66\%$ Wahrscheinlich, das ein Kunde, der Kaffee und Milch kauft, auch Kuchen kauft.
-
+Somit existiert eine $33\%$-ige Wahrscheinlichkeit, dass ein Kunde zugleich alle drei Produkte kauft und mit einer Wahrscheinlichkeit von  $66\%$ kauft ein Kunde ebenfalls Kuchen sofern er schon Kaffee und Milch gekauft hat.
 \begin{table}[!t]
 \caption{Transaktionsdatenbank}
 \centering
+\label{tab:database}
 \begin{tabular}{c|l}
     	    $T_i$ & Itemset ($X_i$)\\ \hline
     	    1 & Brot, Kaffee, Milch, Kuchen\\
@@ -1016,44 +1036,46 @@ Somit ist es zu $33\%$ Wahrscheinlich, das ein Kunde zugleich alle drei Produkte
     	    5 & Brot, Kuchen\\
     	    6 & Brot
     	    \end{tabular}
-\label{dataass}
+
 \end{table}
   
  \section{Big Data}
  \IEEEPARstart{N}{ach} Schätzungen speicherte die gesamte Menschheit im Jahre 2007 ganze $300$
  Exabyte an digitalen Daten. Bis zum Jahr 2013 vervierfachte sich diese Datenmenge auf $1200$ Exabyte, 
-dies würde auf CDs gespeichert fünf Stapel von der Erde bis zum Mond bilden (siehe \cite{mayer2014big}). 
-Diese Anzahl an Daten wird immer mehr, mit jedem Facebook Eintrag, jedem Tweet, jedem neuen Foto auf 
-Instagram oder jeden neuen Nachricht per Whatsapp. Noch nie in der Geschichte der Menschheit, hat der 
-Mensch so viele Daten produziert sowie aufgezeichnet wie heutzutage und damit sind nicht einmal die Sammelwut 
-unserer Geheimdienste gemeint. 
+dies würde auf CDs gespeichert fünf Stapel von der Erde bis zum Mond bilden \cite{mayer2014big}. 
+Diese Menge an Daten wird steigt weiter dramatisch an, was auf ... %mit jedem Facebook Eintrag, jedem Tweet, jedem neuen Foto auf 
+%Instagram oder jeden neuen Nachricht per Whatsapp. 
+zurück zuführen ist.
+Noch nie in der Geschichte der Menschheit, hat der 
+Mensch so viele Daten produziert und aufgezeichnet wie zum heutigen Tage, wobei damit nicht nur die Sammelwut 
+unserer Geheimdienste gemeint \cite{nsa_classification_cuide}. % ref 
  
-Big Data verschiebt die Schwierigkeit von der Datenbeschaffung zur Datenauswertung. 
+Big Data verschiebt die Schwierigkeit von der Datenbeschaffung zur Datenauswertung. % evtl bild 
 Bis ins letzte Jahrzehnt war die Gewinnung der Daten, sei es in Forschung, Medizin, Marketing oder 
 auch \enquote{Spionage} usw., im Gegensatz zur Analyse und Auswertung das eigentliche Problem der Datenverarbeitung.
 Damit verschiebt sich die Erkenntnis durch Big Data vom \emph{WARUM} ist etwas so wie es ist, zum \emph{WAS} ist wie es ist.
-Der Grundgedanke von Big Data ist die Verarbeitung riesiger Datenmengen zur Gewinnung von Wahrscheinlichkeiten zu genaueren Vorhersagen von zum Beispiel:
-gehört eine E-Mail zum Spam, ist bei der Autokorrektur das eingegebene \enquote{dei} doch besser ein \enquote{die}, welcher Spieler der Bundesliga 
-passt am besten in das Team, wie ist die zukünftige Entwicklung an der Börse und so weiter. Für Big Data muss man sich jedoch immer
-wieder in den Kopf rufen, das alle Aussagen nur Wahrscheinlichkeiten sind und somit auch völlig falsch sein können. In dem Buch \cite{mayer2014big} ist es wie folgt beschrieben.
-\enquote{Was wir an Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis auf der Makroebene.}
+Der Grundgedanke von Big Data ist die Verarbeitung riesiger Datenmengen zur Gewinnung von Wahrscheinlichkeiten, welche zu einer genaueren Vorhersagen genutzt werden können, wie zum Beispiel:
+gehört eine E-Mail zu Spam; ist bei der Autokorrektur das eingegebene \enquote{dei} eher ein \enquote{die}; welcher Spieler der Bundesliga 
+passt am Besten in das Team; wie ist die zukünftige Entwicklung an der Börse und so weiter. Jedoch ist bei Big Data zu bedenken, dass alle Aussagen sich auf Wahrscheinlichkeiten beziehen und somit bedingt durch ... eine falsche Schlussfolgerung zulassen.
+Zitat: 
+\textcquote{mayer2014big}{Was wir an Genauigkeit auf der Mikroebene verlieren, gewinnen wir an Erkenntnis auf der Makroebene.}
 \subsection{HACE Theorem}
-\IEEEPARstart{D}{as} HACE Theorem wird im behandelt die dauerhafte Generierung unterschiedlichster und im Extremfall ungenauer bis falscher Daten 
-und deren immer komplexer sowie verzweigter werdenden Beziehungen. Im Paper von Wu Xindon \cite{wu2014data} wird das Theorem wie folgt Definiert:
-\begin{quote}
-Big Data starts with large-volume, \underline{\textbf{H}}eterogeneous, 
+\IEEEPARstart{D}{as} HACE Theorem behandelt die dauerhafte Generierung unterschiedlichster und im Extremfall ungenauer bis falscher Daten 
+und deren immer komplexer sowie verzweigter werdenden Beziehungen. Wu Xindon definiert es wie folgt: \textcquote{wu2014data}{Big Data starts with large-volume, \underline{\textbf{H}}eterogeneous, 
 \underline{\textbf{A}}utonomous sources with distributed and decentralized control, 
 and seeks to explore \underline{\textbf{C}}omplex and \underline{\textbf{E}}volving relationships 
-among data.
-\end{quote}
+among data.}
+%\begin{quote}
+%\cite{wu2014data}
+%\end{quote}
 \subsection{Herausforderungen für Data Mining}
 \begin{figure}[!t]
 \centering
+\label{fig:bigdata}
 \includegraphics[scale=0.65,trim={120 340 100 280},clip]{../beamer/img/bigdata42.pdf}
 \caption{Big Data Herausforderungen \cite{wu2014data}}
-\label{bigdata}
 \end{figure}
-\IEEEPARstart{D}{urch} das HACE Theorem entstehen für das Data Mining viele Schwierigkeiten. In der Abbildung \ref{bigdata} 
+\IEEEPARstart{D}{urch} das HACE Theorem entstehen für das Data Mining viele Schwierigkeiten. In der \cref{fig:bigdata} 
 sind die drei Ebenen des Data Mining für Big Data und deren Aufgaben, von innen nach außen, beschrieben. In der ersten Ebene, 
 existieren die Schwierigkeiten des Datenzugriffs und der Datenanalyse, Da sich die Datenquellen räumlich getrennt von einander 
 befinden, müssen diese über das Internet an den Verarbeitungsknoten transportiert werden. Des Weiteren sind  die meisten Data 
